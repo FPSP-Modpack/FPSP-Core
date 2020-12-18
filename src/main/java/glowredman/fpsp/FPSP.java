@@ -3,13 +3,12 @@ package glowredman.fpsp;
 import org.apache.logging.log4j.Logger;
 
 import cpw.mods.fml.common.Mod;
-import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
+import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 @Mod(acceptedMinecraftVersions = "1.7.10", modid = FPSP.MODID, name = FPSP.MODNAME, version = FPSP.VERSION)
@@ -19,7 +18,6 @@ public class FPSP {
 	public static final String MODNAME = "FPSP Core";
 	public static final String VERSION = "@version@";
 	
-	public static final CreativeTabs TAB = new CreativeTab();
 	public static final Item ITEM = new ItemMeta();
 	
 	@Instance

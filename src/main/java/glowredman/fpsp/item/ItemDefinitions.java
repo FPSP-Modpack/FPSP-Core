@@ -4,15 +4,7 @@ import glowredman.fpsp.FPSP;
 import net.minecraft.item.ItemStack;
 
 public enum ItemDefinitions {
-	icon(0),
-	mediumFuelCanister(1),
-	largeFuelCanister(2),
-	extraLargeFuelCanister(3),
-	noseConeT4(4),
-	rocketEngineT4(5),
-	finsT4(6),
-	boosterT3(7),
-	boosterT4(8)
+	MassZivicioDust(0)
 	;
 	
 	private int meta;

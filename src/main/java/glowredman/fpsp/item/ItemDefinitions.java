@@ -21,7 +21,7 @@ public enum ItemDefinitions {
 	DeimosRockDust(4),
 
 	// All sorts of asteroids
-	AsteroidRockDust(5), MeteoricIronDust(56),
+	AsteroidRockDust(5), MeteoricIronDust(55),
 
 	// Callisto
 	CallistoRockDust(6),
@@ -138,7 +138,7 @@ public enum ItemDefinitions {
 	CoralDust(54),
 
 	// Dark Asteroids
-	DarkAsteroidRockDust(55),
+	DarkAsteroidRockDust(56),
 
 	;
 

@@ -12,19 +12,19 @@ public enum ItemDefinitions {
 	MoonRockDust(1),
 
 	// Mars
-	MarsRockDust(2),
+	MarsRockDust(2), DeshDust(56),
 
 	// Phobos
 	PhobosRockDust(3),
 
 	// Deimos
-	DeimosRockDust(4),
+	DeimosRockDust(4), OriharukonDust(57),
 
 	// All sorts of asteroids
 	AsteroidRockDust(5), MeteoricIronDust(55),
 
 	// Callisto
-	CallistoRockDust(6),
+	CallistoRockDust(6), PalladiumDust(58),
 
 	// Ganymede
 	GanymedeRockDust(7),
@@ -33,85 +33,88 @@ public enum ItemDefinitions {
 	CeresRockDust(8),
 
 	// Europa
-	EuropaDust(9), EuropaRockDust(42),
+	EuropaDust(9), EuropaRockDust(42), EuropiumDust(59),
 
 	// Io
-	IoRockDust(10),
+	IoRockDust(10), MetalMeteoricIronDust(60),
 
 	// Mercury
-	MercuryRockDust(11),
+	MercuryRockDust(11), MetallicDust(61), MercurianIronDust(62),
 
 	// Venus
-	VenusRockDust(12),
+	VenusRockDust(12), VenusDust(63), CitrineDust(64),
 
 	// Enceladus
-	EnceladusRockDust(13),
+	EnceladusRockDust(13), FrozenIronDust(65),
 
 	// Titan
-	TitanRockDust(14),
+	TitanRockDust(14), RhodiumDust(66), PetaliteDust(67),
 
 	// Miranda
-	MirandaRockDust(15),
+	MirandaRockDust(15), JadeDust(68),
 
 	// Oberon
-	OberonRockDust(16),
+	OberonRockDust(16), AdamantiteDust(69),
 
 	// Proteus
 	ProteusRockDust(17),
 
 	// Triton
-	TritonRockDust(18),
+	TritonRockDust(18), UraniumDust(70),
 
 	// Vega B
-	VegaBRockDust(19),
+	VegaBRockDust(19), WhiteCrystalDust(71),
 
 	// Pluto
-	PlutoRockDust(20),
+	PlutoRockDust(20), PlutoniumDust(72), XeoniumDust(73),
 
 	// Kuiper Belt
 	DenseIceDust(21),
 
 	// Haumea
-	HaumeaRockDust(22),
+	HaumeaRockDust(22), OnyxDust(74),
 
 	// Makemake
-	MakemakeRockDust(23),
+	MakemakeRockDust(23), BismuthDust(75),
 
 	// Koentus
-	KoentusRockDust(24),
+	KoentusRockDust(24), KoentusMeteoricIronDust(76),
 
 	// Diona
-	DionaRockDust(25),
+	DionaRockDust(25), QuontoniumDust(77), FronisiumDust(78),
 
 	// aCentauri Bb
-	aCentauriBbRockDust(26),
+	aCentauriBbRockDust(26), CentauriumDust(79),
 
 	// Plongius
-	PolongiusRockDust(27),
+	PolongiusRockDust(27), PolongiusMeteoricIronDust(80), FloniumDust(81),
 
 	// Barnarda Planets
 	BarnardaCDust(28), BarnardaERockDust(29), BarnardaFRockDust(30),
 
+	// Barnarda raw materials
+	PinkQuartzDust(82), CarnelianDust(83), ChalcedonyDust(84),
+
 	// Nibiru
-	NibiruRockDust(31),
+	NibiruRockDust(31), IchoriusDust(85), RedGemDust(86),
 
 	// T Ceti E
-	TCetiERockDust(32),
+	TCetiERockDust(32), EMPDust(87), NoriumDust(88),
 
 	// Eden
-	EdenRockDust(33), EdenDust(43),
+	EdenRockDust(33), EdenDust(43), ViriniumDust(89),
 
 	// Kapteyn
-	KapteynBRockDust(34),
+	KapteynBRockDust(34), NameriumDust(90),
 
 	// Fronos
 	FronosRockDust(35), FronosDust(44),
 
 	// Kriffon
-	KriffonRockDust(36), KriffonDust(45),
+	KriffonRockDust(36), KriffonDust(45), BlackDiamondDust(91),
 
 	// Zollus
-	ZolrockDust(37), ZollusDust(46),
+	ZolrockDust(37), ZollusDust(46), HeatiumDust(92),
 
 	// Sirius B
 	SiriusBRockDust(38),
@@ -120,16 +123,16 @@ public enum ItemDefinitions {
 	OasisRockDust(39), OasisDust(47),
 
 	// Xathius
-	XathianRockDust(40), XathianDust(48),
+	XathianRockDust(40), XathianDust(48), XathiumDust(93),
 
 	// Purgot
-	PurgotRockDust(41), PurgotDust(49),
+	PurgotRockDust(41), PurgotDust(49), EveniumDust(94),
 
 	// Horus
 	ObsidianSandDust(50),
 
 	// Anubis Neper
-	BasaltDust(51), NeperDust(52),
+	BasaltRockDust(51), NeperDust(52), ChioniteDust(95), BacterialFossilDust(96), PurpleGemDust(97),
 
 	// Maahes
 	MaahesDust(53),
@@ -138,7 +141,7 @@ public enum ItemDefinitions {
 	CoralDust(54),
 
 	// Dark Asteroids
-	DarkAsteroidRockDust(56),
+	DarkAsteroidRockDust(98), AlphereDust(99),
 
 	;
 

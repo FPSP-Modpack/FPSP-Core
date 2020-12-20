@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 
 public enum ItemDefinitions {
 
-	// Stuff
+	// Stuff (63 leftover)
 	MassZivicioDust(0),
 
 	// Moon
@@ -42,10 +42,10 @@ public enum ItemDefinitions {
 	MercuryRockDust(11), MetallicDust(61), MercurianIronDust(62),
 
 	// Venus
-	VenusRockDust(12), VenusDust(63), CitrineDust(64),
+	VenusRockDust(12), CitrineDust(64),
 
 	// Enceladus
-	EnceladusRockDust(13), FrozenIronDust(65),
+	EnceladusRockDust(13), FrozenIronDust(65), EnceladusDust(107),
 
 	// Titan
 	TitanRockDust(14), RhodiumDust(66), PetaliteDust(67),

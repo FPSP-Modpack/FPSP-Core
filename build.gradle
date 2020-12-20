@@ -42,11 +42,16 @@ repositories {
         name = "Chicken Bones Maven"
         url = "http://chickenbones.net/maven/"
     }
+    maven {
+        name = "ic2"
+        url = "http://maven.ic2.player.to/"
+    }
 }
 
 dependencies {
     compile "codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev"
     compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
+    compile "net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 

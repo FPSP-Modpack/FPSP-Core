@@ -9,7 +9,7 @@ public enum ItemDefinitions {
 	MassZivicioDust(0),
 
 	// Moon
-	MoonRockDust(1),
+	MoonRockDust(1), MoonDust(98),
 
 	// Mars
 	MarsRockDust(2), DeshDust(56),
@@ -36,7 +36,7 @@ public enum ItemDefinitions {
 	EuropaDust(9), EuropaRockDust(42), EuropiumDust(59),
 
 	// Io
-	IoRockDust(10), MetalMeteoricIronDust(60),
+	IoRockDust(10), MetalMeteoricIronDust(60), IoDust(102),
 
 	// Mercury
 	MercuryRockDust(11), MetallicDust(61), MercurianIronDust(62),
@@ -66,7 +66,7 @@ public enum ItemDefinitions {
 	VegaBRockDust(19), WhiteCrystalDust(71),
 
 	// Pluto
-	PlutoRockDust(20), PlutoniumDust(72), XeoniumDust(73),
+	PlutoRockDust(20), PlutoniumDust(72), XeoniumDust(73), PlutoDust(103),
 
 	// Kuiper Belt
 	DenseIceDust(21),
@@ -78,16 +78,16 @@ public enum ItemDefinitions {
 	MakemakeRockDust(23), BismuthDust(75),
 
 	// Koentus
-	KoentusRockDust(24), KoentusMeteoricIronDust(76),
+	KoentusRockDust(24), KoentusMeteoricIronDust(76), KoentusDust(104),
 
 	// Diona
 	DionaRockDust(25), QuontoniumDust(77), FronisiumDust(78),
 
 	// aCentauri Bb
-	aCentauriBbRockDust(26), CentauriumDust(79),
+	ACentauriBbRockDust(26), CentauriumDust(79),
 
 	// Plongius
-	PolongiusRockDust(27), PolongiusMeteoricIronDust(80), FloniumDust(81),
+	PolongniusRockDust(27), PolongniusMeteoricIronDust(80), FloniumDust(81),
 
 	// Barnarda Planets
 	BarnardaCDust(28), BarnardaERockDust(29), BarnardaFRockDust(30),
@@ -105,7 +105,7 @@ public enum ItemDefinitions {
 	EdenRockDust(33), EdenDust(43), ViriniumDust(89),
 
 	// Kapteyn
-	KapteynBRockDust(34), NameriumDust(90),
+	KapteynBRockDust(34), NameriumDust(90), KapteynBDust(105),
 
 	// Fronos
 	FronosRockDust(35), FronosDust(44),
@@ -132,7 +132,7 @@ public enum ItemDefinitions {
 	ObsidianSandDust(50),
 
 	// Anubis Neper
-	BasaltRockDust(51), NeperDust(52), ChioniteDust(95), BacterialFossilDust(96), PurpleGemDust(97),
+	BasaltRockDust(51), NeperDust(52), ChioniteDust(95), BacterialFossilDust(96), PurpleGemDust(97), BasaltDust(106),
 
 	// Maahes
 	MaahesDust(53),
@@ -141,7 +141,7 @@ public enum ItemDefinitions {
 	CoralDust(54),
 
 	// Dark Asteroids
-	DarkAsteroidRockDust(98), AlphereDust(99),
+	DarkAsteroidRockDust(99), AlphereDust(100), DarkAsteroidDust(101),
 
 	;
 

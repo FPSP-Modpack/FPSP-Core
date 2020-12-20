@@ -2,7 +2,13 @@ package glowredman.fpsp;
 
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
+import java.util.List;
+
 import galaxyspace.core.recipe.RecipeUtilGS;
+import ic2.api.recipe.IRecipeInput;
+import ic2.api.recipe.RecipeInputItemStack;
+import ic2.api.recipe.RecipeInputOreDict;
+import ic2.api.recipe.Recipes;
 import net.minecraft.item.ItemStack;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
 
@@ -261,6 +267,22 @@ public class RecipeHandler {
 		techreborn.api.recipe.RecipeHandler.addRecipe(
 				new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
 
+	}
+	
+	private static void addMaceratorRecipe(ItemStack input, ItemStack... outputs) {
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(input), null, outputs);
+	}
+	
+	private static void addMaceratorRecipe(ItemStack input, int inputAmount, ItemStack... outputs) {
+		Recipes.macerator.addRecipe(new RecipeInputItemStack(input, inputAmount), null, outputs);
+	}
+	
+	private static void addMaceratorRecipe(String oreDictInputnput, ItemStack... outputs) {
+		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput), null, outputs);
+	}
+	
+	private static void addMaceratorRecipe(String oreDictInputnput, int inputAmount, ItemStack... outputs) {
+		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput, inputAmount), null, outputs);
 	}
 
 }

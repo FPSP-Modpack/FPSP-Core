@@ -238,18 +238,20 @@ public class RecipeHandler {
 				null, 300, 25);
 
 		// Obsidian Sand Dust Horus
-		addCentrifugeRecipe(OberonRockDust.getItem(32), null, RecipeUtilGS.getItem("techreborn", "dust", 25, 1),
+		addCentrifugeRecipe(ObsidianSandDust.getItem(32), null, RecipeUtilGS.getItem("techreborn", "dust", 25, 1),
 				RecipeUtilGS.getItem("techreborn", "dust", 27, 1), RecipeUtilGS.getItem("IC2", "itemDust", 11, 6), null,
 				300, 25);
 
 		// Coral Rock Seth
-		addCentrifugeRecipe(OberonRockDust.getItem(32), null, BacterialFossilDust.getItem(6), null, null, null, 300,
+		addCentrifugeRecipe(CoralDust.getItem(32), null, BacterialFossilDust.getItem(6), null, null, null, 300,
 				25);
 
 		// Dark Asteroid Rock
-		addCentrifugeRecipe(OberonRockDust.getItem(32), null, AlphereDust.getItem(2),
+		addCentrifugeRecipe(DarkAsteroidRockDust.getItem(32), null, AlphereDust.getItem(2),
 				RecipeUtilGS.getItem("techreborn", "dust", 25, 2), RecipeUtilGS.getItem("techreborn", "dust", 38, 3),
 				null, 300, 25);
+
+		// Stone to Dust
 
 	}
 
@@ -260,4 +262,5 @@ public class RecipeHandler {
 				new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
 
 	}
+
 }

@@ -45,7 +45,8 @@ public class RecipeHandler {
 				RecipeUtilGS.getItem("techreborn", "dust", 69), 300, 25);
 
 		// Callisto Rock Dust
-		addCentrifugeRecipe(CallistoRockDust.getItem(32), null, PalladiumDust.getItem(2), null, null, null, 300, 25);
+		addCentrifugeRecipe(CallistoRockDust.getItem(32), null, PalladiumDust.getItem(2),
+				RecipeUtilGS.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2, 4), null, null, 300, 25);
 
 		// Ganymede Rock Dust
 		addCentrifugeRecipe(GanymedeRockDust.getItem(32), null, RecipeUtilGS.getItem("techreborn", "dust", 46, 2),
@@ -269,11 +270,11 @@ public class RecipeHandler {
 		// Dark Asteroid Rock Dust
 		addCentrifugeRecipe(DarkAsteroidRockDust.getItem(32), null, AlphereDust.getItem(2),
 				RecipeUtilGS.getItem("techreborn", "dust", 25, 2), RecipeUtilGS.getItem("techreborn", "dust", 38, 3),
-				null, 300, 25);
+				RecipeUtilGS.getItem("DraconicEvolution", "draconiumDust", 0, 2), 300, 25);
 
 		// Dark Asteroid Dust
 		addCentrifugeRecipe(DarkAsteroidDust.getItem(32), null, AlphereDust.getItem(4),
-				RecipeUtilGS.getItem("techreborn", "dust", 38, 4), null, null, 300, 25);
+				RecipeUtilGS.getItem("techreborn", "dust", 38, 4), RecipeUtilGS.getItem("DraconicEvolution", "draconiumDust", 0, 4), null, 300, 25);
 
 		// Macerator Recipes - Blocks to Dust
 

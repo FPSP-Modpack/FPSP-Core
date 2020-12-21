@@ -2,10 +2,7 @@ package glowredman.fpsp;
 
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
-import java.util.List;
-
 import galaxyspace.core.recipe.RecipeUtilGS;
-import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.RecipeInputOreDict;
 import ic2.api.recipe.Recipes;
@@ -16,7 +13,7 @@ public class RecipeHandler {
 
 	public static void init() {
 
-		// Dust Recipes
+		// Centrifuge Recipes - Dust to cooler Dust(s)
 
 		// Moon Rock Dust
 		addCentrifugeRecipe(MoonRockDust.getItem(32), null, MeteoricIronDust.getItem(),
@@ -67,7 +64,7 @@ public class RecipeHandler {
 		addCentrifugeRecipe(IoRockDust.getItem(32), null, MetalMeteoricIronDust.getItem(2),
 				RecipeUtilGS.getItem("IC2", "itemDust", 3), RecipeUtilGS.getItem("IC2", "itemDust", 13, 3),
 				RecipeUtilGS.getItem("techreborn", "dust", 66), 300, 25);
-		
+
 		// Io Dust
 		addCentrifugeRecipe(IoDust.getItem(32), null, MetalMeteoricIronDust.getItem(4), null, null, null, 300, 25);
 
@@ -83,7 +80,7 @@ public class RecipeHandler {
 
 		// Enceladus Rock Dust
 		addCentrifugeRecipe(EnceladusRockDust.getItem(32), null, FrozenIronDust.getItem(2), null, null, null, 300, 25);
-		
+
 		// Enceladus Dust
 		addCentrifugeRecipe(EnceladusDust.getItem(32), null, FrozenIronDust.getItem(4), null, null, null, 300, 25);
 
@@ -113,9 +110,10 @@ public class RecipeHandler {
 		// Pluto Rock Dust
 		addCentrifugeRecipe(PlutoRockDust.getItem(32), null, PlutoniumDust.getItem(2), MeteoricIronDust.getItem(),
 				XeoniumDust.getItem(2), FrozenIronDust.getItem(), 300, 25);
-		
+
 		// Pluto Dust
-		addCentrifugeRecipe(PlutoDust.getItem(32), null, PlutoniumDust.getItem(3), XeoniumDust.getItem(2), null, null, 300, 25);
+		addCentrifugeRecipe(PlutoDust.getItem(32), null, PlutoniumDust.getItem(3), XeoniumDust.getItem(2), null, null,
+				300, 25);
 
 		// Kuiper Belt
 		addCentrifugeRecipe(DenseIceDust.getItem(32), null, RecipeUtilGS.getItem("IC2", "itemDust", 5), null, null,
@@ -133,7 +131,7 @@ public class RecipeHandler {
 		addCentrifugeRecipe(KoentusRockDust.getItem(32), null, KoentusMeteoricIronDust.getItem(2),
 				WhiteCrystalDust.getItem(), RecipeUtilGS.getItem("IC2", "itemDust", 3, 2),
 				RecipeUtilGS.getItem("IC2", "itemDust", 7), 300, 25);
-		
+
 		// Koentus Dust
 		addCentrifugeRecipe(OberonRockDust.getItem(32), null, KoentusMeteoricIronDust.getItem(4),
 				WhiteCrystalDust.getItem(2), null, null, 300, 25);
@@ -177,15 +175,15 @@ public class RecipeHandler {
 
 		// Eden Dust
 		addCentrifugeRecipe(EdenDust.getItem(32), null, ViriniumDust.getItem(4),
-				RecipeUtilGS.getItem("IC2", "itemDust", 2), null, null, 300, 25); 
+				RecipeUtilGS.getItem("IC2", "itemDust", 2), null, null, 300, 25);
 
 		// Kapteyn B Rock Dust
 		addCentrifugeRecipe(KapteynBRockDust.getItem(32), null, NameriumDust.getItem(2), FrozenIronDust.getItem(),
 				UraniumDust.getItem(), null, 300, 25);
-		
+
 		// Kapteyn B Dust
-		addCentrifugeRecipe(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), UraniumDust.getItem(2), null,
-				null, 300, 25);
+		addCentrifugeRecipe(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), UraniumDust.getItem(2), null, null,
+				300, 25);
 
 		// Fronos Rock Dust
 		addCentrifugeRecipe(FronosRockDust.getItem(32), null, RecipeUtilGS.getItem("techreborn", "dust", 38),
@@ -228,12 +226,12 @@ public class RecipeHandler {
 				RecipeUtilGS.getItem("techreborn", "dust", 66), 300, 25);
 
 		// Xathian Rock Dust
-		addCentrifugeRecipe(XathianRockDust.getItem(32), null, XathiumDust.getItem(3),
+		addCentrifugeRecipe(XathianRockDust.getItem(32), null, XathianPrometheanDust.getItem(3),
 				RecipeUtilGS.getItem("techreborn", "dust", 59, 2), RecipeUtilGS.getItem("techreborn", "dust", 56, 2),
 				null, 300, 25);
 
 		// Xathian Dust
-		addCentrifugeRecipe(XathianDust.getItem(32), null, XathiumDust.getItem(5), null, null, null, 300, 25);
+		addCentrifugeRecipe(XathianDust.getItem(32), null, XathianPrometheanDust.getItem(5), null, null, null, 300, 25);
 
 		// Purgot Rock Dust
 		addCentrifugeRecipe(PurgotRockDust.getItem(32), null, EveniumDust.getItem(3), ViriniumDust.getItem(2),
@@ -255,10 +253,10 @@ public class RecipeHandler {
 		// Basalt Rock Dust Anubis
 		addCentrifugeRecipe(BasaltRockDust.getItem(32), null, ChioniteDust.getItem(2), UraniumDust.getItem(2), null,
 				null, 300, 25);
-		
+
 		// Basalt Dust Anubis
-		addCentrifugeRecipe(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), UraniumDust.getItem(4), null,
-				null, 300, 25);
+		addCentrifugeRecipe(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), UraniumDust.getItem(4), null, null,
+				300, 25);
 
 		// Obsidian Sand Dust Horus
 		addCentrifugeRecipe(ObsidianSandDust.getItem(32), null, RecipeUtilGS.getItem("techreborn", "dust", 25, 1),
@@ -266,63 +264,65 @@ public class RecipeHandler {
 				300, 25);
 
 		// Coral Rock Seth
-		addCentrifugeRecipe(CoralDust.getItem(32), null, BacterialFossilDust.getItem(6), null, null, null, 300,
-				25);
+		addCentrifugeRecipe(CoralDust.getItem(32), null, BacterialFossilDust.getItem(6), null, null, null, 300, 25);
 
 		// Dark Asteroid Rock Dust
 		addCentrifugeRecipe(DarkAsteroidRockDust.getItem(32), null, AlphereDust.getItem(2),
 				RecipeUtilGS.getItem("techreborn", "dust", 25, 2), RecipeUtilGS.getItem("techreborn", "dust", 38, 3),
 				null, 300, 25);
-		
-		// Dark Asteroid Dust
-		addCentrifugeRecipe(DarkAsteroidDust.getItem(32), null, AlphereDust.getItem(4), RecipeUtilGS.getItem("techreborn", "dust", 38, 4), null, null, 300, 25);
 
-		// Stone to Dust
+		// Dark Asteroid Dust
+		addCentrifugeRecipe(DarkAsteroidDust.getItem(32), null, AlphereDust.getItem(4),
+				RecipeUtilGS.getItem("techreborn", "dust", 38, 4), null, null, 300, 25);
+
+		// Macerator Recipes - Blocks to Dust
 
 		// Moon
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftCore", "tile.moonBlock", 3), MoonDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftCore", "tile.moonBlock", 4), MoonRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftCore", "tile.moonBlock", 5), MoonDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftCore", "tile.moonBlock", 14), MoonRockDust.getItem(2));
-		
+
 		// Mars
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.mars", 4), MarsRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.mars", 5), MarsRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.mars", 6), MarsRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.mars", 7), MarsRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.mars", 9), MarsRockDust.getItem());
-		
+
 		// Phobos
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "phobosblocks"), PhobosRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "phobosblocks", 1), PhobosRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "phobosblocks", 2), PhobosRockDust.getItem());
-		
+
 		// Phobos
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "deimosblocks"), DeimosRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "deimosblocks", 1), DeimosRockDust.getItem());
-		
+
 		// Ceres
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ceresblocks"), CeresRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ceresblocks", 1), CeresRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ceresblocks", 2), CeresRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ceresblocks", 4), CeresRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ceresblocks", 5), CeresRockDust.getItem(2));
-		
+
 		// Asteroids
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.asteroidsBlock"), AsteroidRockDust.getItem());
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.asteroidsBlock", 1), AsteroidRockDust.getItem());
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.asteroidsBlock", 2), AsteroidRockDust.getItem());
-		
+		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.asteroidsBlock", 1),
+				AsteroidRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.asteroidsBlock", 2),
+				AsteroidRockDust.getItem());
+
 		// Callisto
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "callistoblocks"), CallistoRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "callistoblocks", 1), CallistoRockDust.getItem());
-		
+
 		// Europa
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "europagrunt"), EuropaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "europagrunt", 1), EuropaDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "europageyser"), EuropaRockDust.getItem(8));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "europaunderwatergeyser"), EuropaDust.getItem(8));
-		
+
 		// Io
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ioblocks"), IoRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ioblocks", 1), IoDust.getItem());
@@ -331,51 +331,51 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ioblocks", 7), IoRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "ioblocks", 8), IoRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "iodualstone"), IoRockDust.getItem(2));
-		
+
 		// Mercury
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mercuryblocks"), MercuryRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mercuryblocks", 1), MercuryRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mercuryblocks", 2), MercuryRockDust.getItem());
-		
+
 		// Venus
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "venusblocks"), VenusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "venusblocks", 1), VenusRockDust.getItem());
-		
+
 		// Enceladus
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks"), EnceladusDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks", 1), EnceladusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks", 2), EnceladusRockDust.getItem(2));
-		
+
 		// Titan
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "titanblocks"), TitanRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "titanblocks", 1), TitanRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "titanblocks", 2), TitanRockDust.getItem());
-		
+
 		// Miranda
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mirandablocks"), MirandaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mirandablocks", 1), MirandaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "mirandablocks", 2), MirandaRockDust.getItem());
-		
+
 		// Oberon
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "oberonblocks"), OberonRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "oberonblocks", 1), OberonRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "oberonblocks", 2), OberonRockDust.getItem());
-		
+
 		// Proteus
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "proteusblocks"), ProteusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "proteusblocks", 1), ProteusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "proteusblocks", 2), ProteusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "proteusblocks", 3), ProteusRockDust.getItem(2));
-		
+
 		// Triton
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tritonblocks"), TritonRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tritonblocks", 1), TritonRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tritonblocks", 2), TritonRockDust.getItem());
-		
+
 		// Vega B
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "vegabgrunt"), VegaBRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "vegabsubgrunt"), VegaBRockDust.getItem());
-		
+
 		// Pluto
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "plutoblocks"), PlutoDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "plutoblocks", 1), PlutoDust.getItem());
@@ -384,17 +384,17 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "plutoblocks", 4), PlutoDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "plutoblocks", 5), PlutoRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "plutoblocks", 6), PlutoRockDust.getItem(2));
-		
+
 		// Kuiper Belt
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftMars", "tile.denseIce"), DenseIceDust.getItem());
-		
+
 		// Haumea
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "haumeablocks"), HaumeaRockDust.getItem());
-		
+
 		// Haumea
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "makemakegrunt"), MakemakeRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "makemakegrunt", 1), MakemakeRockDust.getItem());
-		
+
 		// Koentus
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "koentus_ice"), KoentusDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "koentus_ice", 1), KoentusDust.getItem(2));
@@ -406,7 +406,7 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "koentus_block", 11), KoentusRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "koentus_block", 12), KoentusRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "koentus_block", 13), KoentusRockDust.getItem(2));
-		
+
 		// Diona
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone"), DionaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "diona_block"), DionaRockDust.getItem());
@@ -414,30 +414,31 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "diona_block", 2), DionaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "diona_block", 3), DionaRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "diona_block", 14), DionaRockDust.getItem(2));
-		
+
 		// aCentauri Bb
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "acentauribbgrunt"), ACentauriBbRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "acentauribbsubgrunt"), ACentauriBbRockDust.getItem());
-		
+
 		// Polongnius
-		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 1), PolongniusRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 1),
+				PolongniusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "polongnius_block", 2), PolongniusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "polongnius_block", 3), PolongniusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "polongnius_block", 13), PolongniusRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "polongnius_block", 14), PolongniusRockDust.getItem(4));
-		
+
 		// Barnarda C
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaCgrass"), BarnardaCDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaCdirt"), BarnardaCDust.getItem());
-		
+
 		// Barnarda E
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaEgrunt"), BarnardaERockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaEsubgrunt"), BarnardaERockDust.getItem());
-		
+
 		// Barnarda F
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaFgrunt"), BarnardaFRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "barnardaFsubgrunt"), BarnardaFRockDust.getItem());
-		
+
 		// Nibiru
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 2), NibiruRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "nibiru_block"), NibiruRockDust.getItem());
@@ -445,12 +446,12 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "nibiru_block", 2), NibiruRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "nibiru_block", 3), NibiruRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "nibiru_block", 12), NibiruRockDust.getItem(2));
-		
+
 		// T Ceti E
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tcetieblocks"), TCetiERockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tcetieblocks", 1), TCetiERockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "tcetieblocks", 2), TCetiERockDust.getItem());
-		
+
 		// Eden
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_edencobblerock"), EdenRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_edenrock"), EdenRockDust.getItem());
@@ -465,9 +466,10 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_edengravel"), EdenDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_bloodstone"), EdenRockDust.getItem(4));
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_edensacredstone"), EdenRockDust.getItem(4));
-		
+
 		// Kapteyn B
-		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 4), KapteynBRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 4),
+				KapteynBRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_block"), KapteynBDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_block", 1), KapteynBDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_block", 2), KapteynBRockDust.getItem());
@@ -475,7 +477,7 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_block", 14), KapteynBRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_ice"), KapteynBDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_ice", 1), KapteynBDust.getItem());
-		
+
 		// Fronos
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "fronos_dirt"), FronosDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "fronos_dirt", 1), FronosDust.getItem());
@@ -491,14 +493,14 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "fronos_block", 13), FronosRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "fronos_block", 14), FronosRockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "mossy_fronos_cobblestone"), FronosRockDust.getItem());
-		
+
 		// Eden
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_zoldirt"), ZollusDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_zolrockbricks"), ZolrockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_solarblock"), ZolrockDust.getItem(2));
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_zolcobblerock"), ZolrockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_zolstone"), ZolrockDust.getItem());
-		
+
 		// Sirius B
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "space_mossy_cobblestone", 5), SiriusBRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "sirius_block"), SiriusBRockDust.getItem());
@@ -507,51 +509,193 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "sirius_block", 3), SiriusBRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "sirius_block", 7), SiriusBRockDust.getItem(4));
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "sirius_block", 9), SiriusBRockDust.getItem(2));
-		
+
 		// Oasis
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_oasisgrass"), OasisDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_oasisdirt"), OasisDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_oasiscobblerock"), OasisRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_oasisrock"), OasisRockDust.getItem());
-		
+
 		// Xathius
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_xathgrass"), XathianDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_xathdirt"), XathianDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_xathstone"), XathianRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_xathrock"), XathianRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_xathcobblerock"), XathianRockDust.getItem());
-		
+
 		// Purgot
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_purgdirt"), PurgotDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_purgcobblerock"), PurgotRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_purgstone"), PurgotRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_purgrock"), PurgotRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("galaxymod", "galaxymod_purgrockbricks"), PurgotRockDust.getItem());
-		
+
 		// Neper
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 10), NeperDust.getItem());
-		
+
 		// Maahes
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.wood1"), MaahesDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.wood1", 1), MaahesDust.getItem());
-	
+
 		// Anubis
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 1), BasaltRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 1),
+				BasaltRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseBlockGround", 1), BasaltDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseFalling", 2), BasaltDust.getItem());
-		
+
 		// Horus
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseFalling"), ObsidianSandDust.getItem());
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseFalling", 1), ObsidianSandDust.getItem());
-		
+		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseFalling", 1),
+				ObsidianSandDust.getItem());
+
 		// Seth
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalacticraftAmunRa", "tile.baseBlockCrystal"), CoralDust.getItem(2));
-		
+
 		// Dark Asteroids
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_block"), DarkAsteroidRockDust.getItem());
-		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_block", 1), DarkAsteroidRockDust.getItem());
-		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_block", 2), DarkAsteroidRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_block", 1),
+				DarkAsteroidRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_block", 2),
+				DarkAsteroidRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("MorePlanet", "dark_asteroid_quicksand"), DarkAsteroidDust.getItem());
+
+		// Compressor Recipes - Dust to Ingot/Something else
+
+		// Black Diamond
+		addCompressorRecipe(BlackDiamondDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "fronos_item", 2));
+
+		// Desh
+		addCompressorRecipe(DeshDust.getItem(9), RecipeUtilGS.getItem("GalacticraftMars", "item.null", 2));
+
+		// Oriharukon
+		addCompressorRecipe(OriharukonDust.getItem(9), RecipeUtilGS.getItem("GalaxySpace", "item.Ingots", 7));
+
+		// Meteoric Iron
+		addCompressorRecipe(MeteoricIronDust.getItem(9),
+				RecipeUtilGS.getItem("GalacticraftCore", "item.meteoricIronIngot"));
+
+		// Palladium
+		addCompressorRecipe(PalladiumDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 6));
+
+		// Europium
+		addCompressorRecipe(EuropiumDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 5));
+
+		// Metal Meteoric Iron
+		addCompressorRecipe(MetalMeteoricIronDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "mercury_item", 3));
+
+		// Metallic
+		addCompressorRecipe(MetallicDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "mercury_item", 2));
+
+		// Mercurian Iron
+		addCompressorRecipe(MercurianIronDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots"));
+
+		// Citrine
+		addCompressorRecipe(CitrineDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops"));
+
+		// Frozen Iron
+		addCompressorRecipe(FrozenIronDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "kapteyn-b_item"));
+
+		// Rhodium
+		addCompressorRecipe(RhodiumDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 7));
+
+		// Petalite
+		addCompressorRecipe(PetaliteDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 7));
+
+		// Jade
+		addCompressorRecipe(JadeDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 6));
+
+		// Adamantite
+		addCompressorRecipe(AdamantiteDust.getItem(9), RecipeUtilGS.getItem("GalaxySpace", "item.Ingots"));
+
+		// Uranium
+		addCompressorRecipe(UraniumDust.getItem(9), RecipeUtilGS.getItem("GalacticraftAmunRa", "item.baseItem", 11));
+
+		// Uranium
+		// addCompressorRecipe(UraniumDust.getItem(9), RecipeUtilGS.getItem("IC2",
+		// "itemUran235"));
+
+		// White Crystal
+		addCompressorRecipe(WhiteCrystalDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "koentus_item"));
+
+		// Plutonium
+		addCompressorRecipe(PlutoniumDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 1));
+
+		// Xeonium
+		addCompressorRecipe(XeoniumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "pluto_item"));
+
+		// Onyx
+		addCompressorRecipe(OnyxDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 1));
+
+		// Bismuth
+		addCompressorRecipe(BismuthDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 2));
+
+		// Koentus Meteoric Iron
+		addCompressorRecipe(KoentusMeteoricIronDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "koentus_item", 4));
+
+		// Quontonium
+		addCompressorRecipe(QuontoniumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "diona_item"));
+
+		// Centaurium
+		addCompressorRecipe(CentauriumDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemIngots", 3));
+
+		// Polongnius Meteoric Iron
+		addCompressorRecipe(PolongniusMeteoricIronDust.getItem(9),
+				RecipeUtilGS.getItem("MorePlanet", "polongnius_item", 4));
+
+		// Flonium
+		addCompressorRecipe(FloniumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "polongnius_item"));
+
+		// Pink Quartz
+		addCompressorRecipe(PinkQuartzDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 2));
+
+		// Carnelian
+		addCompressorRecipe(CarnelianDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 3));
+
+		// Chalcedony
+		addCompressorRecipe(ChalcedonyDust.getItem(9), RecipeUtilGS.getItem("galacticores", "itemDrops", 4));
+
+		// Ichorius
+		addCompressorRecipe(IchoriusDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "power_crystal"));
+
+		// Red Gem
+		addCompressorRecipe(RedGemDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "nibiru_item"));
+
+		// EMP
+		addCompressorRecipe(EMPDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "koentus_item", 1));
+
+		// Norium
+		addCompressorRecipe(NoriumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "nibiru_item", 1));
+
+		// Virinium
+		addCompressorRecipe(ViriniumDust.getItem(9), RecipeUtilGS.getItem("galaxymod", "galaxymod_ingotviri"));
+
+		// Namerium
+		addCompressorRecipe(NameriumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "namerium_crystal"));
+
+		// Heartium
+		addCompressorRecipe(HeartiumDust.getItem(9), RecipeUtilGS.getItem("galaxymod", "galaxymod_heartofzol"));
+
+		// Evenium
+		addCompressorRecipe(EveniumDust.getItem(9), RecipeUtilGS.getItem("galaxymod", "galaxymod_ingotevenium"));
+
+		// Fronisium
+		addCompressorRecipe(FronisiumDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "diona_item", 1));
+
+		// Chionite
+		addCompressorRecipe(ChioniteDust.getItem(9), RecipeUtilGS.getItem("GalacticraftAmunRa", "item.baseItem", 3));
+
+		// Bacterial Fossil
+		addCompressorRecipe(BacterialFossilDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "koentus_item", 2));
+
+		// Purple Crystal
+		addCompressorRecipe(PurpleGemDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "polongnius_item", 1));
+
+		// Alphere
+		addCompressorRecipe(AlphereDust.getItem(9), RecipeUtilGS.getItem("MorePlanet", "alphere"));
+
+		// Xathium
+		addCompressorRecipe(XathianPrometheanDust.getItem(9),
+				RecipeUtilGS.getItem("galaxymod", "galaxymod_prometheancrystal"));
+
 	}
 
 	private static void addCentrifugeRecipe(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
@@ -561,24 +705,28 @@ public class RecipeHandler {
 				new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
 
 	}
-	
+
 	// Ein Item rein, ein Item raus
 	private static void addMaceratorRecipe(ItemStack input, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input), null, outputs);
 	}
-	
+
 	// Mehrere rein und vielleicht auch mehrere raus
 	private static void addMaceratorRecipe(ItemStack input, int inputAmount, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input, inputAmount), null, outputs);
 	}
-	
+
 	// Wie 1, nur anstelle von ItemStack der String von OreDict
 	private static void addMaceratorRecipe(String oreDictInputnput, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput), null, outputs);
 	}
+
 	// Wie 2, nur anstelle von ItemStack der String von OreDict
 	private static void addMaceratorRecipe(String oreDictInputnput, int inputAmount, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput, inputAmount), null, outputs);
 	}
 
+	private static void addCompressorRecipe(ItemStack input, ItemStack outputs) {
+		Recipes.compressor.addRecipe(new RecipeInputItemStack(input), null, outputs);
+	}
 }

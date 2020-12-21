@@ -123,7 +123,8 @@ public enum ItemDefinitions {
 	OasisRockDust(39), OasisDust(47),
 
 	// Xathius
-	XathianRockDust(40), XathianDust(48), XathiumDust(93),
+	XathianRockDust(40), XathianDust(48),
+	XathianPrometheanDust(93),
 
 	// Purgot
 	PurgotRockDust(41), PurgotDust(49), EveniumDust(94),

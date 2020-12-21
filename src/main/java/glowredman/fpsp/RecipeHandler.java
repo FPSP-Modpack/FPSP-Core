@@ -76,10 +76,6 @@ public class RecipeHandler {
 				RecipeUtilGS.getItem("techreborn", "dust", 54), RecipeUtilGS.getItem("IC2", "itemDust", 10, 2), 300,
 				25);
 
-		// Venus Dust
-		addCentrifugeRecipe(VenusDust.getItem(32), null, CitrineDust.getItem(4),
-				RecipeUtilGS.getItem("IC2", "itemDust", 2), null, null, 300, 25);
-
 		// Venus Rock Dust
 		addCentrifugeRecipe(VenusRockDust.getItem(32), null, CitrineDust.getItem(),
 				RecipeUtilGS.getItem("IC2", "itemDust", 10, 2), RecipeUtilGS.getItem("IC2", "itemDust", 3, 2),
@@ -87,6 +83,9 @@ public class RecipeHandler {
 
 		// Enceladus Rock Dust
 		addCentrifugeRecipe(EnceladusRockDust.getItem(32), null, FrozenIronDust.getItem(2), null, null, null, 300, 25);
+		
+		// Enceladus Dust
+		addCentrifugeRecipe(EnceladusDust.getItem(32), null, FrozenIronDust.getItem(4), null, null, null, 300, 25);
 
 		// Titan Rock Dust
 		addCentrifugeRecipe(TitanRockDust.getItem(32), null, PetaliteDust.getItem(2), RhodiumDust.getItem(2),
@@ -207,11 +206,11 @@ public class RecipeHandler {
 				null, 300, 25);
 
 		// Zolrock Dust
-		addCentrifugeRecipe(ZolrockDust.getItem(32), null, HeatiumDust.getItem(2), NoriumDust.getItem(1),
+		addCentrifugeRecipe(ZolrockDust.getItem(32), null, HeartiumDust.getItem(2), NoriumDust.getItem(1),
 				RecipeUtilGS.getItem("IC2", "itemDust", 7, 2), RecipeUtilGS.getItem("IC2", "itemDust", 3, 3), 300, 25);
 
 		// Zollus Dust
-		addCentrifugeRecipe(ZollusDust.getItem(32), null, NoriumDust.getItem(1), HeatiumDust.getItem(3), null, null,
+		addCentrifugeRecipe(ZollusDust.getItem(32), null, NoriumDust.getItem(1), HeartiumDust.getItem(3), null, null,
 				300, 25);
 
 		// Sirius B Rock Dust
@@ -343,7 +342,7 @@ public class RecipeHandler {
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "venusblocks", 1), VenusRockDust.getItem());
 		
 		// Enceladus
-		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks"), EnceladusRockDust.getItem());
+		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks"), EnceladusDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks", 1), EnceladusRockDust.getItem());
 		addMaceratorRecipe(RecipeUtilGS.getItem("GalaxySpace", "enceladusblocks", 2), EnceladusRockDust.getItem(2));
 		

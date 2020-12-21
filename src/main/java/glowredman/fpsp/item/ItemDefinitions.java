@@ -114,7 +114,7 @@ public enum ItemDefinitions {
 	KriffonRockDust(36), KriffonDust(45), BlackDiamondDust(91),
 
 	// Zollus
-	ZolrockDust(37), ZollusDust(46), HeatiumDust(92),
+	ZolrockDust(37), ZollusDust(46), HeartiumDust(92),
 
 	// Sirius B
 	SiriusBRockDust(38),

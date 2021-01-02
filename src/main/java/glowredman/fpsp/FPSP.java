@@ -32,7 +32,6 @@ public class FPSP {
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
 		logger = event.getModLog();
-		
 		proxy.preInit(event);
 	}
 	

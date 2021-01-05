@@ -6,8 +6,10 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipeHandler;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
@@ -37,8 +39,12 @@ public class FPSP {
 	}
 	
 	@EventHandler
+	public static void init(FMLInitializationEvent event) {
+		OreDictHandler.init();
+	}
+	
+	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
-		
 		RecipeHandler.init();
 	}
 }

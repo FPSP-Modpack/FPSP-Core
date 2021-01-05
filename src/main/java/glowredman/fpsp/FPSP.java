@@ -8,6 +8,7 @@ import cpw.mods.fml.common.Mod.Instance;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import glowredman.fpsp.handler.RecipeHandler;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
 import net.minecraft.item.Item;

@@ -1,7 +1,8 @@
-package glowredman.fpsp;
+package glowredman.fpsp.handler;
 
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
+import glowredman.fpsp.Utils;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.RecipeInputOreDict;
 import ic2.api.recipe.Recipes;

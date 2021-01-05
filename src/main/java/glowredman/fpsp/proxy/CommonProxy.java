@@ -3,7 +3,7 @@ package glowredman.fpsp.proxy;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import glowredman.fpsp.FPSP;
-import glowredman.fpsp.FPSPWorldGenerator;
+import glowredman.fpsp.world.FPSPWorldGenerator;
 
 public class CommonProxy {
 

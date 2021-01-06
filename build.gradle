@@ -46,12 +46,17 @@ repositories {
         name = "ic2"
         url = "http://maven.ic2.player.to/"
     }
+    maven {
+        name "GT"
+        url = "https://gregtech.overminddl1.com/"
+    }
 }
 
 dependencies {
     compile "codechicken:CodeChickenLib:1.7.10-1.1.3.140:dev"
     compile "codechicken:CodeChickenCore:1.7.10-1.0.7.47:dev"
     compile "net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev"
+    compile "mods.railcraft:Railcraft_1.7.10:9.12.3.0:dev"
     compile fileTree(dir: 'lib', include: '*.jar')
 }
 

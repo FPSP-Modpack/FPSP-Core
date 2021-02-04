@@ -46,6 +46,9 @@ public class FPSPWorldGenerator implements IWorldGenerator {
 		nickelOreGen = new WorldGenOre(TF, "Ore", 4, 3);
 		amberOreGen = new WorldGenOre(BOP, "gemOre", 14, 0);
 		chargedCertusQuartzOreGen = new WorldGenOre(AE2, "tile.OreQuartz", 1, 4);
+		topazOreGen = new WorldGenOre(BOP, "gemOre", 6, 0);
+		tanzaniteOreGen = new WorldGenOre(BOP, "gemOre", 8, 0);
+		malachiteOreGen = new WorldGenOre(BOP, "gemOre", 10, 0);
 	}
 
 	@Override

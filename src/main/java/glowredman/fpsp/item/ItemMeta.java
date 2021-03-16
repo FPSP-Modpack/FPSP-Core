@@ -3,8 +3,6 @@ package glowredman.fpsp.item;
 import java.util.HashMap;
 import java.util.List;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 import glowredman.fpsp.FPSP;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -26,7 +24,6 @@ public class ItemMeta extends Item {
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister iconRegister) {
 		for (ItemDefinitions item : ItemDefinitions.values()) {
@@ -34,7 +31,6 @@ public class ItemMeta extends Item {
 		}
 	}
 
-	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int meta) {
 		return icons.containsKey(meta) ? icons.get(meta) : super.getIconFromDamage(meta);
@@ -49,10 +45,8 @@ public class ItemMeta extends Item {
 	@Override
 	@SuppressWarnings("unchecked")
 	public void getSubItems(Item item, CreativeTabs tab, List variants) {
-		if (tab == CreativeTabs.tabAllSearch) {
-			for (ItemDefinitions itemDef : ItemDefinitions.values()) {
-				variants.add(itemDef.getItem());
-			}
+		for (ItemDefinitions itemDef : ItemDefinitions.values()) {
+			variants.add(itemDef.getItem());
 		}
 	}
 

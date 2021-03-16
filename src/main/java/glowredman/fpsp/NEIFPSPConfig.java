@@ -19,7 +19,6 @@ public class NEIFPSPConfig implements IConfigureNEI {
 
 	@Override
 	public void loadConfig() {
-		API.hideItem(new ItemStack(FPSP.ITEM, 1, ItemDefinitions.values().length));
 	}
 
 }

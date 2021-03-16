@@ -8,6 +8,7 @@ import ic2.api.recipe.RecipeInputOreDict;
 import ic2.api.recipe.Recipes;
 import net.minecraft.item.ItemStack;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
+import techreborn.items.ItemDusts;
 
 public class RecipeHandler {
 
@@ -97,7 +98,7 @@ public class RecipeHandler {
 				Utils.getItem("techreborn", "dust", 59), null, null, 300, 25);
 
 		// Triton Rock Dust
-		addCentrifugeRecipe(TritonRockDust.getItem(32), null, UraniumDust.getItem(2),
+		addCentrifugeRecipe(TritonRockDust.getItem(32), null, ItemDusts.getDustByName("uranium", 2),
 				Utils.getItem("techreborn", "dust", 51), null, null, 300, 25);
 
 		// Vega B Rock Dust
@@ -175,10 +176,10 @@ public class RecipeHandler {
 
 		// Kapteyn B Rock Dust
 		addCentrifugeRecipe(KapteynBRockDust.getItem(32), null, NameriumDust.getItem(2), FrozenIronDust.getItem(),
-				UraniumDust.getItem(), null, 300, 25);
+				ItemDusts.getDustByName("uranium"), null, 300, 25);
 
 		// Kapteyn B Dust
-		addCentrifugeRecipe(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), UraniumDust.getItem(2), null, null,
+		addCentrifugeRecipe(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), ItemDusts.getDustByName("uranium", 2), null, null,
 				300, 25);
 
 		// Fronos Rock Dust
@@ -246,11 +247,11 @@ public class RecipeHandler {
 				XeoniumDust.getItem(3), 300, 25);
 
 		// Basalt Rock Dust Anubis
-		addCentrifugeRecipe(BasaltRockDust.getItem(32), null, ChioniteDust.getItem(2), UraniumDust.getItem(2), null,
+		addCentrifugeRecipe(BasaltRockDust.getItem(32), null, ChioniteDust.getItem(2), ItemDusts.getDustByName("uranium", 2), null,
 				null, 300, 25);
 
 		// Basalt Dust Anubis
-		addCentrifugeRecipe(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), UraniumDust.getItem(4), null, null,
+		addCentrifugeRecipe(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), ItemDusts.getDustByName("uranium", 4), null, null,
 				300, 25);
 
 		// Obsidian Sand Dust Horus
@@ -593,7 +594,7 @@ public class RecipeHandler {
 		addCompressorRecipe(AdamantiteDust.getItem(9), Utils.getItem("GalaxySpace", "item.Ingots"));
 
 		// Uranium
-		addCompressorRecipe(UraniumDust.getItem(9), Utils.getItem("GalacticraftAmunRa", "item.baseItem", 11));
+		addCompressorRecipe(ItemDusts.getDustByName("uranium", 9), Utils.getItem("GalacticraftAmunRa", "item.baseItem", 11));
 
 		// Uranium
 		// addCompressorRecipe(UraniumDust.getItem(9), Utils.getItem("IC2",

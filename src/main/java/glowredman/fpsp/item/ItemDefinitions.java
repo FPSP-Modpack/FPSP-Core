@@ -60,7 +60,7 @@ public enum ItemDefinitions {
 	ProteusRockDust(17),
 
 	// Triton
-	TritonRockDust(18), UraniumDust(70),
+	TritonRockDust(18),
 
 	// Vega B
 	VegaBRockDust(19), WhiteCrystalDust(71),

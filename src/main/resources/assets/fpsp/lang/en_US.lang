@@ -106,3 +106,17 @@ item.KoentusDust.name=Koentus Dust
 item.KapteynBDust.name=Kapteyn-B Dust
 item.BasaltDust.name=Basalt Dust
 item.EnceladusDust.name=Enceladus Dust
+
+item.cell.tinplasma.name=Tin Plasma cell
+item.cell.nitrogenplasma.name=Nitrogen Plasma Cell
+item.cell.zincplasma.name=Zinc Plasma Cell
+item.cell.calciumplasma.name=Calcium Plasma Cell
+item.cell.sulfurplasma.name=Sulfur Plasma Cell
+item.cell.ironplasma.name=Iron Plasma Cell
+
+fluid.nitrogenplasma=Nitrogen Plasma
+fluid.tinplasma=Tin Plasma
+fluid.calciumplasma=Calcium Plasma
+fluid.ironplasma=Iron Plasma
+fluid.zincplasma=Zinc Plasma
+fluid.sulfurplasma=Sulfur Plasma

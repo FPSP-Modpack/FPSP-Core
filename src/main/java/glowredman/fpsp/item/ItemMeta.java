@@ -43,7 +43,6 @@ public class ItemMeta extends Item {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public void getSubItems(Item item, CreativeTabs tab, List variants) {
 		for (ItemDefinitions itemDef : ItemDefinitions.values()) {
 			variants.add(itemDef.getItem());

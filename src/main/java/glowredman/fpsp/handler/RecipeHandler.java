@@ -2,30 +2,40 @@ package glowredman.fpsp.handler;
 
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
-import cpw.mods.fml.common.registry.GameRegistry;
+import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
 import ic2.api.item.IC2Items;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.RecipeInputOreDict;
 import ic2.api.recipe.Recipes;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import reborncore.common.util.OreUtil;
+import techreborn.api.reactor.FusionReactorRecipe;
+import techreborn.api.reactor.FusionReactorRecipeHelper;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
+import techreborn.items.ItemCells;
 import techreborn.items.ItemDusts;
 
 public class RecipeHandler {
 
 	public static void init() {
+		addCentrifugeRecipes();
+		addCompressorRecipes();
+		addFusionRecipes();
+		addMaceratorRecipes();
+	}
+	
+	static void addFusionRecipes() {
+		addFusionReactorRecipe(ItemDusts.getDustByName("silver"),    ItemCells.getCellByName("helium3"),   new ItemStack(FPSP.ITEM_CELL, 1, 0), 280000000, 49152,  16);
+		addFusionReactorRecipe(ItemCells.getCellByName("deuterium"), ItemCells.getCellByName("beryllium"), new ItemStack(FPSP.ITEM_CELL, 1, 1), 180000000, 16384,  16);
+		addFusionReactorRecipe(ItemDusts.getDustByName("copper"),    ItemCells.getCellByName("tritium"),   new ItemStack(FPSP.ITEM_CELL, 1, 2), 180000000, 49152,  16);
+		addFusionReactorRecipe(IC2Items.getItem("airCell"),          ItemDusts.getDustByName("magnesium"), new ItemStack(FPSP.ITEM_CELL, 1, 3), 120000000,  7680, 128);
+		addFusionReactorRecipe(ItemCells.getCellByName("lithium"),   ItemDusts.getDustByName("aluminium"), new ItemStack(FPSP.ITEM_CELL, 1, 4), 240000000, 10240,  32);
+		addFusionReactorRecipe(ItemDusts.getDustByName("magnesium"), ItemCells.getCellByName("silicon"),   new ItemStack(FPSP.ITEM_CELL, 1, 5), 360000000,  7680,  32);
+	}
 
-		// Shaped Recipes
-
-		GameRegistry.addShapedRecipe(new ItemStack(Items.bread, 9), "HHH", 'H', Blocks.hay_block);
-
-		// Centrifuge Recipes - Dust to cooler Dust(s)
-
+	static void addCentrifugeRecipes() {
 		// Moon Rock Dust
 		addCentrifugeRecipe(MoonRockDust.getItem(32), null, MeteoricIronDust.getItem(), getIC2Item("copperDust", 2),
 				IC2Items.getItem("tinDust"), null, 300, 25);
@@ -271,9 +281,9 @@ public class RecipeHandler {
 		addCentrifugeRecipe(DarkAsteroidDust.getItem(32), null, AlphereDust.getItem(4),
 				OreUtil.getStackFromName("dustIridium", 4), OreUtil.getStackFromName("dustDraconium", 4), null, 300,
 				25);
+	}
 
-		// Macerator Recipes - Blocks to Dust
-
+	static void addMaceratorRecipes() {
 		// Moon
 		addMaceratorRecipe(Utils.getItem("GalacticraftCore", "tile.moonBlock", 3), MoonDust.getItem());
 		addMaceratorRecipe(Utils.getItem("GalacticraftCore", "tile.moonBlock", 4), MoonRockDust.getItem());
@@ -546,9 +556,9 @@ public class RecipeHandler {
 		addMaceratorRecipe(Utils.getItem("MorePlanet", "dark_asteroid_block", 1), DarkAsteroidRockDust.getItem());
 		addMaceratorRecipe(Utils.getItem("MorePlanet", "dark_asteroid_block", 2), DarkAsteroidRockDust.getItem());
 		addMaceratorRecipe(Utils.getItem("MorePlanet", "dark_asteroid_quicksand"), DarkAsteroidDust.getItem());
+	}
 
-		// Compressor Recipes - Dust to Ingot/Something else
-
+	static void addCompressorRecipes() {
 		// Black Diamond
 		addCompressorRecipe(BlackDiamondDust.getItem(9), Utils.getItem("MorePlanet", "fronos_item", 2));
 
@@ -683,8 +693,11 @@ public class RecipeHandler {
 		// Xathium
 		addCompressorRecipe(XathianPrometheanDust.getItem(9),
 				Utils.getItem("galaxymod", "galaxymod_prometheancrystal"));
-
 	}
+
+	/**********************
+	 *   HELPER METHODS   *
+	 **********************/
 
 	private static void addCentrifugeRecipe(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
 			ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {
@@ -692,22 +705,24 @@ public class RecipeHandler {
 				new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
 	}
 
-	// Ein Item rein, ein Item raus
+	private static void addFusionReactorRecipe(ItemStack topInput, ItemStack bottomInput, ItemStack output, int startEU,
+			int euTick, int tickTime) {
+		FusionReactorRecipeHelper
+				.registerRecipe(new FusionReactorRecipe(topInput, bottomInput, output, startEU, euTick, tickTime));
+	}
+
 	private static void addMaceratorRecipe(ItemStack input, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input), null, outputs);
 	}
 
-	// Mehrere rein und vielleicht auch mehrere raus
 	private static void addMaceratorRecipe(ItemStack input, int inputAmount, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input, inputAmount), null, outputs);
 	}
 
-	// Wie 1, nur anstelle von ItemStack der String von OreDict
 	private static void addMaceratorRecipe(String oreDictInputnput, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput), null, outputs);
 	}
 
-	// Wie 2, nur anstelle von ItemStack der String von OreDict
 	private static void addMaceratorRecipe(String oreDictInputnput, int inputAmount, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput, inputAmount), null, outputs);
 	}

@@ -20,7 +20,7 @@ apply plugin: 'forge'
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-version = "1.0.0b"
+version = "1.0.1"
 group= "glowredman.fpsp"
 archivesBaseName = "FPSP-Core"
 

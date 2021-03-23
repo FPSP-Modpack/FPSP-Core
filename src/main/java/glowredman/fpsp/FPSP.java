@@ -14,6 +14,7 @@ import glowredman.fpsp.handler.RecipeHandler;
 import glowredman.fpsp.item.ItemCell;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 
@@ -25,13 +26,19 @@ public class FPSP {
 	public static final String VERSION = "@version@";
 
 	public static final Item ITEM_META = new ItemMeta();
-	public static final Item ITEM_CELL = new ItemCell();
+	public static final ItemCell ITEM_CELL = new ItemCell();
 	public static final Fluid TIN_PLASMA = new Fluid("tinplasma");
 	public static final Fluid NITROGEN_PLASMA = new Fluid("nitrogenplasma");
 	public static final Fluid ZINC_PLASMA = new Fluid("zincplasma");
 	public static final Fluid CALCIUM_PLASMA = new Fluid("calciumplasma");
 	public static final Fluid SULFUR_PLASMA = new Fluid("sulfurplasma");
 	public static final Fluid IRON_PLASMA = new Fluid("ironplasma");
+	public static Block TIN_PLASMA_BLOCK;
+	public static Block NITROGEN_PLASMA_BLOCK;
+	public static Block ZINC_PLASMA_BLOCK;
+	public static Block CALCIUM_PLASMA_BLOCK;
+	public static Block SULFUR_PLASMA_BLOCK;
+	public static Block IRON_PLASMA_BLOCK;
 
 	@Instance
 	public static FPSP instance;

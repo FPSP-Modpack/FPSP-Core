@@ -114,6 +114,13 @@ item.cell.calciumplasma.name=Calcium Plasma Cell
 item.cell.sulfurplasma.name=Sulfur Plasma Cell
 item.cell.ironplasma.name=Iron Plasma Cell
 
+tile.fluid.nitrogenplasma.name=Nitrogen Plasma
+tile.fluid.tinplasma.name=Tin Plasma
+tile.fluid.calciumplasma.name=Calcium Plasma
+tile.fluid.ironplasma.name=Iron Plasma
+tile.fluid.zincplasma.name=Zinc Plasma
+tile.fluid.sulfurplasma.name=Sulfur Plasma
+
 fluid.nitrogenplasma=Nitrogen Plasma
 fluid.tinplasma=Tin Plasma
 fluid.calciumplasma=Calcium Plasma

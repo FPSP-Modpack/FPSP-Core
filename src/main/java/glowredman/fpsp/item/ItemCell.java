@@ -37,13 +37,6 @@ public class ItemCell extends Item implements IFluidContainerItem {
 	public void registerIcons(IIconRegister iconRegister) {
 		for (int i = 0; i < types.length; i++)
 			textures[i] = iconRegister.registerIcon(FPSP.MODID + ":cells/" + types[i]);
-
-		FPSP.CALCIUM_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/calciumplasma"));
-		FPSP.IRON_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/ironplasma"));
-		FPSP.NITROGEN_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/nitogenplasma"));
-		FPSP.SULFUR_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/sulfurplasma"));
-		FPSP.TIN_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/tinplasma"));
-		FPSP.ZINC_PLASMA.setIcons(iconRegister.registerIcon(FPSP.MODID + ":fluids/zincplasma"));
 	}
 
 	@Override

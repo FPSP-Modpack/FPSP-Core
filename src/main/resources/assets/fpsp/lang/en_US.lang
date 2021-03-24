@@ -10,7 +10,7 @@ item.AsteroidRockDust.name=Asteroid Rock Dust
 item.CallistoRockDust.name=Callisto Rock Dust
 item.GanymedeRockDust.name=Ganymede Rock Dust
 item.CeresRockDust.name=Ceres Rock Dust
-item.EuropaDust.name=Europa Dust
+item.EuropaDust.name=Europa Ice Dust
 item.EuropaRockDust.name=Europa Rock Dust
 item.IoRockDust.name=Io Rock Dust
 item.MercuryRockDust.name=Mercury Rock Dust
@@ -32,7 +32,7 @@ item.ACentauriBbRockDust.name=α Centauri Rock Dust
 item.PolongniusRockDust.name=Polongnius Rock Dust
 item.BarnardaCDust.name=Barnarda Γ Dust
 item.BarnardaERockDust.name=Barnarda Ε Rock Dust
-item.BernardaFRockDust.name=Barnarda Ζ Rock Dust
+item.BarnardaFRockDust.name=Barnarda Ζ Rock Dust
 item.NibiruRockDust.name=Nibiru Rock Dust
 item.TCetiERockDust.name=T Ceti Д Rock Dust
 item.EdenRockDust.name=Eden Rock Dust
@@ -80,7 +80,7 @@ item.BismuthDust.name=Bismuth Dust
 item.KoentusMeteoricIronDust.name=Koentus Meteoric Iron Dust
 item.QuontoniumDust.name=Quontonium Dust
 item.FronisiumDust.name=Fronisium Dust
-item.CentauriumDust.name=Cantaurium Dust
+item.CentauriumDust.name=Centaurium Dust
 item.PolongniusMeteoricIronDust.name=Polongnius Meteoric Iron Dust
 item.FloniumDust.name=Flonium Dust
 item.PinkQuartzDust.name=Pink Quartz Dust
@@ -107,7 +107,7 @@ item.PlutoDust.name=Pluto Dust
 item.KoentusDust.name=Koentus Dust
 item.KapteynBDust.name=Kapteyn-B Dust
 item.BasaltDust.name=Basalt Dust
-item.EnceladusDust.name=Enceladus Dust
+item.EnceladusDust.name=Enceladus Ice Dust
 item.cell.tinplasma.name=Tin Plasma cell
 item.cell.nitrogenplasma.name=Nitrogen Plasma Cell
 item.cell.zincplasma.name=Zinc Plasma Cell
@@ -137,7 +137,7 @@ fluid.sulfurplasma=Sulfur Plasma
 
 // Death messages
 death.attack.icbm.redmatter=%1$s was sucked into a Red Matter Node
-death.attack.customArrowEnergy=%1$s was shot by %2$s using %3$s
+death.attack.customArrowEnergy=%1$s was obliterated
 death.attack.Overheat=%1$s overheated
 
 // Professions

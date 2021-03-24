@@ -651,7 +651,7 @@ public class RecipesHandler {
 	private static void compressGem(ItemStack dust, ItemStack gem) {
 		dust.stackSize = 4;
 		gem.stackSize = 3;
-		implosionCompress(dust, getIC2Item("industrialTnt", 24), gem, ItemDusts.getDustByName("darkAsh", 12), 20, 32);
+		implosionCompress(dust, getIC2Item("industrialTnt", 24), gem, ItemDusts.getDustByName("darkAshes", 12), 20, 32);
 	}
 
 	private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,

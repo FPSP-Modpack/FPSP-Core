@@ -66,7 +66,7 @@ public enum ItemDefinitions {
 	VegaBRockDust(19), WhiteCrystalDust(71),
 
 	// Pluto
-	PlutoRockDust(20), PlutoniumDust(72), XeoniumDust(73), PlutoDust(103),
+	PlutoRockDust(20), PlutoDust(103),
 
 	// Kuiper Belt
 	DenseIceDust(21),

@@ -18,9 +18,10 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 
-@Mod(acceptedMinecraftVersions = "1.7.10", modid = FPSP.MODID, name = FPSP.MODNAME, version = FPSP.VERSION)
+@Mod(acceptedMinecraftVersions = "1.7.10", dependencies = FPSP.DEPENDENCIES, modid = FPSP.MODID, name = FPSP.MODNAME, version = FPSP.VERSION)
 public class FPSP {
 
+	public static final String DEPENDENCIES = "after:magicalcrops;after:ProjRed|Exploration;";
 	public static final String MODID = "fpsp";
 	public static final String MODNAME = "FPSP Core";
 	public static final String VERSION = "@version@";
@@ -56,6 +57,7 @@ public class FPSP {
 
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
+		proxy.init(event);
 		OreDictHandler.init();
 	}
 

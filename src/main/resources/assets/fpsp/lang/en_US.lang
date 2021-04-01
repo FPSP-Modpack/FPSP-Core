@@ -1,7 +1,7 @@
 # INTERNAL
 
 // Items
-item.MassZivicioDust.name=Mass Zivicio Dust
+item.MassZivicioDust.name=§8Mass Zivicio Essence
 item.MoonRockDust.name= Moon Rock Dust
 item.MarsRockDust.name=Mars Rock Dust
 item.PhobosRockDust.name=Phobos Rock Dust
@@ -122,6 +122,11 @@ tile.fluid.calciumplasma.name=Calcium Plasma
 tile.fluid.ironplasma.name=Iron Plasma
 tile.fluid.zincplasma.name=Zinc Plasma
 tile.fluid.sulfurplasma.name=Sulfur Plasma
+tile.redSandstone_default.name=Red Sandstone
+tile.redSandstone_chiseled.name=Chiseled Red Sandstone
+tile.redSandstone_smooth.name=Smooth Red Sandstone
+tile.redSandstoneSlab.name=Red Sandstone Slab
+tile.redSandstoneStairs.name=Red Sandstone Stairs
 
 // Fluids
 fluid.nitrogenplasma=Nitrogen Plasma

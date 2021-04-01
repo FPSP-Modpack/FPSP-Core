@@ -3,9 +3,11 @@ package glowredman.fpsp.proxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
-import glowredman.fpsp.BlockFluidBase;
 import glowredman.fpsp.FPSP;
+import glowredman.fpsp.block.BlockFluidBase;
 import glowredman.fpsp.handler.EventHandler;
+import glowredman.fpsp.item.ItemBlockRedSandstone;
+import glowredman.fpsp.item.ItemBlockRedSandstoneSlab;
 import glowredman.fpsp.world.OreGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -30,6 +32,13 @@ public class CommonProxy {
 		FPSP.TIN_PLASMA_BLOCK = new BlockFluidBase(FPSP.TIN_PLASMA);
 		FPSP.ZINC_PLASMA_BLOCK = new BlockFluidBase(FPSP.ZINC_PLASMA);
 
+		GameRegistry.registerBlock(FPSP.RED_SANDSTONE, ItemBlockRedSandstone.class,
+				FPSP.RED_SANDSTONE.getUnlocalizedName());
+		GameRegistry.registerBlock(FPSP.RED_SANDSTONE_SLAB, ItemBlockRedSandstoneSlab.class, "tile.redSandstoneSlab",
+				FPSP.RED_SANDSTONE_SLAB, FPSP.RED_SANDSTONE_SLAB_DOUBLE);
+		GameRegistry.registerBlock(FPSP.RED_SANDSTONE_SLAB_DOUBLE, ItemBlockRedSandstoneSlab.class,
+				"tile.redSandstoneSlabDouble", FPSP.RED_SANDSTONE_SLAB, FPSP.RED_SANDSTONE_SLAB_DOUBLE);
+		GameRegistry.registerBlock(FPSP.RED_SANDSTONE_STAIRS, FPSP.RED_SANDSTONE_STAIRS.getUnlocalizedName());
 		GameRegistry.registerBlock(FPSP.CALCIUM_PLASMA_BLOCK, FPSP.CALCIUM_PLASMA.getUnlocalizedName());
 		GameRegistry.registerBlock(FPSP.IRON_PLASMA_BLOCK, FPSP.IRON_PLASMA.getUnlocalizedName());
 		GameRegistry.registerBlock(FPSP.NITROGEN_PLASMA_BLOCK, FPSP.NITROGEN_PLASMA.getUnlocalizedName());

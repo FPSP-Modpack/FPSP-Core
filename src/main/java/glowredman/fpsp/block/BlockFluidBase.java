@@ -1,5 +1,6 @@
-package glowredman.fpsp;
+package glowredman.fpsp.block;
 
+import glowredman.fpsp.FPSP;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;

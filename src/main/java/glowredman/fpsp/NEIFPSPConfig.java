@@ -2,6 +2,7 @@ package glowredman.fpsp;
 
 import codechicken.nei.api.API;
 import codechicken.nei.api.IConfigureNEI;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class NEIFPSPConfig implements IConfigureNEI {
@@ -13,11 +14,13 @@ public class NEIFPSPConfig implements IConfigureNEI {
 
 	@Override
 	public String getVersion() {
-		return "1.0";
+		return "1.1";
 	}
 
 	@Override
 	public void loadConfig() {
+		API.hideItem(new ItemStack(FPSP.ITEM_ICON));
+
 		hide("ArchitectureCraft", "cladding");
 		hide("BiblioCraft", "BiblioClipboard");
 		hide("BuildCraft|Core", "buildToolBlock");

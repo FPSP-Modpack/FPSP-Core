@@ -16,6 +16,7 @@ public class CommonProxy {
 
 	public void preInit(FMLPreInitializationEvent event) {
 		GameRegistry.registerItem(FPSP.ITEM_META, FPSP.ITEM_META.getUnlocalizedName());
+		GameRegistry.registerItem(FPSP.ITEM_ICON, FPSP.ITEM_ICON.getUnlocalizedName());
 		GameRegistry.registerItem(FPSP.ITEM_CELL, FPSP.ITEM_CELL.getUnlocalizedName());
 
 		FluidRegistry.registerFluid(FPSP.TIN_PLASMA);

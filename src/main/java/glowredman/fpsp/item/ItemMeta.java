@@ -12,7 +12,7 @@ import net.minecraft.util.IIcon;
 
 public class ItemMeta extends Item {
 
-	protected HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
+	private HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
 	public static HashMap<Integer, ItemDefinitions> meta2item = new HashMap<Integer, ItemDefinitions>();
 
 	public ItemMeta() {

@@ -15,6 +15,7 @@ import glowredman.fpsp.block.BlockRedSandstoneStairs;
 import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
 import glowredman.fpsp.item.ItemCell;
+import glowredman.fpsp.item.ItemIcon;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -30,6 +31,7 @@ public class FPSP {
 	public static final String VERSION = "@version@";
 
 	public static final Item ITEM_META = new ItemMeta();
+	public static final Item ITEM_ICON = new ItemIcon();
 	public static final ItemCell ITEM_CELL = new ItemCell();
 	public static final Fluid TIN_PLASMA = new Fluid("tinplasma");
 	public static final Fluid NITROGEN_PLASMA = new Fluid("nitrogenplasma");

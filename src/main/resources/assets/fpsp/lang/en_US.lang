@@ -148,20 +148,24 @@ death.attack.Overheat=%1$s overheated
 // Professions
 description.villager.profession.rftools.rftoolsvillager=Dimension Traveller
 
-//Items
+// Tooltips
+cookingforblockheads:toaster.tooltipDesc=
+
+// Items
 item.mummy_helmet.name=Mummy Helmet
 item.mummy_chestplate.name=Mummy Chestplate
-item.mummy_leggins.name=Mummy Leggins
+item.mummy_leggings.name=Mummy Leggins
 item.mummy_boots.name=Mummy Boots
 item.pharaoh_helmet.name=Pharaoh Helmet
 item.pharaoh_chestplate.name=Pharaoh Chestplate
-item.pharaoh_leggins.name=Pharaoh Leggins
+item.pharaoh_leggings.name=Pharaoh Leggins
 item.pharaoh_boots.name=Pharaoh Boots
 item.enderZooIcon.name=Ender Zoo Icon
 item.mantle.manual.test.name=Test Manual
 item.pe_fire_projectile.name=Fire Projectile
 item.pe_wind_projectile.name=Wind Projectile
 item.morechisels.chisel.desh.name=Desh Chisel
+item.cookingforblockheads:toast.name=Toast
 
 // Blocks
 tile.BiblioClipboard.name=Clipboard
@@ -238,6 +242,39 @@ tile.CropBooster2.name=Crop Booster
 tile.CropBooster3.name=Crop Booster
 tile.CamoDummy.name=
 tile.sleepingBagBlock.name=Sleeping Bag
+tile.vanishingCobweb.name=Vanishing Cobweb
+tile.cookingforblockheads:toaster.name=Toaster
+tile.bossSpawner.name=Boss Spawner
+tile.sand.name=Sand
+tile.dirt.name=Dirt
+tile.frozen_roots.0.name=Frozen Roots
+tile.frozen_stone_column.0.name=Frozen Stone Column
+tile.botania:fakeAir.name=Fake Air
+tile.botania:solidVine.name=Solid Vines
+
+// Fluids
+fluid.caramel_fluid=Caramel
+fluid.cheese_of_milk_fluid=Cheese of Milk
+fluid.coconut_milk_fluid=Coconut Milk
+fluid.ovantine_fluid=Ovantine
+fluid.tea_fluid=Tea
+fluid.mineral_water_fluid=Mineral Water
+fluid.dirty_water_fluid=Dirty Water
+fluid.europa_water_fluid=Europa Water
+fluid.frozen_water_fluid=Frozen Water
+fluid.io_black_lava=Io Black Lava
+fluid.io_lava=Io Lava
+fluid.sirius_lava=Sirius Lava
+fluid.liquid_brown_sulfur=Liquid Brown Sulfur
+fluid.liquid_red_sulfur=Liquid Red Sulfur
+fluid.liquid_orange_sulfur=Liquid Orange Sulfur
+fluid.liquid_yellow_sulfur=Liquid Yellow Sulfur
+fluid.liquid_methane_fluid=Liquid Methane
+fluid.liquid_nitrogen_fluid=Liquid Nitrogen
+fluid.enderGoo=Ender Goo
+fluid.unknowwater=Unknown Water
+fluid.tc:diesel.name=Diesel
+fluid.tc:refinedfuel.name=Refined Fuel
 
 // Entities
 entity.InventoryPets.EntityBedPet.name=Bed Pet

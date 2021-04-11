@@ -20,6 +20,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
 import reborncore.common.util.OreUtil;
 import techreborn.api.reactor.FusionReactorRecipe;
 import techreborn.api.reactor.FusionReactorRecipeHelper;
@@ -34,6 +36,7 @@ public class RecipesHandler {
 
 	public static void init() {
 		addShapedRecipes();
+		addShapelessRecipes();
 		addCentrifugeRecipes();
 		addFusionRecipes();
 		addMaceratorRecipes();
@@ -43,18 +46,22 @@ public class RecipesHandler {
 	}
 
 	static void addShapedRecipes() {
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE, 1, 0), "SS", "SS", 'S',
-				new ItemStack(Blocks.sand, 1, 1));
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE, 1, 1), "S", "S", 'S',
-				new ItemStack(FPSP.RED_SANDSTONE_SLAB));
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE, 4, 2), "SS", "SS", 'S',
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 1, 0), "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1));
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 1, 1), "S", "S", 'S', new ItemStack(FPSP.RED_SANDSTONE_SLAB));
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 4, 2), "SS", "SS", 'S',
 				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE_SLAB, 6), "SSS", 'S',
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_SLAB, 6), "SSS", 'S',
 				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE_SLAB_DOUBLE), "SS", 'S',
-				new ItemStack(FPSP.RED_SANDSTONE_SLAB));
-		GameRegistry.addShapedRecipe(new ItemStack(FPSP.RED_SANDSTONE_STAIRS, 4), "S  ", "SS ", "SSS", 'S',
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_SLAB_DOUBLE), "SS", 'S', new ItemStack(FPSP.RED_SANDSTONE_SLAB));
+		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_STAIRS, 4), "S  ", "SS ", "SSS", 'S',
 				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
+		craftShaped(MassZivicioDust.getItem(), " E ", "ESE", " E ", 'E',
+				Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
+				Utils.getItem("magicalcrops", "InfusionStoneMaster"));
+	}
+
+	static void addShapelessRecipes() {
+		craftShapeless(MassZivicioDust.getItem(9), Utils.getItem("magicalcrops", "essence_storage", 5));
 	}
 
 	static void addFusionRecipes() {
@@ -757,6 +764,14 @@ public class RecipesHandler {
 	/******************
 	 * HELPER METHODS *
 	 ******************/
+
+	private static void craftShaped(ItemStack output, Object... inputs) {
+		GameRegistry.addRecipe(new ShapedOreRecipe(output, inputs));
+	}
+
+	private static void craftShapeless(ItemStack output, Object... inputs) {
+		GameRegistry.addRecipe(new ShapelessOreRecipe(output, inputs));
+	}
 
 	private static void centrifuge(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
 			ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {

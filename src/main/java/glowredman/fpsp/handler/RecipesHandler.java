@@ -35,13 +35,22 @@ import techreborn.items.ItemDustsSmall;
 public class RecipesHandler {
 
 	public static void init() {
+		// REMOVE
+		removeOreWasherRecipes();
+		removeThermalCentrifugeRecipes();
+
+		// ADD
 		addShapedRecipes();
 		addShapelessRecipes();
-		addCentrifugeRecipes();
-		addFusionRecipes();
+		addSmeltingRecipes();
+
 		addMaceratorRecipes();
 		addCompressorRecipes();
-		addSmeltingRecipes();
+		addOreWasherRecipes();
+		addThermalCentrifugeRecipes();
+
+		addCentrifugeRecipes();
+		addFusionRecipes();
 		addImplosionCompressorRecipes();
 	}
 
@@ -667,7 +676,7 @@ public class RecipesHandler {
 		washOre("Magnesium", ItemDustsSmall.getSmallDustByName("olivine", 2));
 		washOre("Plutonium", ItemDustsSmall.getSmallDustByName("uranium", 2));
 		washOre("Zinc", ic2("smallTinDust", 2));
-		washOre("Meteoric Iron", ic2("smallIronDust", 2));
+		washOre("MeteoricIron", ic2("smallIronDust", 2));
 	}
 
 	static void removeThermalCentrifugeRecipes() {
@@ -757,9 +766,9 @@ public class RecipesHandler {
 				IC2Items.getItem("smallTinDust"), stoneDust);
 		thermalCentrifuge("crushedPurifiedZinc", 4160, Utils.getItem("voltzengine", "veDust", 9),
 				IC2Items.getItem("smallTinDust"));
-		thermalCentrifuge("crushedZinc", 1360, MeteoricIronDust.getItem(), ItemDustsSmall.getSmallDustByName("nickel"),
-				stoneDust);
-		thermalCentrifuge("crushedPurifiedZinc", 1360, MeteoricIronDust.getItem(),
+		thermalCentrifuge("crushedMeteoricIron", 1360, MeteoricIronDust.getItem(),
+				ItemDustsSmall.getSmallDustByName("nickel"), stoneDust);
+		thermalCentrifuge("crushedPurifiedMeteoricIron", 1360, MeteoricIronDust.getItem(),
 				ItemDustsSmall.getSmallDustByName("nickel"));
 	}
 

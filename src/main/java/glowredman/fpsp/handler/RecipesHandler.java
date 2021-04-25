@@ -46,15 +46,17 @@ public class RecipesHandler {
 	}
 
 	static void addShapedRecipes() {
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 1, 0), "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1));
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 1, 1), "S", "S", 'S', new ItemStack(FPSP.RED_SANDSTONE_SLAB));
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE, 4, 2), "SS", "SS", 'S',
-				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_SLAB, 6), "SSS", 'S',
-				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_SLAB_DOUBLE), "SS", 'S', new ItemStack(FPSP.RED_SANDSTONE_SLAB));
-		craftShaped(new ItemStack(FPSP.RED_SANDSTONE_STAIRS, 4), "S  ", "SS ", "SSS", 'S',
-				new ItemStack(FPSP.RED_SANDSTONE, 1, OreDictionary.WILDCARD_VALUE));
+		craftShaped(new ItemStack(FPSP.blockRedSandstone, 1, 0), "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1));
+		craftShaped(new ItemStack(FPSP.blockRedSandstone, 1, 1), "S", "S", 'S',
+				new ItemStack(FPSP.blockRedSandstoneSlab));
+		craftShaped(new ItemStack(FPSP.blockRedSandstone, 4, 2), "SS", "SS", 'S',
+				new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
+		craftShaped(new ItemStack(FPSP.blockRedSandstoneSlab, 6), "SSS", 'S',
+				new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
+		craftShaped(new ItemStack(FPSP.blockRedSandstoneSlabDouble), "SS", 'S',
+				new ItemStack(FPSP.blockRedSandstoneSlab));
+		craftShaped(new ItemStack(FPSP.blockRedSandstoneStairs, 4), "S  ", "SS ", "SSS", 'S',
+				new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
 		craftShaped(MassZivicioDust.getItem(), " E ", "ESE", " E ", 'E',
 				Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
 				Utils.getItem("magicalcrops", "InfusionStoneMaster"));
@@ -66,17 +68,17 @@ public class RecipesHandler {
 
 	static void addFusionRecipes() {
 		fusion(ItemDusts.getDustByName("silver"), ItemCells.getCellByName("helium3"),
-				new ItemStack(FPSP.ITEM_CELL, 1, 0), 280000000, 49152, 16);
+				new ItemStack(FPSP.itemCell, 1, 0), 280000000, 49152, 16);
 		fusion(ItemCells.getCellByName("deuterium"), ItemCells.getCellByName("beryllium"),
-				new ItemStack(FPSP.ITEM_CELL, 1, 1), 180000000, 16384, 16);
+				new ItemStack(FPSP.itemCell, 1, 1), 180000000, 16384, 16);
 		fusion(ItemDusts.getDustByName("copper"), ItemCells.getCellByName("tritium"),
-				new ItemStack(FPSP.ITEM_CELL, 1, 2), 180000000, 49152, 16);
-		fusion(IC2Items.getItem("airCell"), ItemDusts.getDustByName("magnesium"), new ItemStack(FPSP.ITEM_CELL, 1, 3),
+				new ItemStack(FPSP.itemCell, 1, 2), 180000000, 49152, 16);
+		fusion(IC2Items.getItem("airCell"), ItemDusts.getDustByName("magnesium"), new ItemStack(FPSP.itemCell, 1, 3),
 				120000000, 7680, 128);
 		fusion(ItemCells.getCellByName("lithium"), ItemDusts.getDustByName("aluminium"),
-				new ItemStack(FPSP.ITEM_CELL, 1, 4), 240000000, 10240, 32);
+				new ItemStack(FPSP.itemCell, 1, 4), 240000000, 10240, 32);
 		fusion(ItemDusts.getDustByName("magnesium"), ItemCells.getCellByName("silicon"),
-				new ItemStack(FPSP.ITEM_CELL, 1, 5), 360000000, 7680, 32);
+				new ItemStack(FPSP.itemCell, 1, 5), 360000000, 7680, 32);
 	}
 
 	static void addCentrifugeRecipes() {
@@ -598,7 +600,7 @@ public class RecipesHandler {
 	}
 
 	static void addCompressorRecipes() {
-		compress(new ItemStack(Blocks.sand, 4, 1), new ItemStack(FPSP.RED_SANDSTONE));
+		compress(new ItemStack(Blocks.sand, 4, 1), new ItemStack(FPSP.blockRedSandstone));
 	}
 
 	static void addSmeltingRecipes() {

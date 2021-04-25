@@ -19,7 +19,7 @@ public class NEIFPSPConfig implements IConfigureNEI {
 
 	@Override
 	public void loadConfig() {
-		API.hideItem(new ItemStack(FPSP.ITEM_ICON));
+		API.hideItem(new ItemStack(FPSP.itemIcon));
 
 		hide("ArchitectureCraft", "cladding");
 		hide("BiblioCraft", "BiblioClipboard");

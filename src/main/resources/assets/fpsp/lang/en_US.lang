@@ -1,6 +1,7 @@
 # INTERNAL
 
 // Items
+item.null.name=
 item.MassZivicioDust.name=§8Mass Zivicio Essence
 item.MoonRockDust.name= Moon Rock Dust
 item.MarsRockDust.name=Mars Rock Dust
@@ -251,6 +252,7 @@ tile.frozen_roots.0.name=Frozen Roots
 tile.frozen_stone_column.0.name=Frozen Stone Column
 tile.botania:fakeAir.name=Fake Air
 tile.botania:solidVine.name=Solid Vines
+tile.venus_redstone_ore_active.name=Venus Redstone Ore
 
 // Fluids
 fluid.caramel_fluid=Caramel

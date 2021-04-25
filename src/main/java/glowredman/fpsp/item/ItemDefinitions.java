@@ -165,7 +165,7 @@ public enum ItemDefinitions {
 	}
 
 	public ItemStack getItem(int amount) {
-		return new ItemStack(FPSP.ITEM_META, amount, this.getMeta());
+		return new ItemStack(FPSP.itemMeta, amount, this.getMeta());
 	}
 
 }

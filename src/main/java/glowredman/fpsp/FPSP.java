@@ -9,14 +9,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import glowredman.fpsp.block.BlockRedSandstone;
-import glowredman.fpsp.block.BlockRedSandstoneSlab;
-import glowredman.fpsp.block.BlockRedSandstoneStairs;
-import glowredman.fpsp.handler.OreDictHandler;
-import glowredman.fpsp.handler.RecipesHandler;
 import glowredman.fpsp.item.ItemCell;
-import glowredman.fpsp.item.ItemIcon;
-import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -30,25 +23,25 @@ public class FPSP {
 	public static final String MODNAME = "FPSP Core";
 	public static final String VERSION = "@version@";
 
-	public static final Item ITEM_META = new ItemMeta();
-	public static final Item ITEM_ICON = new ItemIcon();
-	public static final ItemCell ITEM_CELL = new ItemCell();
-	public static final Fluid TIN_PLASMA = new Fluid("tinplasma");
-	public static final Fluid NITROGEN_PLASMA = new Fluid("nitrogenplasma");
-	public static final Fluid ZINC_PLASMA = new Fluid("zincplasma");
-	public static final Fluid CALCIUM_PLASMA = new Fluid("calciumplasma");
-	public static final Fluid SULFUR_PLASMA = new Fluid("sulfurplasma");
-	public static final Fluid IRON_PLASMA = new Fluid("ironplasma");
-	public static final Block RED_SANDSTONE = new BlockRedSandstone();
-	public static final Block RED_SANDSTONE_SLAB = (Block) new BlockRedSandstoneSlab(false);
-	public static final Block RED_SANDSTONE_SLAB_DOUBLE = (Block) new BlockRedSandstoneSlab(true);
-	public static final Block RED_SANDSTONE_STAIRS = new BlockRedSandstoneStairs();
-	public static Block TIN_PLASMA_BLOCK;
-	public static Block NITROGEN_PLASMA_BLOCK;
-	public static Block ZINC_PLASMA_BLOCK;
-	public static Block CALCIUM_PLASMA_BLOCK;
-	public static Block SULFUR_PLASMA_BLOCK;
-	public static Block IRON_PLASMA_BLOCK;
+	public static Item itemMeta;
+	public static Item itemIcon;
+	public static ItemCell itemCell;
+	public static Fluid fluidTinPlasma;
+	public static Fluid fluidNitrogenPlasma;
+	public static Fluid fluidZincPlasma;
+	public static Fluid fluidCalciumPlasma;
+	public static Fluid fluidSulfurPlasma;
+	public static Fluid fluidIronPlasma;
+	public static Block blockRedSandstone;
+	public static Block blockRedSandstoneSlab;
+	public static Block blockRedSandstoneSlabDouble;
+	public static Block blockRedSandstoneStairs;
+	public static Block blockTinPlasma;
+	public static Block blockNitrogenPlasma;
+	public static Block blockZincPlasma;
+	public static Block blockCalciumPlasma;
+	public static Block blockSulfurPlasma;
+	public static Block blockIronPlasma;
 
 	@Instance
 	public static FPSP instance;
@@ -67,11 +60,10 @@ public class FPSP {
 	@EventHandler
 	public static void init(FMLInitializationEvent event) {
 		proxy.init(event);
-		OreDictHandler.init();
 	}
 
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event) {
-		RecipesHandler.init();
+		proxy.postInit(event);
 	}
 }

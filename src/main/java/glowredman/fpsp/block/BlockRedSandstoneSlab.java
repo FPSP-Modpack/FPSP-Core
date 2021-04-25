@@ -24,7 +24,7 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 
 	@Override
 	public IIcon getIcon(int side, int meta) {
-		return FPSP.RED_SANDSTONE.getBlockTextureFromSide(side);
+		return FPSP.blockRedSandstone.getBlockTextureFromSide(side);
 	}
 
 	@Override
@@ -35,12 +35,12 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 
 	@Override
 	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
-		return Item.getItemFromBlock(FPSP.RED_SANDSTONE_SLAB);
+		return Item.getItemFromBlock(FPSP.blockRedSandstoneSlab);
 	}
 
 	@Override
 	protected ItemStack createStackedBlock(int meta) {
-		return new ItemStack(FPSP.RED_SANDSTONE_SLAB, 2);
+		return new ItemStack(FPSP.blockRedSandstoneSlab, 2);
 	}
 
 	@Override

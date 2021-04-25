@@ -7,7 +7,7 @@ import net.minecraft.block.BlockStairs;
 public class BlockRedSandstoneStairs extends BlockStairs {
 
 	public BlockRedSandstoneStairs() {
-		super(FPSP.RED_SANDSTONE, 0);
+		super(FPSP.blockRedSandstone, 0);
 		setBlockName("redSandstoneStairs");
 	}
 

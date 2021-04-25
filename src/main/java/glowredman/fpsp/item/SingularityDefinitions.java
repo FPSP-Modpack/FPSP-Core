@@ -42,7 +42,6 @@ public enum SingularityDefinitions {
 	METEORIC_IRON(0x643250, "blockMeteoricIron", 4000),
 	DESH(0x282828, "blockDesh", 2980),
 	ADAMANTITE(0xCDD299, "blockAdamantite", 1160),
-	COBALT(0x5050FA, "blockCobalt", 1270),
 	MAGNESIUM(0xFFC8C8, "blockMagnesium", 1020),
 	ORIHARUKON(0x677D68, "blockOriharukon", 1290),
 	QUONTONIUM(0xABABF8, "blockQuontonium", 1530),

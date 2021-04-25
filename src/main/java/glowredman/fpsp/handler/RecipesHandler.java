@@ -5,9 +5,17 @@ import static glowredman.fpsp.item.ItemDefinitions.*;
 import java.util.Map.Entry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import fox.spiteful.avaritia.crafting.CompressOreRecipe;
+import fox.spiteful.avaritia.crafting.CompressorManager;
+import fox.spiteful.avaritia.crafting.CompressorRecipe;
+import fox.spiteful.avaritia.crafting.Grinder;
+import fox.spiteful.avaritia.items.LudicrousItems;
+import galaxyspace.core.item.ItemPlates.PlateTypes;
 import galaxyspace.core.register.GSItems;
 import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
+import glowredman.fpsp.item.ItemFPSPSingularity;
+import glowredman.fpsp.item.SingularityDefinitions;
 import ic2.api.item.IC2Items;
 import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.RecipeInputItemStack;
@@ -16,6 +24,7 @@ import ic2.api.recipe.RecipeOutput;
 import ic2.api.recipe.Recipes;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
+import mods.railcraft.common.items.firestone.ItemFirestoneRefined;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -28,6 +37,7 @@ import techreborn.api.reactor.FusionReactorRecipeHelper;
 import techreborn.api.recipe.RecipeHandler;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
 import techreborn.api.recipe.machines.ImplosionCompressorRecipe;
+import techreborn.blocks.BlockStorage;
 import techreborn.items.ItemCells;
 import techreborn.items.ItemDusts;
 import techreborn.items.ItemDustsSmall;
@@ -43,6 +53,9 @@ public class RecipesHandler {
 		addShapedRecipes();
 		addShapelessRecipes();
 		addSmeltingRecipes();
+
+		addNeutroniumCompressor();
+		addInfinityCatalystIngredients();
 
 		addMaceratorRecipes();
 		addCompressorRecipes();
@@ -73,6 +86,46 @@ public class RecipesHandler {
 
 	static void addShapelessRecipes() {
 		craftShapeless(MassZivicioDust.getItem(9), Utils.getItem("magicalcrops", "essence_storage", 5));
+	}
+
+	static void addNeutroniumCompressor() {
+		for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+			Object input = s.getInput();
+			if (input instanceof String) {
+				neutroniumCompress(s.getItem(), s.getAmount(), (String) input, true);
+				continue;
+			}
+			if (input instanceof ItemStack) {
+				neutroniumCompress(s.getItem(), s.getAmount(), (ItemStack) input, true);
+				continue;
+			}
+		}
+	}
+
+	static void addInfinityCatalystIngredients() {
+		catalyse(Utils.getItem("AdvancedSolarPanel", "asp_crafting_items", 13));
+		catalyse(new ItemStack(LudicrousItems.resource, 1, 7));
+		catalyse(new ItemStack(LudicrousItems.resource, 1, 8));
+		catalyse(new ItemStack(LudicrousItems.resource, 1, 9));
+		catalyse(Utils.getItem("BloodArsenal", "blood_infused_diamond_block"));
+		catalyse(Utils.getItem("DraconicEvolution", "dezilsMarshmallow"));
+		catalyse(Utils.getItem("DraconicEvolution", "chaoticCore"));
+		catalyse(Utils.getItem("magicalcrops", "essence_storage", 5));
+		catalyse(Utils.getItem("rftools", "infusedDiamondItem"));
+		catalyse(Utils.getItem("supersolarpanel", "enderquantumcomponent"));
+		catalyse(new ItemStack(ItemFirestoneRefined.item));
+		catalyse(PlateTypes.HeavyDutyPlateT13.getIS());
+		catalyse(Utils.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 14));
+		catalyse(Utils.getItem("galaxymod", "galaxymod_purgotoasistablet"));
+		catalyse(new ItemStack(FPSP.blockMeta, 1, 2));
+		catalyse(new ItemStack(FPSP.blockMeta, 1, 3));
+		catalyse(new ItemStack(FPSP.blockMeta, 1, 4));
+		catalyse(Utils.getItem("MorePlanet", "alphere"));
+		catalyse(BlockStorage.getStorageBlockByName("chromium"));
+
+		for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+			catalyse(s.getItem());
+		}
 	}
 
 	static void addFusionRecipes() {
@@ -818,6 +871,18 @@ public class RecipesHandler {
 
 	private static void smelt(ItemStack input, ItemStack output, float xp) {
 		GameRegistry.addSmelting(input, output, xp);
+	}
+
+	private static void neutroniumCompress(ItemStack output, int amount, String ore, boolean exact) {
+		CompressorManager.getRecipes().add(new CompressOreRecipe(output, amount, ore, exact));
+	}
+
+	private static void neutroniumCompress(ItemStack output, int amount, ItemStack input, boolean exact) {
+		CompressorManager.getRecipes().add(new CompressorRecipe(output, amount, input, exact));
+	}
+
+	private static void catalyse(Object ingredient) {
+		Grinder.catalyst.getInput().add(ingredient);
 	}
 
 	private static void compressGem(ItemStack dust, ItemStack gem) {

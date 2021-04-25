@@ -7,15 +7,18 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 import glowredman.fpsp.block.BlockFluidBase;
+import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.block.BlockRedSandstone;
 import glowredman.fpsp.block.BlockRedSandstoneSlab;
 import glowredman.fpsp.block.BlockRedSandstoneStairs;
 import glowredman.fpsp.handler.EventHandler;
 import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
+import glowredman.fpsp.item.ItemBlockMeta;
 import glowredman.fpsp.item.ItemBlockRedSandstone;
 import glowredman.fpsp.item.ItemBlockRedSandstoneSlab;
 import glowredman.fpsp.item.ItemCell;
+import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.ItemIcon;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.world.OreGenerator;
@@ -30,10 +33,12 @@ public class CommonProxy {
 		// ITEMS
 		itemMeta = new ItemMeta();
 		itemIcon = new ItemIcon();
+		itemSingularity = new ItemFPSPSingularity();
 		itemCell = new ItemCell();
 		GameRegistry.registerItem(itemMeta, itemMeta.getUnlocalizedName());
 		GameRegistry.registerItem(itemIcon, "item.icon");
 		GameRegistry.registerItem(itemCell, itemCell.getUnlocalizedName());
+		GameRegistry.registerItem(itemSingularity, itemSingularity.getUnlocalizedName());
 
 		// FLUIDS
 		fluidTinPlasma = new Fluid("tinplasma");
@@ -64,10 +69,12 @@ public class CommonProxy {
 		GameRegistry.registerBlock(blockZincPlasma, fluidZincPlasma.getUnlocalizedName());
 
 		// BLOCKS
+		blockMeta = new BlockMeta();
 		blockRedSandstone = new BlockRedSandstone();
 		blockRedSandstoneSlab = new BlockRedSandstoneSlab(false);
 		blockRedSandstoneSlabDouble = new BlockRedSandstoneSlab(true);
 		blockRedSandstoneStairs = new BlockRedSandstoneStairs();
+		GameRegistry.registerBlock(blockMeta, ItemBlockMeta.class, blockMeta.getLocalizedName());
 		GameRegistry.registerBlock(blockRedSandstone, ItemBlockRedSandstone.class,
 				blockRedSandstone.getUnlocalizedName());
 		GameRegistry.registerBlock(blockRedSandstoneSlab, ItemBlockRedSandstoneSlab.class, "tile.redSandstoneSlab",

@@ -3,8 +3,12 @@ package glowredman.fpsp.handler;
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import galaxyspace.core.register.GSBlocks;
+import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
+import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.item.ItemDefinitions;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
 public class OreDictHandler {
@@ -14,6 +18,9 @@ public class OreDictHandler {
 		registerItem("itemSkull", "HardcoreEnderExpansion", "enderman_head");
 		registerItem("skullEnderman", "HardcoreEnderExpansion", "enderman_head");
 		registerItem("obsidianRod", "HardcoreEnderExpansion", "obsidian_rod");
+		registerItem("blockCrystal", "wizardry", "crystal_block");
+		registerItem("blockSalt", "harvestcraft", "spamcompressedsaltBlockalt");
+		registerItem("blockSoulium", "SSTOW", "sstow_soulium_block");
 
 		registerDust(DeshDust);
 		registerDust(OriharukonDust);
@@ -55,6 +62,20 @@ public class OreDictHandler {
 		registerDust(PurpleGemDust);
 		registerDust(AlphereDust);
 		OreDictionary.registerOre("dustPromethean", XathianPrometheanDust.getItem());
+		OreDictionary.registerOre("blockLead", new ItemStack(GSBlocks.MetalsBlock));
+		OreDictionary.registerOre("blockAdamantite", new ItemStack(GSBlocks.MetalsBlock, 1, 1));
+		OreDictionary.registerOre("blockCobalt", new ItemStack(GSBlocks.MetalsBlock, 1, 2));
+		OreDictionary.registerOre("blockMagnesium", new ItemStack(GSBlocks.MetalsBlock, 1, 3));
+		OreDictionary.registerOre("blockMithril", new ItemStack(GSBlocks.MetalsBlock, 1, 4));
+		OreDictionary.registerOre("blockNickel", new ItemStack(GSBlocks.MetalsBlock, 1, 5));
+		OreDictionary.registerOre("blockOriharukon", new ItemStack(GSBlocks.MetalsBlock, 1, 6));
+		OreDictionary.registerOre("blockPlatinum", new ItemStack(GSBlocks.MetalsBlock, 1, 7));
+		OreDictionary.registerOre("blockTungsten", new ItemStack(GSBlocks.MetalsBlock, 1, 8));
+		OreDictionary.registerOre("blockCopper", new ItemStack(GSBlocks.MetalsBlock, 1, 9));
+
+		for (int i = 0; i < BlockMeta.types.length; i++) {
+			OreDictionary.registerOre("block" + BlockMeta.types[i], new ItemStack(FPSP.blockMeta, 1, i));
+		}
 	}
 
 	private static void registerItem(String oreDict, String modID, String itemName) {

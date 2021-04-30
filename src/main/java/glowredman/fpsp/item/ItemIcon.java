@@ -8,7 +8,7 @@ import net.minecraft.util.IIcon;
 public class ItemIcon extends Item {
 
 	private IIcon[] textures;
-	private static String[] types = new String[] { "orbs", "puredaisy" };
+	private static String[] types = new String[] { "orbs" };
 
 	public ItemIcon() {
 		this.setHasSubtypes(true);

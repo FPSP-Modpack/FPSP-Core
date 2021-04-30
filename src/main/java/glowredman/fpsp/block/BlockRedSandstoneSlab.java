@@ -5,7 +5,6 @@ import java.util.Random;
 import glowredman.fpsp.FPSP;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Facing;
@@ -14,8 +13,6 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockRedSandstoneSlab extends BlockSlab {
-
-	private IIcon textureSide;
 
 	public BlockRedSandstoneSlab(boolean isDouble) {
 		super(isDouble, Material.rock);
@@ -28,12 +25,6 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 	@Override
 	public IIcon getIcon(int side, int meta) {
 		return FPSP.blockRedSandstone.getBlockTextureFromSide(side);
-	}
-
-	@Override
-	public void registerBlockIcons(IIconRegister register) {
-		blockIcon = register.registerIcon(FPSP.MODID + ":red_sandstone_slab_top");
-		textureSide = register.registerIcon(FPSP.MODID + ":red_sandstone_slab_side");
 	}
 
 	@Override

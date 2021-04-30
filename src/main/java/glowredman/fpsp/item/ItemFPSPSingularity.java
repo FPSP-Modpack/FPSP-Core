@@ -3,7 +3,6 @@ package glowredman.fpsp.item;
 import java.util.List;
 
 import fox.spiteful.avaritia.items.ItemSingularity;
-import fox.spiteful.avaritia.render.IHaloRenderItem;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
@@ -11,7 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 
-public class ItemFPSPSingularity extends ItemSingularity implements IHaloRenderItem {
+public class ItemFPSPSingularity extends ItemSingularity {
 
 	public static final SingularityDefinitions[] types = SingularityDefinitions.values();
 

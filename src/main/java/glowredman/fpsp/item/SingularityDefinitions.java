@@ -7,7 +7,6 @@ import glowredman.fpsp.Utils;
 import net.minecraft.item.ItemStack;
 
 public enum SingularityDefinitions {
-	IRIDIUM(0xF0F0F5, "blockIridium", 1210),
 	BLOOD_INFUSED_IRON(0x45090A, Utils.getItem("BloodArsenal", "blood_infused_iron_block"), 1851),
 	CITRINE(0xF0E628, "blockCitrine", 260),
 	ONYX(0x454545, "blockOnyx", 640),
@@ -17,10 +16,8 @@ public enum SingularityDefinitions {
 	JADE(0x006400, "blockJade", 120),
 	PETALITE(0xE9EEAF, "blockPetalite", 640),
 	MERCURIAN_IRON(0x89847e, "blockMercurianIron", 40),
-	PLUTONIUM(0xF03232, "blockPlutonium", 310),
 	BISMUTH(0x64A0A0, "blockBismuth", 640),
 	CENTAURIUM(0xFF921D, 0xFF3A3D, "blockCentaurium", 480),
-	EUROPIUM(0x778899, "blockEuropium", 2000),
 	RHODIUM(0xC8D7C8, "blockRhodium", 960),
 	CERTUS(0xD2D2E6, Utils.getItem("appliedenergistics2", "tile.BlockQuartz"), 3780),
 	FLUIX(0x9860C0, 0x182040, Utils.getItem("appliedenergistics2", "tile.BlockFluix"), 2400),
@@ -39,10 +36,7 @@ public enum SingularityDefinitions {
 	VIVID_ALLOY(0x46BCD, "blockVividAlloy", 1600),
 	ENERGETIC_SILVER(0x95B7CD, "blockEnergeticSilver", 3200),
 	ENDIUM(0xA5DCFA, "blockHeeEndium", 2000),
-	METEORIC_IRON(0x643250, "blockMeteoricIron", 4000),
-	DESH(0x282828, "blockDesh", 2980),
 	ADAMANTITE(0xCDD299, "blockAdamantite", 1160),
-	MAGNESIUM(0xFFC8C8, "blockMagnesium", 1020),
 	ORIHARUKON(0x677D68, "blockOriharukon", 1290),
 	QUONTONIUM(0xABABF8, "blockQuontonium", 1530),
 	FRONISIUM(0xE2E2E2, "blockFronisium", 650),
@@ -76,7 +70,7 @@ public enum SingularityDefinitions {
 	private int amount;
 
 	private SingularityDefinitions(int color, Object input, int amount) {
-		this(color, darker(color), input, amount);
+		this(color, new Color(color).darker().getRGB(), input, amount);
 	}
 
 	private SingularityDefinitions(int color1, int color2, Object input, int amount) {
@@ -109,10 +103,6 @@ public enum SingularityDefinitions {
 
 	public ItemStack getItem() {
 		return new ItemStack(FPSP.itemSingularity, 1, this.ordinal());
-	}
-
-	private static int darker(int colorIn) {
-		return new Color(colorIn).darker().getRGB();
 	}
 
 }

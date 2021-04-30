@@ -3,5 +3,10 @@
 .project
 .settings
 bin
+build
 eclipse
-/build/
+out
+run
+*.iml
+*.ipr
+*.iws

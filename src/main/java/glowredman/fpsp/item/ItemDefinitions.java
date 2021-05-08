@@ -17,6 +17,10 @@ public enum ItemDefinitions {
 	CosmicBerry(110),
 	CosmicNut(111),
 	CosmicSpice(112),
+	SiliconCarbideIngot(113),
+	TungstenCarbideIngot(114),
+	SiliconCarbidePlate(115),
+	TungstenCarbidePlate(116),
 
 	// Moon
 	MoonRockDust(1), MoonDust(98),

@@ -37,6 +37,7 @@ import reborncore.common.util.OreUtil;
 import techreborn.api.reactor.FusionReactorRecipe;
 import techreborn.api.reactor.FusionReactorRecipeHelper;
 import techreborn.api.recipe.RecipeHandler;
+import techreborn.api.recipe.machines.BlastFurnaceRecipe;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
 import techreborn.api.recipe.machines.ImplosionCompressorRecipe;
 import techreborn.items.ItemCells;
@@ -63,10 +64,12 @@ public class RecipesHandler {
 		addCompressorRecipes();
 		addOreWasherRecipes();
 		addThermalCentrifugeRecipes();
+		addMetalFormerRecipes();
 
 		addCentrifugeRecipes();
 		addFusionRecipes();
 		addImplosionCompressorRecipes();
+		addBlastFurnaceRecipes();
 	}
 
 	static void addShapedRecipes() {
@@ -692,6 +695,11 @@ public class RecipesHandler {
 		macerate(Utils.getItem("MorePlanet", "dark_asteroid_quicksand"), DarkAsteroidDust.getItem());
 	}
 
+	static void addMetalFormerRecipes() {
+		press(SiliconCarbideIngot.getItem(), SiliconCarbidePlate.getItem());
+		press(TungstenCarbideIngot.getItem(), TungstenCarbidePlate.getItem());
+	}
+
 	static void addCompressorRecipes() {
 		compress(new ItemStack(Blocks.sand, 4, 1), new ItemStack(FPSP.blockRedSandstone));
 	}
@@ -855,6 +863,13 @@ public class RecipesHandler {
 				ItemDustsSmall.getSmallDustByName("nickel"));
 	}
 
+	static void addBlastFurnaceRecipes() {
+		hotSmelt(ItemCells.getCellByName("silicon"), ItemCells.getCellByName("carbon"), SiliconCarbideIngot.getItem(),
+				null, 200, 128, 2000);
+		hotSmelt(ItemCells.getCellByName("tungsten"), ItemCells.getCellByName("carbon"), TungstenCarbideIngot.getItem(),
+				null, 200, 128, 1700);
+	}
+
 	/******************
 	 * HELPER METHODS *
 	 ******************/
@@ -883,12 +898,8 @@ public class RecipesHandler {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input), null, outputs);
 	}
 
-	private static void macerate(String oreDictInputnput, ItemStack outputs) {
-		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput), null, outputs);
-	}
-
-	private static void macerate(String oreDictInputnput, int inputAmount, ItemStack outputs) {
-		Recipes.macerator.addRecipe(new RecipeInputOreDict(oreDictInputnput, inputAmount), null, outputs);
+	private static void press(ItemStack input, ItemStack outputs) {
+		Recipes.metalformerRolling.addRecipe(new RecipeInputItemStack(input), null, outputs);
 	}
 
 	private static void compress(ItemStack input, ItemStack output) {
@@ -979,6 +990,12 @@ public class RecipesHandler {
 				break;
 			}
 		}
+	}
+
+	private static void hotSmelt(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime,
+			int euPerTick, int neededHeat) {
+		RecipeHandler
+				.addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
 	}
 
 	private static ItemStack ic2(String name, int amount) {

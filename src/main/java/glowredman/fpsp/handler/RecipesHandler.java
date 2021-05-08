@@ -12,6 +12,7 @@ import fox.spiteful.avaritia.crafting.Grinder;
 import galaxyspace.core.register.GSItems;
 import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
+import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.SingularityDefinitions;
 import ic2.api.item.IC2Items;
@@ -78,6 +79,19 @@ public class RecipesHandler {
 		craftShaped(MassZivicioDust.getItem(), " E ", "ESE", " E ", 'E',
 				Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
 				Utils.getItem("magicalcrops", "InfusionStoneMaster"));
+		block(0, "gem");
+		block(1, "ingot");
+		block(2, "ingot");
+		block(3, "ingot");
+		block(4, "item");
+		block(5, "gem");
+		block(6, "pearl");
+		block(7, "item");
+		block(8, "ingot");
+		block(9, "item");
+		block(10, "gem");
+		block(11, "gem");
+		block(12, "dust");
 	}
 
 	static void addShapelessRecipes() {
@@ -887,6 +901,12 @@ public class RecipesHandler {
 				break;
 			}
 		}
+	}
+
+	private static void block(int meta, String prefix) {
+		String suffix = BlockMeta.types[meta];
+		craftShaped(new ItemStack(FPSP.blockMeta, 1, meta), "XXX", "XXX", "XXX", 'X', prefix + suffix);
+		craftShapeless(OreUtil.getStackFromName(prefix + suffix, 9), "block" + suffix);
 	}
 
 	private static void wash(String input, int liquidAmount, ItemStack... outputs) {

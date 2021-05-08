@@ -3,6 +3,16 @@
 // Items
 item.null.name=
 item.MassZivicioDust.name=§8Mass Zivicio Essence
+item.UnknownCrystalSeeds.name=Unknown Crystal Seeds
+item.IronEnderCompound.name=Iron-Ender Compound
+item.CosmicFish.name=Rainbow Fish
+item.CosmicMushroom.name=Magic Mushrooms
+item.CosmicVeggie.name=Verdant Vegetables
+item.CosmicFruit.name=Paradise Fruit
+item.CosmicGrain.name=Grains of Infinity
+item.CosmicBerry.name=Doom Berries
+item.CosmicNut.name=The One Nut
+item.CosmicSpice.name=Extraordinary Seasoning
 item.MoonRockDust.name= Moon Rock Dust
 item.MarsRockDust.name=Mars Rock Dust
 item.PhobosRockDust.name=Phobos Rock Dust

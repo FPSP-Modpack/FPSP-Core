@@ -7,6 +7,16 @@ public enum ItemDefinitions {
 
 	// Stuff
 	MassZivicioDust(0),
+	UnknownCrystalSeeds(63),
+	IronEnderCompound(70),
+	CosmicFish(72),
+	CosmicMushroom(73),
+	CosmicVeggie(94),
+	CosmicFruit(108),
+	CosmicGrain(109),
+	CosmicBerry(110),
+	CosmicNut(111),
+	CosmicSpice(112),
 
 	// Moon
 	MoonRockDust(1), MoonDust(98),

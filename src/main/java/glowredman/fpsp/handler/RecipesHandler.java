@@ -2,13 +2,17 @@ package glowredman.fpsp.handler;
 
 import static glowredman.fpsp.item.ItemDefinitions.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map.Entry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.crafting.CompressOreRecipe;
 import fox.spiteful.avaritia.crafting.CompressorManager;
 import fox.spiteful.avaritia.crafting.CompressorRecipe;
+import fox.spiteful.avaritia.crafting.ExtremeCraftingManager;
 import fox.spiteful.avaritia.crafting.Grinder;
+import fox.spiteful.avaritia.items.LudicrousItems;
 import galaxyspace.core.register.GSItems;
 import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
@@ -53,6 +57,7 @@ public class RecipesHandler {
 
 		addNeutroniumCompressor();
 		addInfinityCatalystIngredients();
+		addExtremeShapelessRecipes();
 
 		addMaceratorRecipes();
 		addCompressorRecipes();
@@ -96,6 +101,12 @@ public class RecipesHandler {
 
 	static void addShapelessRecipes() {
 		craftShapeless(MassZivicioDust.getItem(9), Utils.getItem("magicalcrops", "essence_storage", 5));
+		craftShapeless(IronEnderCompound.getItem(2), "dustIron", Utils.getItem("HardcoreEnderExpansion", "end_powder"),
+				"dustSmallOsmium");
+		craftShapeless(UnknownCrystalSeeds.getItem(2), "dustQuartz", "cropBarnardaCDandelion",
+				Utils.getItem("MorePlanet", "frozen_water_bucket"));
+		craftShapeless(UnknownCrystalSeeds.getItem(2), "dustQuartz", "cropTCetiESeaweed",
+				Utils.getItem("MorePlanet", "frozen_water_bucket"));
 	}
 
 	static void addNeutroniumCompressor() {
@@ -116,6 +127,35 @@ public class RecipesHandler {
 		for (SingularityDefinitions s : ItemFPSPSingularity.types) {
 			catalyse(s.getItem());
 		}
+	}
+
+	static void addExtremeShapelessRecipes() {
+		cosmic(CosmicFish.getItem(), "listAllfishraw");
+		cosmic(CosmicMushroom.getItem(), "listAllmushroom");
+		craftShapelessXtreme(CosmicVeggie.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropPumpkin",
+				"cropCarrot", "cropPotato", "cropAsparagus", "cropCorn", "cropBambooshoot", "cropCucumber",
+				"cropWintersquash", "cropZucchini", "cropBeet", "cropOnion", "cropParsnip", "cropRadish",
+				"cropRutabaga", "cropSweetpotato", "cropTurnip", "cropRhubarb", "cropCelery", "cropBroccoli",
+				"cropCauliflower", "cropLeek", "cropLettuce", "cropScallion", "cropArtichoke", "cropBrusselsprout",
+				"cropCabbage", "cropSpinach", "cropBean", "cropSoybean", "cropBellpepper", "cropChilipepper",
+				"cropEggplant", "cropOkra", "cropPeas", "cropTomato", "cropSeaweed", "cropBloodleaf",
+				"cropWildcarrots");
+		craftShapelessXtreme(CosmicFruit.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropApple",
+				"cropMelon", Utils.getItem("galaxymod", "galaxymod_fruitofeden"), "cropGrape", "cropCactusfruit",
+				"cropCantaloupe", "cropPineapple", "cropKiwi", "cropApricot", "cropAvocado", "cropBanana", "cropCherry",
+				"cropCoconut", "cropDate", "cropDragonfruit", "cropDurian", "cropFig", "cropGrapefruit", "cropLemon",
+				"cropLime", "cropMango", "cropOlive", "cropOrange", "cropPapaya", "cropPeach", "cropPear",
+				"cropPersimmon", "cropPlum", "cropPomegranate", "cropStarfruit", "cropIgnisfruit", "cropUnknownFruits");
+		craftShapelessXtreme(CosmicGrain.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropWheat",
+				"cropBarley", "cropOats", "cropRye", "cropRice");
+		craftShapelessXtreme(CosmicBerry.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropBlackberry",
+				"cropBlueberry", "cropRaspberry", "cropStrawberry", "cropCranberry", "cropGooseberry",
+				"cropMarrowberry", "cropMaloberry", "cropBlightberry", "cropDuskberry", "cropSkyberry",
+				"cropStingberry", Utils.getItem("MorePlanet", "fronos_food", 1));
+		cosmic(CosmicNut.getItem(), "listAllnut");
+		craftShapelessXtreme(CosmicSpice.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropGinger",
+				"cropSpiceleaf", "cropMustard", "cropSesame", "cropCurryleaf", "cropCinnamon", "cropNutmeg",
+				"cropPeppercorn", "cropVanillabean");
 	}
 
 	static void addFusionRecipes() {
@@ -155,9 +195,8 @@ public class RecipesHandler {
 				MeteoricIronDust.getItem(), null, 300, 25);
 
 		// Asteroid Rock Dust
-		centrifuge(AsteroidRockDust.getItem(32), null, ItemDusts.getDustByName("aluminium", 2),
-				IC2Items.getItem("ironDust"), MeteoricIronDust.getItem(2), new ItemStack(GCItems.basicItem, 1, 2), 300,
-				25);
+		centrifuge(AsteroidRockDust.getItem(32), IC2Items.getItem("cell"), ItemDusts.getDustByName("aluminium", 2),
+				IC2Items.getItem("ironDust"), MeteoricIronDust.getItem(2), ItemCells.getCellByName("silicon"), 300, 25);
 
 		// Callisto Rock Dust
 		centrifuge(CallistoRockDust.getItem(32), null, PalladiumDust.getItem(2),
@@ -245,8 +284,9 @@ public class RecipesHandler {
 				null, 300, 25);
 
 		// Diona Rock Dust
-		centrifuge(DionaRockDust.getItem(32), null, QuontoniumDust.getItem(2), FronisiumDust.getItem(2),
-				KoentusMeteoricIronDust.getItem(), new ItemStack(GCItems.basicItem, 1, 2), 300, 25);
+		centrifuge(DionaRockDust.getItem(32), IC2Items.getItem("cell"), QuontoniumDust.getItem(2),
+				FronisiumDust.getItem(2), KoentusMeteoricIronDust.getItem(), ItemCells.getCellByName("silicon"), 300,
+				25);
 
 		// alphaCentauri Bb Rock Dust
 		centrifuge(ACentauriBbRockDust.getItem(32), null, CentauriumDust.getItem(2), MetalMeteoricIronDust.getItem(),
@@ -873,6 +913,17 @@ public class RecipesHandler {
 
 	private static void catalyse(Object ingredient) {
 		Grinder.catalyst.getInput().add(ingredient);
+	}
+
+	private static void craftShapelessXtreme(ItemStack output, Object... ingredients) {
+		ExtremeCraftingManager.getInstance().addShapelessOreRecipe(output, ingredients);
+	}
+
+	private static void cosmic(ItemStack output, String oreDict) {
+		List<ItemStack> input = new ArrayList<>();
+		input.add(0, new ItemStack(LudicrousItems.resource, 1, 2));
+		input.addAll(1, OreDictionary.getOres(oreDict));
+		craftShapelessXtreme(output, input.toArray());
 	}
 
 	private static void compressGem(ItemStack dust, ItemStack gem) {

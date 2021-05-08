@@ -335,11 +335,12 @@ public class RecipesHandler {
 		centrifuge(XathianDust.getItem(32), null, XathianPrometheanDust.getItem(5), null, null, null, 300, 25);
 
 		// Purgot Rock Dust
-		centrifuge(PurgotRockDust.getItem(32), null, EveniumDust.getItem(3), ViriniumDust.getItem(2),
-				OreUtil.getStackFromName("dustCobalt"), null, 300, 25);
+		centrifuge(PurgotRockDust.getItem(32), null, Utils.getItems("galaxymod", "galaxymod_eveniumdust", 3),
+				ViriniumDust.getItem(2), OreUtil.getStackFromName("dustCobalt"), null, 300, 25);
 
 		// Purgot Dust
-		centrifuge(PurgotDust.getItem(32), null, EveniumDust.getItem(5), null, null, null, 300, 25);
+		centrifuge(PurgotDust.getItem(32), null, Utils.getItems("galaxymod", "galaxymod_eveniumdust", 5), null, null,
+				null, 300, 25);
 
 		// Neper Dust
 		centrifuge(NeperDust.getItem(32), null, PurpleGemDust.getItem(4), ItemDusts.getDustByName("diamond", 2),
@@ -675,7 +676,6 @@ public class RecipesHandler {
 		smelt(NoriumDust.getItem(), Utils.getItem("MorePlanet", "nibiru_item", 1));
 		smelt(PolongniusMeteoricIronDust.getItem(), Utils.getItem("MorePlanet", "polongnius_item", 4));
 		smelt(ViriniumDust.getItem(), Utils.getItem("galaxymod", "galaxymod_ingotviri"));
-		smelt(EveniumDust.getItem(), Utils.getItem("galaxymod", "galaxymod_ingotevenium"));
 	}
 
 	static void addImplosionCompressorRecipes() {

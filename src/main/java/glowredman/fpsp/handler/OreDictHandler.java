@@ -56,7 +56,6 @@ public class OreDictHandler {
 		registerDust(NameriumDust);
 		registerDust(BlackDiamondDust);
 		registerDust(HeartiumDust);
-		registerDust(EveniumDust);
 		registerDust(ChioniteDust);
 		registerDust(BacterialFossilDust);
 		registerDust(PurpleGemDust);

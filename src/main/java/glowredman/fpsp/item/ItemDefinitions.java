@@ -127,7 +127,7 @@ public enum ItemDefinitions {
 	XathianPrometheanDust(93),
 
 	// Purgot
-	PurgotRockDust(41), PurgotDust(49), EveniumDust(94),
+	PurgotRockDust(41), PurgotDust(49),
 
 	// Horus
 	ObsidianSandDust(50),

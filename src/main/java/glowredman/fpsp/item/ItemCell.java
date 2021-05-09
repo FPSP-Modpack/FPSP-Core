@@ -18,7 +18,7 @@ public class ItemCell extends Item implements IFluidContainerItem {
 
 	private IIcon[] textures;
 	public static final String[] types = new String[] { "tinplasma", "nitrogenplasma", "zincplasma", "calciumplasma",
-			"sulfurplasma", "ironplasma" };
+			"sulfurplasma", "ironplasma", "molten.tin", "molten.zinc", "molten.iron" };
 
 	public ItemCell() {
 		setHasSubtypes(true);
@@ -28,7 +28,7 @@ public class ItemCell extends Item implements IFluidContainerItem {
 
 	public void register() {
 		for (int i = 0; i < types.length; i++) {
-			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid(types[1]), new ItemStack(this, 1, i),
+			FluidContainerRegistry.registerFluidContainer(FluidRegistry.getFluid(types[i]), new ItemStack(this, 1, i),
 					IC2Items.getItem("cell"));
 		}
 	}

@@ -21,6 +21,7 @@ public enum ItemDefinitions {
 	TungstenCarbideIngot(114),
 	SiliconCarbidePlate(115),
 	TungstenCarbidePlate(116),
+	IngotCast(117),
 
 	// Moon
 	MoonRockDust(1), MoonDust(98),

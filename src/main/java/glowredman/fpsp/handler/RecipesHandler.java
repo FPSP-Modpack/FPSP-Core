@@ -87,6 +87,7 @@ public class RecipesHandler {
 		craftShaped(MassZivicioDust.getItem(), " E ", "ESE", " E ", 'E',
 				Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
 				Utils.getItem("magicalcrops", "InfusionStoneMaster"));
+		craftShaped(IngotCast.getItem(), "TT", "TT", 'T', "ingotTungsten");
 		block(0, "gem");
 		block(1, "ingot");
 		block(2, "ingot");

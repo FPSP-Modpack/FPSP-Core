@@ -17,6 +17,7 @@ item.SiliconCarbideIngot.name=Silicon Carbide Ingot
 item.TungstenCarbideIngot.name=Tungsten Carbide Ingot
 item.SiliconCarbidePlate.name=Silicon Carbide Plate
 item.TungstenCarbidePlate.name=Tungsten Carbide Plate
+item.IngotCast.name=Ingot Cast
 item.MoonRockDust.name= Moon Rock Dust
 item.MarsRockDust.name=Mars Rock Dust
 item.PhobosRockDust.name=Phobos Rock Dust
@@ -129,6 +130,9 @@ item.cell.zincplasma.name=Zinc Plasma Cell
 item.cell.calciumplasma.name=Calcium Plasma Cell
 item.cell.sulfurplasma.name=Sulfur Plasma Cell
 item.cell.ironplasma.name=Iron Plasma Cell
+item.cell.molten.tin.name=Molten Tin Cell
+item.cell.molten.zinc.name=Molten Zinc Cell
+item.cell.molten.iron.name=Molten Iron Cell
 item.singularity.iridium.name=Iridium Singularity
 item.singularity.blood_infused_iron.name=Blood Infused Iron Singularity
 item.singularity.citrine.name=Citrine Singularity
@@ -199,6 +203,9 @@ tile.fluid.calciumplasma.name=Calcium Plasma
 tile.fluid.ironplasma.name=Iron Plasma
 tile.fluid.zincplasma.name=Zinc Plasma
 tile.fluid.sulfurplasma.name=Sulfur Plasma
+tile.fluid.molten.tin.name=Molten Tin
+tile.fluid.molten.zinc.name=Molten Zinc
+tile.fluid.molten.iron.name=Molten Iron
 tile.redSandstone_default.name=Red Sandstone
 tile.redSandstone_chiseled.name=Chiseled Red Sandstone
 tile.redSandstone_smooth.name=Smooth Red Sandstone
@@ -225,6 +232,9 @@ fluid.calciumplasma=Calcium Plasma
 fluid.ironplasma=Iron Plasma
 fluid.zincplasma=Zinc Plasma
 fluid.sulfurplasma=Sulfur Plasma
+fluid.molten.tin=Molten Tin
+fluid.molten.zinc=Molten Zinc
+fluid.molten.iron=Molten Iron
 
 
 

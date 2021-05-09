@@ -47,12 +47,18 @@ public class CommonProxy {
 		fluidCalciumPlasma = new Fluid("calciumplasma");
 		fluidSulfurPlasma = new Fluid("sulfurplasma");
 		fluidIronPlasma = new Fluid("ironplasma");
+		fluidTinMolten = new Fluid("molten.tin");
+		fluidZincMolten = new Fluid("molten.zinc");
+		fluidIronMolten = new Fluid("molten.iron");
 		FluidRegistry.registerFluid(fluidTinPlasma);
 		FluidRegistry.registerFluid(fluidNitrogenPlasma);
 		FluidRegistry.registerFluid(fluidZincPlasma);
 		FluidRegistry.registerFluid(fluidCalciumPlasma);
 		FluidRegistry.registerFluid(fluidSulfurPlasma);
 		FluidRegistry.registerFluid(fluidIronPlasma);
+		FluidRegistry.registerFluid(fluidTinMolten);
+		FluidRegistry.registerFluid(fluidZincMolten);
+		FluidRegistry.registerFluid(fluidIronMolten);
 
 		// FLUID BLOCKS
 		blockCalciumPlasma = new BlockFluidBase(fluidCalciumPlasma);
@@ -61,12 +67,18 @@ public class CommonProxy {
 		blockSulfurPlasma = new BlockFluidBase(fluidSulfurPlasma);
 		blockTinPlasma = new BlockFluidBase(fluidTinPlasma);
 		blockZincPlasma = new BlockFluidBase(fluidZincPlasma);
+		blockIronMolten = new BlockFluidBase(fluidIronMolten);
+		blockTinMolten = new BlockFluidBase(fluidTinMolten);
+		blockZincMolten = new BlockFluidBase(fluidZincMolten);
 		GameRegistry.registerBlock(blockCalciumPlasma, fluidCalciumPlasma.getUnlocalizedName());
 		GameRegistry.registerBlock(blockIronPlasma, fluidIronPlasma.getUnlocalizedName());
 		GameRegistry.registerBlock(blockNitrogenPlasma, fluidNitrogenPlasma.getUnlocalizedName());
 		GameRegistry.registerBlock(blockSulfurPlasma, fluidSulfurPlasma.getUnlocalizedName());
 		GameRegistry.registerBlock(blockTinPlasma, fluidTinPlasma.getUnlocalizedName());
 		GameRegistry.registerBlock(blockZincPlasma, fluidZincPlasma.getUnlocalizedName());
+		GameRegistry.registerBlock(blockIronMolten, fluidIronMolten.getUnlocalizedName());
+		GameRegistry.registerBlock(blockTinMolten, fluidTinMolten.getUnlocalizedName());
+		GameRegistry.registerBlock(blockZincMolten, fluidZincMolten.getUnlocalizedName());
 
 		// BLOCKS
 		blockMeta = new BlockMeta();
@@ -83,6 +95,7 @@ public class CommonProxy {
 				"tile.redSandstoneSlabDouble", blockRedSandstoneSlab, blockRedSandstoneSlabDouble);
 		GameRegistry.registerBlock(blockRedSandstoneStairs, blockRedSandstoneStairs.getUnlocalizedName());
 
+		// FLUID CONTAINERS
 		itemCell.register();
 	}
 

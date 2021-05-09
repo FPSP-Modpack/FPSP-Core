@@ -33,6 +33,9 @@ public class FPSP {
 	public static Fluid fluidCalciumPlasma;
 	public static Fluid fluidSulfurPlasma;
 	public static Fluid fluidIronPlasma;
+	public static Fluid fluidTinMolten;
+	public static Fluid fluidZincMolten;
+	public static Fluid fluidIronMolten;
 	public static Block blockMeta;
 	public static Block blockRedSandstone;
 	public static Block blockRedSandstoneSlab;
@@ -44,6 +47,9 @@ public class FPSP {
 	public static Block blockCalciumPlasma;
 	public static Block blockSulfurPlasma;
 	public static Block blockIronPlasma;
+	public static Block blockTinMolten;
+	public static Block blockZincMolten;
+	public static Block blockIronMolten;
 
 	@Instance
 	public static FPSP instance;

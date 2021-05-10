@@ -4,7 +4,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import mods.railcraft.common.worldgen.SulfurGenerator;
 import net.minecraftforge.event.terraingen.OreGenEvent.GenerateMinable;
 
-public class EventHandler {
+public class CommonEventHandler {
 
 	@SubscribeEvent
 	public void onGenerateMinable(GenerateMinable event) {

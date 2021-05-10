@@ -11,7 +11,7 @@ import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.block.BlockRedSandstone;
 import glowredman.fpsp.block.BlockRedSandstoneSlab;
 import glowredman.fpsp.block.BlockRedSandstoneStairs;
-import glowredman.fpsp.handler.EventHandler;
+import glowredman.fpsp.handler.CommonEventHandler;
 import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
 import glowredman.fpsp.item.ItemBlockMeta;
@@ -101,7 +101,7 @@ public class CommonProxy {
 
 	public void init(FMLInitializationEvent event) {
 		GameRegistry.registerWorldGenerator(new OreGenerator(), 0);
-		MinecraftForge.EVENT_BUS.register(new EventHandler());
+		MinecraftForge.EVENT_BUS.register(new CommonEventHandler());
 		OreDictHandler.init();
 	}
 

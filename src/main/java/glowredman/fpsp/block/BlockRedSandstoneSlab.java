@@ -47,7 +47,7 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 		if (this.field_150004_a) {
 			this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
 		} else {
-			if ((blockAccess.getBlockMetadata(x, y, z) & 1) != 0) {
+			if ((blockAccess.getBlockMetadata(x, y, z) & 8) != 0) {
 				this.setBlockBounds(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
 			} else {
 				this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
@@ -62,7 +62,7 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 
 	@Override
 	public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
-		return this.field_150004_a ? meta : (side != 0 && (side == 1 || hitY <= 0.5f) ? meta : meta | 1);
+		return this.field_150004_a ? meta : (side != 0 && (side == 1 || hitY <= 0.5f) ? meta : meta | 8);
 	}
 
 	@Override
@@ -75,16 +75,16 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 			int i1 = x + Facing.offsetsXForSide[Facing.oppositeSide[side]];
 			int j1 = y + Facing.offsetsYForSide[Facing.oppositeSide[side]];
 			int k1 = z + Facing.offsetsZForSide[Facing.oppositeSide[side]];
-			boolean flag = (blockAccess.getBlockMetadata(i1, j1, k1) & 1) != 0;
+			boolean flag = (blockAccess.getBlockMetadata(i1, j1, k1) & 8) != 0;
 			return flag
 					? (side == 0 ? true
 							: (side == 1 && superShouldSideBeRendered(blockAccess, x, y, z, side) ? true
 									: blockAccess.getBlock(x, y, z) != FPSP.blockRedSandstoneSlab
-											|| (blockAccess.getBlockMetadata(x, y, z) & 1) == 0))
+											|| (blockAccess.getBlockMetadata(x, y, z) & 8) == 0))
 					: (side == 1 ? true
 							: (side == 0 && superShouldSideBeRendered(blockAccess, x, y, z, side) ? true
 									: blockAccess.getBlock(x, y, z) != FPSP.blockRedSandstoneSlab
-											|| (blockAccess.getBlockMetadata(x, y, z) & 1) != 0));
+											|| (blockAccess.getBlockMetadata(x, y, z) & 8) != 0));
 		}
 	}
 

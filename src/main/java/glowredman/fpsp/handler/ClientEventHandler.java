@@ -150,10 +150,10 @@ public class ClientEventHandler {
 		float f = 0.00390625F;
 		Tessellator tessellator = Tessellator.instance;
 		tessellator.startDrawingQuads();
-		tessellator.addVertexWithUV(x, y + height, 0, textureX * f, (textureY + height) * f);
+		tessellator.addVertexWithUV(x,         y + height, 0,  textureX          * f, (textureY + height) * f);
 		tessellator.addVertexWithUV(x + width, y + height, 0, (textureX + width) * f, (textureY + height) * f);
-		tessellator.addVertexWithUV(x + width, y, 0, (textureX + width) * f, textureY * f);
-		tessellator.addVertexWithUV(x, y, 0, textureX * f, textureY * f);
+		tessellator.addVertexWithUV(x + width, y,          0, (textureX + width) * f,  textureY           * f);
+		tessellator.addVertexWithUV(x,         y,          0,  textureX          * f,  textureY           * f);
 		tessellator.draw();
 	}
 

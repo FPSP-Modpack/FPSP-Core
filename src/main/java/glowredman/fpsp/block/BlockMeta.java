@@ -12,7 +12,7 @@ import net.minecraft.world.World;
 public class BlockMeta extends Block {
 
 	public static final String[] types = new String[] { "UnknownCrystal", "Ironwood", "Fiery", "Steeleaf", "NetherStar",
-			"Flonium", "Ender", "Charcoal", "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter" };
+			"Flonium", "Ender", "Charcoal", "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter", "Metallic" };
 	private IIcon[] textures;
 
 	public BlockMeta() {

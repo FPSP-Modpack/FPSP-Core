@@ -101,6 +101,7 @@ public class RecipesHandler {
 		block(10, "gem");
 		block(11, "gem");
 		block(12, "dust");
+		block(13, "ingot");
 	}
 
 	static void addShapelessRecipes() {

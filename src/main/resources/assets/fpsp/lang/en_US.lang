@@ -224,6 +224,7 @@ tile.block.BacterialFossil.name=Bacterial Fossil Block
 tile.block.Mineral.name=Mineral Crystal Block
 tile.block.Xeonium.name=Xeonium Block
 tile.block.Saltpeter.name=Saltpeter Block
+tile.block.Metallic.name=Metallic Block
 
 // Fluids
 fluid.nitrogenplasma=Nitrogen Plasma

@@ -8,7 +8,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.MathHelper;
@@ -20,6 +19,7 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
 public class ClientEventHandler {
 
 	private static final ResourceLocation hearts = new ResourceLocation(FPSP.MODID, "textures/gui/newhearts.png");
+	private static final ResourceLocation icons = new ResourceLocation("textures/gui/icons.png");
 
 	Minecraft mc = Minecraft.getMinecraft();
 	Random rand = new Random();
@@ -139,6 +139,7 @@ public class ClientEventHandler {
 			}
 		}
 
+		mc.getTextureManager().bindTexture(icons);
 		GuiIngameForge.left_height += 10;
 		if (absorb > 0)
 			GuiIngameForge.left_height += 10;

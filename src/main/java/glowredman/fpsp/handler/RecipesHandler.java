@@ -28,6 +28,7 @@ import ic2.api.recipe.Recipes;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
@@ -65,6 +66,7 @@ public class RecipesHandler {
 		addOreWasherRecipes();
 		addThermalCentrifugeRecipes();
 		addMetalFormerRecipes();
+		//addMatterAmplifiers();
 
 		addCentrifugeRecipes();
 		addFusionRecipes();
@@ -144,8 +146,8 @@ public class RecipesHandler {
 				"cropRutabaga", "cropSweetpotato", "cropTurnip", "cropRhubarb", "cropCelery", "cropBroccoli",
 				"cropCauliflower", "cropLeek", "cropLettuce", "cropScallion", "cropArtichoke", "cropBrusselsprout",
 				"cropCabbage", "cropSpinach", "cropBean", "cropSoybean", "cropBellpepper", "cropChilipepper",
-				"cropEggplant", "cropOkra", "cropPeas", "cropTomato", "cropSeaweed", "cropBloodleaf",
-				"cropWildcarrots");
+				"cropEggplant", "cropOkra", "cropPeas", "cropTomato", "cropSeaweed", "cropBloodleaf", "cropWildcarrots",
+				"cropSugarbeet");
 		craftShapelessXtreme(CosmicFruit.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropApple",
 				"cropMelon", Utils.getItem("galaxymod", "galaxymod_fruitofeden"), "cropGrape", "cropCactusfruit",
 				"cropCantaloupe", "cropPineapple", "cropKiwi", "cropApricot", "cropAvocado", "cropBanana", "cropCherry",
@@ -157,7 +159,7 @@ public class RecipesHandler {
 		craftShapelessXtreme(CosmicBerry.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropBlackberry",
 				"cropBlueberry", "cropRaspberry", "cropStrawberry", "cropCranberry", "cropGooseberry",
 				"cropMarrowberry", "cropMaloberry", "cropBlightberry", "cropDuskberry", "cropSkyberry",
-				"cropStingberry", Utils.getItem("MorePlanet", "fronos_food", 1));
+				"cropStingberry", Utils.getItem("MorePlanet", "fronos_food", 1), "cropHuckleberry");
 		cosmic(CosmicNut.getItem(), "listAllnut");
 		craftShapelessXtreme(CosmicSpice.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropGinger",
 				"cropSpiceleaf", "cropMustard", "cropSesame", "cropCurryleaf", "cropCinnamon", "cropNutmeg",
@@ -423,6 +425,7 @@ public class RecipesHandler {
 	}
 
 	static void addMaceratorRecipes() {
+		macerate("oreDesh", DeshDust.getItem(2));
 		// Moon
 		macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 3), MoonDust.getItem());
 		macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 4), MoonRockDust.getItem());
@@ -750,8 +753,10 @@ public class RecipesHandler {
 		compressGem(XathianPrometheanDust.getItem(), Utils.getItem("galaxymod", "galaxymod_prometheancrystal"));
 		compressGem(ChioniteDust.getItem(), Utils.getItem("GalacticraftAmunRa", "item.baseItem", 3));
 		compressGem(AlphereDust.getItem(), Utils.getItem("MorePlanet", "alphere"));
-		implosionCompress(Utils.getItems("MorePlanet", "xeonium_dust", 16), ic2("industrialTnt", 24),
-				Utils.getItems("MorePlanet", "pluto_item", 3), ItemDusts.getDustByName("darkAshes", 12), 20, 32);
+		compressGem(Utils.getItems("MorePlanet", "xeonium_dust", 16), Utils.getItems("MorePlanet", "pluto_item", 3));
+		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2),
+				Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial"));
+		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3), new ItemStack(Items.quartz));
 	}
 
 	static void removeOreWasherRecipes() {
@@ -804,9 +809,10 @@ public class RecipesHandler {
 
 	static void addThermalCentrifugeRecipes() {
 		ItemStack stoneDust = IC2Items.getItem("stoneDust");
-		thermalCentrifuge("crushedQuartz", 1960, aobd("dustQuartz"), ItemDustsSmall.getSmallDustByName("netherrack"),
-				stoneDust);
-		thermalCentrifuge("crushedPurifiedQuartz", 1960, aobd("dustQuartz"),
+		thermalCentrifuge("crushedQuartz", 1960, Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
+				ItemDustsSmall.getSmallDustByName("netherrack"), stoneDust);
+		thermalCentrifuge("crushedPurifiedQuartz", 1960,
+				Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
 				ItemDustsSmall.getSmallDustByName("netherrack"));
 		thermalCentrifuge("crushedAluminium", 520, ItemDusts.getDustByName("aluminium"),
 				ItemDustsSmall.getSmallDustByName("bauxite"), stoneDust);
@@ -873,6 +879,10 @@ public class RecipesHandler {
 				null, 200, 128, 1700);
 	}
 
+	static void addMatterAmplifiers() {
+		amplify(UUABerry.getItem(), 1000000);
+	}
+
 	/******************
 	 * HELPER METHODS *
 	 ******************/
@@ -899,6 +909,10 @@ public class RecipesHandler {
 
 	private static void macerate(ItemStack input, ItemStack outputs) {
 		Recipes.macerator.addRecipe(new RecipeInputItemStack(input), null, outputs);
+	}
+
+	private static void macerate(String input, ItemStack output) {
+		Recipes.macerator.addRecipe(new RecipeInputOreDict(input), null, output);
 	}
 
 	private static void press(ItemStack input, ItemStack outputs) {
@@ -951,6 +965,12 @@ public class RecipesHandler {
 		RecipeHandler.addRecipe(new ImplosionCompressorRecipe(input1, input2, output1, output2, tickTime, euPerTick));
 	}
 
+	private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
+			int tickTime, int euPerTick, boolean useOredict) {
+		RecipeHandler.addRecipe(
+				new ImplosionCompressorRecipe(input1, input2, output1, output2, tickTime, euPerTick, useOredict));
+	}
+
 	private static void thermalCentrifuge(String input, int heat, ItemStack... outputs) {
 		NBTTagCompound metadata = new NBTTagCompound();
 		metadata.setInteger("minHeat", heat);
@@ -999,6 +1019,14 @@ public class RecipesHandler {
 			int euPerTick, int neededHeat) {
 		RecipeHandler
 				.addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
+	}
+	
+	private static final ItemStack N = null;
+
+	private static void amplify(ItemStack input, int amount) {
+		NBTTagCompound nbt = new NBTTagCompound();
+		nbt.setInteger("amplification", amount);
+		Recipes.matterAmplifier.addRecipe(new RecipeInputItemStack(input), nbt, N);
 	}
 
 	private static ItemStack ic2(String name, int amount) {

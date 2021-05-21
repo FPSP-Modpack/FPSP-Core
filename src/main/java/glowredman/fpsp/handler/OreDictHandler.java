@@ -9,6 +9,7 @@ import glowredman.fpsp.FPSP;
 import glowredman.fpsp.Utils;
 import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.item.ItemDefinitions;
+import micdoodle8.mods.galacticraft.planets.mars.blocks.MarsBlocks;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -22,6 +23,8 @@ public class OreDictHandler {
 		registerItem("blockCrystal", "wizardry", "crystal_block");
 		registerItem("blockSalt", "harvestcraft", "spamcompressedsaltBlockalt");
 		registerItem("blockSoulium", "SSTOW", "sstow_soulium_block");
+		registerItem("blockPolongniusMeteoricIron", "MorePlanet", "polongnius_block", 10);
+		registerItem("blockKoentusMeteoricIron", "MorePlanet", "koentus_block", 15);
 		registerItem("gemFlonium", "MorePlanet", "polongnius_item");
 		registerItem("gemMineral", "MorePlanet", "fronos_item");
 		registerItem("gemXeonium", "MorePlanet", "pluto_item");
@@ -36,6 +39,7 @@ public class OreDictHandler {
 		registerItem("listAllmushroom", "wildcaves3", "Flora", OreDictionary.WILDCARD_VALUE);
 		registerItem("listAllmushroom", "Natura", "Glowshroom", OreDictionary.WILDCARD_VALUE);
 		registerItem("listAllmushroom", "TwilightForest", "tile.TFPlant", 9);
+		registerItem("dustQuartz", "appliedenergistics2", "item.ItemMultiMaterial", 3);
 
 		registerDust(DeshDust);
 		registerDust(OriharukonDust);
@@ -76,6 +80,7 @@ public class OreDictHandler {
 		registerDust(PurpleGemDust);
 		registerDust(AlphereDust);
 		OreDictionary.registerOre("dustPromethean", XathianPrometheanDust.getItem());
+		OreDictionary.registerOre("circuitUltimate", QuantumMainframe.getItem());
 		OreDictionary.registerOre("sandstone", new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("redSandstone", new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
 		OreDictionary.registerOre("slabSandstone", FPSP.blockRedSandstoneSlab);
@@ -91,6 +96,7 @@ public class OreDictHandler {
 		OreDictionary.registerOre("blockTungsten", new ItemStack(GSBlocks.MetalsBlock, 1, 8));
 		OreDictionary.registerOre("blockCopper", new ItemStack(GSBlocks.MetalsBlock, 1, 9));
 		OreDictionary.registerOre("cropUnknownFruits", BRItems.BarnardaStrawberry);
+		OreDictionary.registerOre("blockDesh", new ItemStack(MarsBlocks.marsBlock, 1, 8));
 
 		for (int i = 0; i < BlockMeta.types.length; i++) {
 			OreDictionary.registerOre("block" + BlockMeta.types[i], new ItemStack(FPSP.blockMeta, 1, i));

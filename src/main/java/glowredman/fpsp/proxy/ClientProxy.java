@@ -13,7 +13,6 @@ public class ClientProxy extends CommonProxy {
 	public void init(FMLInitializationEvent event) {
 		super.init(event);
 		MinecraftForgeClient.registerItemRenderer(FPSP.itemSingularity, new FancyHaloRenderer());
-
 		MinecraftForge.EVENT_BUS.register(new ClientEventHandler());
 	}
 

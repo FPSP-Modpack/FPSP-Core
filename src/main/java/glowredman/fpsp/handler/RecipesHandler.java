@@ -90,6 +90,9 @@ public class RecipesHandler {
 				Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
 				Utils.getItem("magicalcrops", "InfusionStoneMaster"));
 		craftShaped(IngotCast.getItem(), "TT", "TT", 'T', "ingotTungsten");
+		craftShaped(QuantumMainframe.getItem(4), "CSC", "LQL", "CSC", 'C', "circuitMaster", 'S',
+				"craftingSuperconductor", 'L', "battery100M", 'Q',
+				Utils.getItem("supersolarpanel", "enderquantumcomponent"));
 		block(0, "gem");
 		block(1, "ingot");
 		block(2, "ingot");

@@ -22,6 +22,11 @@ public enum ItemDefinitions {
 	SiliconCarbidePlate(115),
 	TungstenCarbidePlate(116),
 	IngotCast(117),
+	QuantumMainframe(118),
+	OilBerry(119),
+	Milkwart(120),
+	UUMBerry(121),
+	UUABerry(122),
 
 	// Moon
 	MoonRockDust(1), MoonDust(98),

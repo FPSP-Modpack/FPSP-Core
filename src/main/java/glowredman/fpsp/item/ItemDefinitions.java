@@ -27,6 +27,7 @@ public enum ItemDefinitions {
 	Milkwart(120),
 	UUMBerry(121),
 	UUABerry(122),
+	Scanner(123),
 
 	// Moon
 	MoonRockDust(1), MoonDust(98),

@@ -66,7 +66,7 @@ public class RecipesHandler {
 		addOreWasherRecipes();
 		addThermalCentrifugeRecipes();
 		addMetalFormerRecipes();
-		//addMatterAmplifiers();
+		// addMatterAmplifiers();
 
 		addCentrifugeRecipes();
 		addFusionRecipes();
@@ -93,6 +93,9 @@ public class RecipesHandler {
 		craftShaped(QuantumMainframe.getItem(4), "CSC", "LQL", "CSC", 'C', "circuitMaster", 'S',
 				"craftingSuperconductor", 'L', "battery100M", 'Q',
 				Utils.getItem("supersolarpanel", "enderquantumcomponent"));
+		craftShaped(Scanner.getItem(), "PDP", "PSP", "PCP", 'P', "plateAluminium", 'D',
+				Utils.getItem("flansmod", "dwDisplayUnit"), 'S', Utils.getItem("ExtraUtilities", "scanner"), 'C',
+				"circuitData");
 		block(0, "gem");
 		block(1, "ingot");
 		block(2, "ingot");
@@ -1023,7 +1026,7 @@ public class RecipesHandler {
 		RecipeHandler
 				.addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
 	}
-	
+
 	private static final ItemStack N = null;
 
 	private static void amplify(ItemStack input, int amount) {

@@ -4,15 +4,18 @@ import java.util.HashMap;
 import java.util.List;
 
 import glowredman.fpsp.FPSP;
+import glowredman.fpsp.Utils;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -55,6 +58,21 @@ public class ItemMeta extends ItemFood {
 		for (ItemDefinitions itemDef : ItemDefinitions.values()) {
 			variants.add(itemDef.getItem());
 		}
+	}
+
+	@Override
+	public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side,
+			float hitX, float hitY, float hitZ) {
+		
+		if (stack.getItemDamage() != ItemDefinitions.Scanner.getMeta())
+			return false;
+
+		if (player instanceof EntityPlayerMP) {
+			List<String> list = Utils.getCoordinateScan(player, world, x, y, z, side, hitX, hitY, hitZ);
+			list.forEach(line -> player.addChatComponentMessage(new ChatComponentText(line)));
+			return true;
+		}
+		return false;
 	}
 
 	@Override

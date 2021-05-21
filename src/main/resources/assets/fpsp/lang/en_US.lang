@@ -195,6 +195,7 @@ item.singularity.yellow_garnet.name=Yellow Garnet Singularity
 item.singularity.red_garnet.name=Red Garnet Singularity
 item.singularity.olivine.name=Olivine Singularity
 item.singularity.dark_soularium.name=Dark Soularium Singularity
+item.singularity.manganese.name=Manganese Singularity
 
 // Blocks
 tile.fluid.nitrogenplasma.name=Nitrogen Plasma

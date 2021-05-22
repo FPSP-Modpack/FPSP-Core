@@ -23,6 +23,7 @@ import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.ItemIcon;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.world.OreGenerator;
+import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
@@ -98,6 +99,12 @@ public class CommonProxy {
 
 		// FLUID CONTAINERS
 		itemCell.register();
+		
+		// LOOT
+		ChestGenHooks.getInfo("fpsp:lootStageI");
+		ChestGenHooks.getInfo("fpsp:lootStageII");
+		ChestGenHooks.getInfo("fpsp:lootStageIII");
+		ChestGenHooks.getInfo("fpsp:lootStageIV");
 	}
 
 	public void init(FMLInitializationEvent event) {

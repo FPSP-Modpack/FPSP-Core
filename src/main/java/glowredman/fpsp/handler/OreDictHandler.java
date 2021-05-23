@@ -10,6 +10,7 @@ import glowredman.fpsp.Utils;
 import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.item.ItemDefinitions;
 import micdoodle8.mods.galacticraft.planets.mars.blocks.MarsBlocks;
+import mods.railcraft.common.items.RailcraftItem;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -97,6 +98,11 @@ public class OreDictHandler {
 		OreDictionary.registerOre("blockCopper", new ItemStack(GSBlocks.MetalsBlock, 1, 9));
 		OreDictionary.registerOre("cropUnknownFruits", BRItems.BarnardaStrawberry);
 		OreDictionary.registerOre("blockDesh", new ItemStack(MarsBlocks.marsBlock, 1, 8));
+		OreDictionary.registerOre("plateIron", new ItemStack(RailcraftItem.plate.item(), 1, 0));
+		OreDictionary.registerOre("plateSteel", new ItemStack(RailcraftItem.plate.item(), 1, 1));
+		OreDictionary.registerOre("plateTin", new ItemStack(RailcraftItem.plate.item(), 1, 2));
+		OreDictionary.registerOre("plateCopper", new ItemStack(RailcraftItem.plate.item(), 1, 3));
+		OreDictionary.registerOre("plateLead", new ItemStack(RailcraftItem.plate.item(), 1, 4));
 
 		for (int i = 0; i < BlockMeta.types.length; i++) {
 			OreDictionary.registerOre("block" + BlockMeta.types[i], new ItemStack(FPSP.blockMeta, 1, i));

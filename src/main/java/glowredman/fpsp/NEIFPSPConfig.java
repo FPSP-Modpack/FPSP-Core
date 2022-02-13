@@ -63,7 +63,7 @@ public class NEIFPSPConfig implements IConfigureNEI {
 		hide("EnderIO", "blockConduitBundle");
 		hideAll("ExtrabiomesXL", "tile.extrabiomes.crop.strawberry", 1, 7);
 		hide("ForgeRelocation", "relocation.blockmovingrow");
-		hide("GalacticraftAmunRa", "tile.blockFake");
+		hide("amunra", "tile.blockFake");
 		hide("GraviSuite", "BlockRelocatorPortal");
 		hide("HardcoreEnderExpansion", "death_flower_pot");
 		hide("HardcoreEnderExpansion", "corrupted_energy_high");

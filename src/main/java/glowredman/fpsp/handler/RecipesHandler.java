@@ -683,22 +683,22 @@ public class RecipesHandler {
 		macerate(Utils.getItem("galaxymod", "galaxymod_purgrockbricks"), PurgotRockDust.getItem());
 
 		// Neper
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 10), NeperDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseBlockRock", 10), NeperDust.getItem());
 
 		// Maahes
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.wood1", 1), MaahesDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.wood1", 1), MaahesDust.getItem());
 
 		// Anubis
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseBlockRock", 1), BasaltRockDust.getItem());
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseBlockGround", 1), BasaltDust.getItem());
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseFalling", 2), BasaltDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseBlockRock", 1), BasaltRockDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseBlockGround", 1), BasaltDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseFalling", 2), BasaltDust.getItem());
 
 		// Horus
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseFalling"), ObsidianSandDust.getItem());
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseFalling", 1), ObsidianSandDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseFalling"), ObsidianSandDust.getItem());
+		macerate(Utils.getItem("amunra", "tile.baseFalling", 1), ObsidianSandDust.getItem());
 
 		// Seth
-		macerate(Utils.getItem("GalacticraftAmunRa", "tile.baseBlockCrystal"), CoralDust.getItem(2));
+		macerate(Utils.getItem("amunra", "tile.baseBlockCrystal"), CoralDust.getItem(2));
 
 		// Dark Asteroids
 		macerate(Utils.getItem("MorePlanet", "dark_asteroid_block"), DarkAsteroidRockDust.getItem());
@@ -757,7 +757,7 @@ public class RecipesHandler {
 		compressGem(BlackDiamondDust.getItem(), Utils.getItem("MorePlanet", "fronos_item", 2));
 		compressGem(HeartiumDust.getItem(), Utils.getItem("galaxymod", "galaxymod_heartofzol"));
 		compressGem(XathianPrometheanDust.getItem(), Utils.getItem("galaxymod", "galaxymod_prometheancrystal"));
-		compressGem(ChioniteDust.getItem(), Utils.getItem("GalacticraftAmunRa", "item.baseItem", 3));
+		compressGem(ChioniteDust.getItem(), Utils.getItem("amunra", "item.baseItem", 3));
 		compressGem(AlphereDust.getItem(), Utils.getItem("MorePlanet", "alphere"));
 		compressGem(Utils.getItems("MorePlanet", "xeonium_dust", 16), Utils.getItems("MorePlanet", "pluto_item", 3));
 		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2),
@@ -879,10 +879,8 @@ public class RecipesHandler {
 	}
 
 	static void addBlastFurnaceRecipes() {
-		hotSmelt(ItemCells.getCellByName("silicon"), ItemCells.getCellByName("carbon"), SiliconCarbideIngot.getItem(),
-				null, 200, 128, 2000);
-		hotSmelt(ItemCells.getCellByName("tungsten"), ItemCells.getCellByName("carbon"), TungstenCarbideIngot.getItem(),
-				null, 200, 128, 1700);
+		hotSmelt(ItemCells.getCellByName("silicon"), ItemCells.getCellByName("carbon"), SiliconCarbideIngot.getItem(), null, 200, 128, 2000);
+		hotSmelt(ItemCells.getCellByName("tungsten"), ItemCells.getCellByName("carbon"), TungstenCarbideIngot.getItem(), null, 200, 128, 1700);
 	}
 
 	static void addMatterAmplifiers() {
@@ -901,16 +899,12 @@ public class RecipesHandler {
 		GameRegistry.addRecipe(new ShapelessOreRecipe(output, inputs));
 	}
 
-	private static void centrifuge(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
-			ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {
-		RecipeHandler.addRecipe(
-				new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
+	private static void centrifuge(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {
+		RecipeHandler.addRecipe(new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
 	}
 
-	private static void fusion(ItemStack topInput, ItemStack bottomInput, ItemStack output, int startEU, int euTick,
-			int tickTime) {
-		FusionReactorRecipeHelper
-				.registerRecipe(new FusionReactorRecipe(topInput, bottomInput, output, startEU, euTick, tickTime));
+	private static void fusion(ItemStack topInput, ItemStack bottomInput, ItemStack output, int startEU, int euTick, int tickTime) {
+		FusionReactorRecipeHelper.registerRecipe(new FusionReactorRecipe(topInput, bottomInput, output, startEU, euTick, tickTime));
 	}
 
 	private static void macerate(ItemStack input, ItemStack outputs) {
@@ -966,15 +960,8 @@ public class RecipesHandler {
 		implosionCompress(dust, ic2("industrialTnt", 24), gem, ItemDusts.getDustByName("darkAshes", 12), 20, 32);
 	}
 
-	private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
-			int tickTime, int euPerTick) {
+	private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime, int euPerTick) {
 		RecipeHandler.addRecipe(new ImplosionCompressorRecipe(input1, input2, output1, output2, tickTime, euPerTick));
-	}
-
-	private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
-			int tickTime, int euPerTick, boolean useOredict) {
-		RecipeHandler.addRecipe(
-				new ImplosionCompressorRecipe(input1, input2, output1, output2, tickTime, euPerTick, useOredict));
 	}
 
 	private static void thermalCentrifuge(String input, int heat, ItemStack... outputs) {
@@ -1021,10 +1008,8 @@ public class RecipesHandler {
 		}
 	}
 
-	private static void hotSmelt(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime,
-			int euPerTick, int neededHeat) {
-		RecipeHandler
-				.addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
+	private static void hotSmelt(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime, int euPerTick, int neededHeat) {
+		RecipeHandler.addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
 	}
 
 	private static final ItemStack N = null;

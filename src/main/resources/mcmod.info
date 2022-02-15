@@ -1,10 +1,10 @@
 [
 {
-  "modid": "fpsp",
-  "name": "FPSP Core",
+  "modid": "${modId}",
+  "name": "${modName}",
   "description": "Der Fakt, dass du diese Beschreibung liest, spricht für sich.",
-  "version": "${version}",
-  "mcversion": "${mcversion}",
+  "version": "${modVersion}",
+  "mcversion": "${minecraftVersion}",
   "url": "https://bit.ly/2IP4p9e",
   "updateUrl": "",
   "authorList": ["glowredman", "Ewertma"],

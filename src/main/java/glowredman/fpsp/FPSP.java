@@ -1,5 +1,6 @@
 package glowredman.fpsp;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import cpw.mods.fml.common.Mod;
@@ -21,7 +22,8 @@ public class FPSP {
 	public static final String DEPENDENCIES = "after:appliedenergistics2;after:BloodArsenal;after:Botania;before:eternalsingularity;after:magicalcrops;after:ProjRed|Exploration;after:SSTOW;after:TwilightForest";
 	public static final String MODID = "fpsp";
 	public static final String MODNAME = "FPSP Core";
-	public static final String VERSION = "@version@";
+	public static final String VERSION = "GRADLETOKEN_VERSION";
+	public static final Logger LOGGER = LogManager.getLogger(MODID);
 
 	public static Item itemMeta;
 	public static Item itemIcon;
@@ -57,11 +59,8 @@ public class FPSP {
 	@SidedProxy(clientSide = "glowredman.fpsp.proxy.ClientProxy", serverSide = "glowredman.fpsp.proxy.CommonProxy")
 	public static CommonProxy proxy;
 
-	public static Logger logger;
-
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event) {
-		logger = event.getModLog();
 		proxy.preInit(event);
 	}
 

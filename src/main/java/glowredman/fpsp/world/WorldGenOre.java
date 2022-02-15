@@ -27,7 +27,7 @@ public class WorldGenOre extends WorldGenMinable {
 	private static Block getBlock(String modID, String blockName) {
 		Block block = GameRegistry.findBlock(modID, blockName);
 		if (block == null) {
-			FPSP.logger.error("Could not find block " + modID + ":" + blockName + "! Substituting stone.");
+			FPSP.LOGGER.error("Could not find block " + modID + ":" + blockName + "! Substituting stone.");
 			block = Blocks.stone;
 		}
 		return block;

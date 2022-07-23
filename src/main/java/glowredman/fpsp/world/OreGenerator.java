@@ -23,6 +23,7 @@ public class OreGenerator implements IWorldGenerator {
 	private WorldGenerator topazOreGen;
 	private WorldGenerator tanzaniteOreGen;
 	private WorldGenerator malachiteOreGen;
+	private WorldGenerator electrotineOreGen;
 
 	private static List<String> biomesAmberOre = Arrays.asList("twilightforest.biomes.TFBiomeDarkForest",
 			"twilightforest.biomes.TFBiomeDeepMushrooms", "twilightforest.biomes.TFBiomeFireflyForest",
@@ -46,11 +47,12 @@ public class OreGenerator implements IWorldGenerator {
 		minicioOreGen = new WorldGenOre("magicalcrops", "MinicioOre", 4);
 		silverOreGen = new WorldGenOre("ProjRed|Exploration", "projectred.exploration.ore", 5, 4);
 		nickelOreGen = new WorldGenOre("ThermalFoundation", "Ore", 4, 3);
-		amberOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 14, 0);
+		amberOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 14, 4);
 		chargedCertusQuartzOreGen = new WorldGenOre("appliedenergistics2", "tile.OreQuartzCharged", 4);
-		topazOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 6, 0);
-		tanzaniteOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 8, 0);
-		malachiteOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 10, 0);
+		topazOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 6, 4);
+		tanzaniteOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 8, 4);
+		malachiteOreGen = new WorldGenOre("BiomesOPlenty", "gemOre", 10, 4);
+		electrotineOreGen = new WorldGenOre("ProjRed|Exploration", "projectred.exploration.ore", 6, 8);
 	}
 
 	@Override
@@ -86,15 +88,16 @@ public class OreGenerator implements IWorldGenerator {
 		generateOre(4, silverOreGen, 0, 32, chunkX, chunkZ, random, world);
 		generateOre(3, nickelOreGen, 5, 21, chunkX, chunkZ, random, world);
 		generateOre(2, chargedCertusQuartzOreGen, 2, 33, chunkX, chunkZ, random, world);
+		generateOre(4, electrotineOreGen, 0, 16, chunkX, chunkZ, random, world);
 
 		if (biomesAmberOre.contains(biome))
-			generateOre(15, amberOreGen, 4, 32, chunkX, chunkZ, random, world);
+			generateOre(4, amberOreGen, 4, 32, chunkX, chunkZ, random, world);
 		if (biomesTopazOre.contains(biome))
-			generateOre(15, topazOreGen, 4, 32, chunkX, chunkZ, random, world);
+			generateOre(4, topazOreGen, 4, 32, chunkX, chunkZ, random, world);
 		if (biomesTanzaniteOre.contains(biome))
-			generateOre(15, tanzaniteOreGen, 4, 32, chunkX, chunkZ, random, world);
+			generateOre(4, tanzaniteOreGen, 4, 32, chunkX, chunkZ, random, world);
 		if (biomesMalachiteOre.contains(biome))
-			generateOre(15, malachiteOreGen, 4, 32, chunkX, chunkZ, random, world);
+			generateOre(4, malachiteOreGen, 4, 32, chunkX, chunkZ, random, world);
 	}
 
 	private void generateOre(int attempts, WorldGenerator worldGenerator, int minY, int maxY, int chunkX, int chunkZ,

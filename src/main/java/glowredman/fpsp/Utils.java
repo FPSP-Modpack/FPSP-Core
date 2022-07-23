@@ -408,7 +408,8 @@ public class Utils {
 		return name;
 	}
 	
-	public static String getFluidName(Fluid fluid, boolean localized) {
+	@SuppressWarnings("deprecation")
+    public static String getFluidName(Fluid fluid, boolean localized) {
 		if(fluid == null)
 			return "";
 		String name = localized ? fluid.getLocalizedName() : fluid.getUnlocalizedName();
@@ -418,9 +419,10 @@ public class Utils {
 	}
 	
 	public static double distance(TileEntityTeleporter tile) {
-		return Math.sqrt((tile.xCoord - tile.targetX) * (tile.yCoord - tile.targetY)
-				+ (tile.yCoord - tile.targetY) * (tile.yCoord - tile.targetY)
-				+ (tile.zCoord - tile.targetZ) * (tile.zCoord - tile.targetZ));
+	    int dX = tile.xCoord - tile.targetX;
+        int dY = tile.yCoord - tile.targetY;
+        int dZ = tile.zCoord - tile.targetZ;
+		return Math.sqrt(dX * dX + dY * dY + dZ * dZ);
 	}
 	
 	public static String capitalize(String s) {

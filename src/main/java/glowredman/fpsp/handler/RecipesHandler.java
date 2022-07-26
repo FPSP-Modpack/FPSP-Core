@@ -197,6 +197,10 @@ public class RecipesHandler {
 		centrifuge(MoonRockDust.getItem(32), null, MeteoricIronDust.getItem(), ic2("copperDust", 2),
 				IC2Items.getItem("tinDust"), null, 300, 25);
 
+        // Moon Dust
+        centrifuge(MoonDust.getItem(32), null, MeteoricIronDust.getItem(), ic2("copperDust", 2),
+                IC2Items.getItem("tinDust"), null, 300, 25);
+
 		// Mars Rock Dust
 		centrifuge(MarsRockDust.getItem(32), null, DeshDust.getItem(), ic2("copperDust", 2),
 				IC2Items.getItem("tinDust"), ic2("ironDust", 3), 300, 25);

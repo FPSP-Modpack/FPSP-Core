@@ -123,25 +123,30 @@ public class RecipesHandler {
 				Utils.getItem("MorePlanet", "frozen_water_bucket"));
 	}
 
-	static void addNeutroniumCompressor() {
-		for (SingularityDefinitions s : ItemFPSPSingularity.types) {
-			Object input = s.getInput();
-			if (input instanceof String) {
-				neutroniumCompress(s.getItem(), s.getAmount(), (String) input, true);
-				continue;
-			}
-			if (input instanceof ItemStack) {
-				neutroniumCompress(s.getItem(), s.getAmount(), (ItemStack) input, true);
-				continue;
-			}
-		}
-	}
+    static void addNeutroniumCompressor() {
+        for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+            if (s.getAmount() <= 0) {
+                continue;
+            }
+            Object input = s.getInput();
+            if (input instanceof String) {
+                neutroniumCompress(s.getItem(), s.getAmount(), (String) input, true);
+                continue;
+            }
+            if (input instanceof ItemStack) {
+                neutroniumCompress(s.getItem(), s.getAmount(), (ItemStack) input, true);
+                continue;
+            }
+        }
+    }
 
-	static void addInfinityCatalystIngredients() {
-		for (SingularityDefinitions s : ItemFPSPSingularity.types) {
-			catalyse(s.getItem());
-		}
-	}
+    static void addInfinityCatalystIngredients() {
+        for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+            if (s.getAmount() > 0) {
+                catalyse(s.getItem());
+            }
+        }
+    }
 
 	static void addExtremeShapelessRecipes() {
 		cosmic(CosmicFish.getItem(), "listAllfishraw");

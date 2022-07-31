@@ -478,6 +478,10 @@ public class RecipesHandler {
 		// Callisto
 		macerate(Utils.getItem("GalaxySpace", "callistoblocks"), CallistoRockDust.getItem());
 		macerate(Utils.getItem("GalaxySpace", "callistoblocks", 1), CallistoRockDust.getItem());
+		
+		// Ganymede
+		macerate(Utils.getItem("GalaxySpace", "ganymedeblocks"), GanymedeRockDust.getItem());
+        macerate(Utils.getItem("GalaxySpace", "ganymedeblocks", 1), GanymedeRockDust.getItem());
 
 		// Europa
 		macerate(Utils.getItem("GalaxySpace", "europagrunt"), EuropaRockDust.getItem());

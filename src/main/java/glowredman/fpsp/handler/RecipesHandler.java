@@ -303,7 +303,7 @@ public class RecipesHandler {
 				ic2("copperDust", 2), IC2Items.getItem("tinDust"), 300, 25);
 
 		// Koentus Dust
-		centrifuge(OberonRockDust.getItem(32), null, MeteoricIronDust.getItem(4), WhiteCrystalDust.getItem(2), null,
+		centrifuge(KoentusDust.getItem(32), null, MeteoricIronDust.getItem(4), WhiteCrystalDust.getItem(2), null,
 				null, 300, 25);
 
 		// Diona Rock Dust
@@ -658,6 +658,11 @@ public class RecipesHandler {
 		macerate(Utils.getItem("MorePlanet", "fronos_block", 13), FronosRockDust.getItem());
 		macerate(Utils.getItem("MorePlanet", "fronos_block", 14), FronosRockDust.getItem(2));
 		macerate(Utils.getItem("MorePlanet", "mossy_fronos_cobblestone"), FronosRockDust.getItem());
+		
+		// Kriffon
+		macerate(Utils.getItem("galaxymod", "galaxymod_kriffrock"), KriffonRockDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_kriffcobblerock"), KriffonRockDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_kriffstone"), KriffonDust.getItem());
 
 		// Eden
 		macerate(Utils.getItem("galaxymod", "galaxymod_zoldirt"), ZollusDust.getItem());

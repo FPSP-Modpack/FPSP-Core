@@ -781,6 +781,7 @@ public class RecipesHandler {
 		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2),
 				Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial"));
 		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3), new ItemStack(Items.quartz));
+		compressGem(ic2("lithiumDust", 3), Utils.getItems("amunra", "item.baseItem", 7, 3));
 	}
 
 	static void removeOreWasherRecipes() {

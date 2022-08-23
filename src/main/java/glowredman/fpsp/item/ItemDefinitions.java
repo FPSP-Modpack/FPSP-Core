@@ -126,7 +126,7 @@ public enum ItemDefinitions {
 	EdenRockDust(33), EdenDust(43), ViriniumDust(89),
 
 	// Kapteyn
-	KapteynBRockDust(34), NameriumDust(90), KapteynBDust(105),
+	KapteynBRockDust(34), NameriumDust(90), KapteynBDust(105), IceCrystalDust(124),
 
 	// Fronos
 	FronosRockDust(35), FronosDust(44),

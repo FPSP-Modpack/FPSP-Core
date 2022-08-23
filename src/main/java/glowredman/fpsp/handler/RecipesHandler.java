@@ -352,7 +352,7 @@ public class RecipesHandler {
 				ItemDusts.getDustByName("uranium"), null, 300, 25);
 
 		// Kapteyn B Dust
-		centrifuge(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), ItemDusts.getDustByName("uranium", 2), null,
+		centrifuge(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), ItemDusts.getDustByName("uranium", 2), IceCrystalDust.getItem(),
 				null, 300, 25);
 
 		// Fronos Rock Dust
@@ -782,6 +782,7 @@ public class RecipesHandler {
 				Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial"));
 		compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3), new ItemStack(Items.quartz));
 		compressGem(ic2("lithiumDust", 3), Utils.getItems("amunra", "item.baseItem", 7, 3));
+        implosionCompress(IceCrystalDust.getItem(16), ic2("industrialTnt", 24), Utils.getItem("MorePlanet", "kapteyn-b_item", 5), ItemDusts.getDustByName("darkAshes", 12), 20, 32);
 	}
 
 	static void removeOreWasherRecipes() {

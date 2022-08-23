@@ -13,7 +13,7 @@ public class BlockMeta extends Block {
 
 	public static final String[] types = new String[] { "UnknownCrystal", "Ironwood", "Fiery", "Steeleaf", "NetherStar",
 			"Flonium", "Ender", "Charcoal", "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter",
-			"Metallic", "Manganese" };
+			"Metallic", "Manganese", "IceCrystal" };
 	private IIcon[] textures;
 
 	public BlockMeta() {
@@ -75,6 +75,7 @@ public class BlockMeta extends Block {
 			return MapColor.grassColor;
 		case 4:
 		case 12:
+		case 13:
 			return MapColor.snowColor;
 		case 5:
 			return MapColor.redColor;
@@ -83,6 +84,7 @@ public class BlockMeta extends Block {
 		case 9:
 			return MapColor.blueColor;
 		case 10:
+		case 14:
 			return MapColor.lightBlueColor;
 		default:
 			return super.getMapColor(meta);

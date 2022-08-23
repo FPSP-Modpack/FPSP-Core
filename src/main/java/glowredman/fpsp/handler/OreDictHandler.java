@@ -29,7 +29,8 @@ public class OreDictHandler {
 		registerItem("gemFlonium", "MorePlanet", "polongnius_item");
 		registerItem("gemMineral", "MorePlanet", "fronos_item");
 		registerItem("gemXeonium", "MorePlanet", "pluto_item");
-		registerItem("itemBacterialFossil", "MorePlanet", "koentus_item", 2);
+		registerItem("gemIceCrystal", "MorePlanet", "kapteyn-b_item", 5);
+        registerItem("itemBacterialFossil", "MorePlanet", "koentus_item", 2);
 		registerItem("cropBerry", "MorePlanet", "fronos_food", 1);
 		registerItem("cropInfectedVines", "MorePlanet", "infected_vine");
 		registerItem("cropInfectedVines", "MorePlanet", "infected_cavernous_vine");

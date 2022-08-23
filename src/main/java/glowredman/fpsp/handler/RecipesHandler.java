@@ -663,6 +663,7 @@ public class RecipesHandler {
 		macerate(Utils.getItem("galaxymod", "galaxymod_kriffrock"), KriffonRockDust.getItem());
         macerate(Utils.getItem("galaxymod", "galaxymod_kriffcobblerock"), KriffonRockDust.getItem());
         macerate(Utils.getItem("galaxymod", "galaxymod_kriffstone"), KriffonDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_kriffdirt"), KriffonDust.getItem());
 
 		// Eden
 		macerate(Utils.getItem("galaxymod", "galaxymod_zoldirt"), ZollusDust.getItem());

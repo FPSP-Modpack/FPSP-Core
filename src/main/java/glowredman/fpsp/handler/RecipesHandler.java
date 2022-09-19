@@ -156,7 +156,8 @@ public class RecipesHandler {
                 "foodCatfishraw", "foodCharrraw", "foodClamraw", "foodCrabraw", "foodCrayfishraw", "foodEelraw",
                 "foodFrograw", "foodGrouperraw", "foodHerringraw", "foodJellyfishraw", "foodMudfishraw",
                 "foodOctopusraw", "foodPerchraw", "foodScallopraw", "foodShrimpraw", "foodSnailraw", "foodSnapperraw",
-                "foodTilapiaraw", "foodTroutraw", "foodTunaraw", "foodTurtleraw", "foodWalleyeraw", "foodGreenheartfish");
+                "foodTilapiaraw", "foodTroutraw", "foodTunaraw", "foodTurtleraw", "foodWalleyeraw",
+                "foodGreenheartfish");
         cosmic(CosmicMushroom.getItem(), "listAllmushroom");
         craftShapelessXtreme(CosmicVeggie.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropPumpkin",
                 "cropCarrot", "cropPotato", "cropAsparagus", "cropCorn", "cropBambooshoot", "cropCucumber",
@@ -427,6 +428,10 @@ public class RecipesHandler {
         // Basalt Dust Anubis
         centrifuge(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), ItemDusts.getDustByName("uranium", 4), null,
                 null, 300, 25);
+
+        // Dust
+        centrifuge(Utils.getItems("amunra", "item.baseItem", 2, 8), null, ChioniteDust.getItem(4),
+                ItemDusts.getDustByName("uranium", 4), null, null, 300, 25);
 
         // Obsidian Sand Dust Horus
         centrifuge(ObsidianSandDust.getItem(32), null, ItemDusts.getDustByName("diamond"),
@@ -715,6 +720,7 @@ public class RecipesHandler {
         macerate(Utils.getItem("amunra", "tile.wood1", 1), MaahesDust.getItem());
 
         // Anubis
+        macerate(Utils.getItem("amunra", "tile.baseBlockRock"), BasaltRockDust.getItem());
         macerate(Utils.getItem("amunra", "tile.baseBlockRock", 1), BasaltRockDust.getItem());
         macerate(Utils.getItem("amunra", "tile.baseBlockGround", 1), BasaltDust.getItem());
         macerate(Utils.getItem("amunra", "tile.baseFalling", 2), BasaltDust.getItem());

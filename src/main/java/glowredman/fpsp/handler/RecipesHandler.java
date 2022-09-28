@@ -152,11 +152,11 @@ public class RecipesHandler {
     static void addExtremeShapelessRecipes() {
         craftShapelessXtreme(CosmicFish.getItem(), new ItemStack(LudicrousItems.resource, 1, 2),
                 new ItemStack(Items.fish), new ItemStack(Items.fish, 1, 1), new ItemStack(Items.fish, 1, 2),
-                new ItemStack(Items.fish, 1, 3), "foodCalamariraw", "foodAnchovyraw", "foodBaseraw", "foodCarpraw",
+                new ItemStack(Items.fish, 1, 3), "foodCalamariraw", "foodAnchovyraw", "foodBassraw", "foodCarpraw",
                 "foodCatfishraw", "foodCharrraw", "foodClamraw", "foodCrabraw", "foodCrayfishraw", "foodEelraw",
                 "foodFrograw", "foodGrouperraw", "foodHerringraw", "foodJellyfishraw", "foodMudfishraw",
                 "foodOctopusraw", "foodPerchraw", "foodScallopraw", "foodShrimpraw", "foodSnailraw", "foodSnapperraw",
-                "foodTilapiaraw", "foodTroutraw", "foodTunaraw", "foodTurtleraw", "foodWalleyeraw",
+                "foodTilapiaraw", "foodTroutraw", "foodTunaraw", "foodTurtleraw", "foodWalleyraw",
                 "foodGreenheartfish");
         cosmic(CosmicMushroom.getItem(), "listAllmushroom");
         craftShapelessXtreme(CosmicVeggie.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropPumpkin",

@@ -32,7 +32,6 @@ public class ItemFPSPSingularity extends ItemSingularity {
                 + types[MathHelper.clamp_int(stack.getItemDamage(), 0, types.length)].toString();
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List list) {
         for (int i = 0; i < types.length; i++) {
@@ -45,7 +44,6 @@ public class ItemFPSPSingularity extends ItemSingularity {
         return EnumRarity.uncommon;
     }
 
-    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List tooltip, boolean debugInfo) {
         if (types[MathHelper.clamp_int(item.getItemDamage(), 0, types.length)].getAmount() <= 0) {

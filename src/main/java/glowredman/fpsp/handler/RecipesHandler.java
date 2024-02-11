@@ -920,10 +920,6 @@ public class RecipesHandler {
                 null, 200, 128, 1700);
     }
 
-    static void addMatterAmplifiers() {
-        amplify(UUABerry.getItem(), 1000000);
-    }
-
     /******************
      * HELPER METHODS *
      ******************/
@@ -1054,14 +1050,6 @@ public class RecipesHandler {
             int euPerTick, int neededHeat) {
         RecipeHandler
                 .addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
-    }
-
-    private static final ItemStack N = null;
-
-    private static void amplify(ItemStack input, int amount) {
-        NBTTagCompound nbt = new NBTTagCompound();
-        nbt.setInteger("amplification", amount);
-        Recipes.matterAmplifier.addRecipe(new RecipeInputItemStack(input), nbt, N);
     }
 
     private static ItemStack ic2(String name, int amount) {

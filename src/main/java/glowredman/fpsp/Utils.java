@@ -49,18 +49,14 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
-import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.FluidTankInfo;
 import net.minecraftforge.fluids.IFluidHandler;
-import reborncore.common.util.OreUtil;
 
 public class Utils {
 
@@ -73,10 +69,6 @@ public class Utils {
 		Items.apple.setDamage(stack, meta);
 		return stack;
 	}
-	
-	public static ItemStack getItem(String oreDict) {
-		return OreUtil.getStackFromName(oreDict);
-	}
 
 	public static ItemStack getItems(String modID, String itemName, int amount) {
 		return GameRegistry.findItemStack(modID, itemName, amount);
@@ -86,19 +78,6 @@ public class Utils {
 		ItemStack stack = GameRegistry.findItemStack(modID, itemName, amount);
 		Items.apple.setDamage(stack, meta);
 		return stack;
-	}
-	
-	public static ItemStack getItems(String oreDict, int amount) {
-		return OreUtil.getStackFromName(oreDict, amount);
-	}
-
-	public static Block getBlock(ItemStack blockStack) {
-		Item item = blockStack.getItem();
-		if (item instanceof ItemBlock) {
-			return ((ItemBlock) item).field_150939_a;
-		} else {
-			return null;
-		}
 	}
 	
 	public static List<String> getCoordinateScan(EntityPlayer player, World world, int x, int y, int z, int side, float clickX, float clickY, float clickZ) {
@@ -408,16 +387,6 @@ public class Utils {
 		return name;
 	}
 	
-	@SuppressWarnings("deprecation")
-    public static String getFluidName(Fluid fluid, boolean localized) {
-		if(fluid == null)
-			return "";
-		String name = localized ? fluid.getLocalizedName() : fluid.getUnlocalizedName();
-		if(name.contains("fluid.") || name.contains("tile."))
-			return capitalize(name.replaceAll("fluid.", "").replaceAll("tile.", ""));
-		return name;
-	}
-	
 	public static double distance(TileEntityTeleporter tile) {
 	    int dX = tile.xCoord - tile.targetX;
         int dY = tile.yCoord - tile.targetY;
@@ -431,7 +400,5 @@ public class Utils {
 		return "";
 	}
 
-	private Utils() {
-	}
-
+	private Utils() {}
 }

@@ -42,7 +42,7 @@ public class BlockRedSandstone extends BlockSandStone {
 	}
 
 	@Override
-	public void getSubBlocks(Item item, CreativeTabs tab, List variants) {
+	public void getSubBlocks(Item item, CreativeTabs tab, List<ItemStack> variants) {
 		variants.add(new ItemStack(item, 1, 0));
 		variants.add(new ItemStack(item, 1, 1));
 		variants.add(new ItemStack(item, 1, 2));

@@ -54,7 +54,7 @@ public class ItemMeta extends ItemFood {
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List variants) {
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> variants) {
 		for (ItemDefinitions itemDef : ItemDefinitions.values()) {
 			variants.add(itemDef.getItem());
 		}

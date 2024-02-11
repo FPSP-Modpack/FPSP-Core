@@ -53,7 +53,7 @@ public class ItemCell extends Item implements IFluidContainerItem {
 	}
 
 	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List variants) {
+	public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> variants) {
 		for (int i = 0; i < types.length; i++) {
 			variants.add(new ItemStack(this, 1, i));
 		}

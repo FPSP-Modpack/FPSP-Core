@@ -11,7 +11,6 @@ import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.block.BlockRedSandstone;
 import glowredman.fpsp.block.BlockRedSandstoneSlab;
 import glowredman.fpsp.block.BlockRedSandstoneStairs;
-import glowredman.fpsp.crop.FPSPCrops;
 import glowredman.fpsp.handler.CommonEventHandler;
 import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
@@ -114,7 +113,6 @@ public class CommonProxy {
 	}
 
 	public void postInit(FMLPostInitializationEvent event) {
-		FPSPCrops.init();
 		RecipesHandler.init();
 	}
 

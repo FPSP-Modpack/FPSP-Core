@@ -1,7 +1,14 @@
 package glowredman.fpsp;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Set;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import com.gtnewhorizon.gtnhmixins.ILateMixinLoader;
+import com.gtnewhorizon.gtnhmixins.LateMixin;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,13 +23,13 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 
-@Mod(acceptedMinecraftVersions = "1.7.10", dependencies = FPSP.DEPENDENCIES, modid = FPSP.MODID, name = FPSP.MODNAME, version = FPSP.VERSION)
-public class FPSP {
+@LateMixin
+@Mod(acceptedMinecraftVersions = "1.7.10", dependencies = FPSP.DEPENDENCIES, modid = FPSP.MODID, name = FPSP.MODNAME, version = Tags.VERSION)
+public class FPSP implements ILateMixinLoader {
 
 	public static final String DEPENDENCIES = "after:appliedenergistics2;after:BloodArsenal;after:Botania;before:eternalsingularity;after:magicalcrops;after:ProjRed|Exploration;after:SSTOW;after:TwilightForest";
 	public static final String MODID = "fpsp";
 	public static final String MODNAME = "FPSP Core";
-	public static final String VERSION = "GRADLETOKEN_VERSION";
 	public static final Logger LOGGER = LogManager.getLogger(MODID);
 
 	public static Item itemMeta;
@@ -73,4 +80,14 @@ public class FPSP {
 	public static void postInit(FMLPostInitializationEvent event) {
 		proxy.postInit(event);
 	}
+
+    @Override
+    public String getMixinConfig() {
+        return "mixins.fpsp.late.json";
+    }
+
+    @Override
+    public List<String> getMixins(Set<String> loadedMods) {
+        return Arrays.asList("DIClientProxyMixin");
+    }
 }

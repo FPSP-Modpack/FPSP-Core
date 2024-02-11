@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8.3-GTNH",
+  "package": "glowredman.fpsp.mixins.late",
+  "refmap": "mixins.fpsp.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8"
+}

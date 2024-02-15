@@ -1,6 +1,7 @@
 package glowredman.fpsp;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -17,6 +18,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.relauncher.FMLLaunchHandler;
+import cpw.mods.fml.relauncher.Side;
 import glowredman.fpsp.item.ItemCell;
 import glowredman.fpsp.proxy.CommonProxy;
 import net.minecraft.block.Block;
@@ -88,6 +91,10 @@ public class FPSP implements ILateMixinLoader {
 
     @Override
     public List<String> getMixins(Set<String> loadedMods) {
-        return Arrays.asList("DIClientProxyMixin");
+        if(FMLLaunchHandler.side() == Side.CLIENT) {
+            return Arrays.asList("DIClientProxyMixin", "ThreadDownloadResourcesMixin");
+        } else {
+            return Collections.emptyList();
+        }
     }
 }

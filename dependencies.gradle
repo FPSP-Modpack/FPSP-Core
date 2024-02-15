@@ -1,16 +1,13 @@
 dependencies {
-    implementation 'com.github.GTNewHorizons:Railcraft:9.15.5:dev'
-    implementation 'com.github.GTNewHorizons:Avaritia:1.49:dev'
-    implementation 'com.github.GTNewHorizons:BuildCraft:7.1.39:dev'
-    implementation 'com.github.GTNewHorizons:Crops-plus-plus:1.6.3:dev'
-    implementation 'com.github.GTNewHorizons:ironchest:6.0.75:dev'
-    implementation 'com.github.GTNewHorizons:Galacticraft:3.1.2-GTNH:dev'
-    implementation 'com.github.GTNewHorizons:NotEnoughItems:2.5.17-GTNH:dev'
-    implementation 'com.github.GTNewHorizons:Opis:1.4.2-mapless:dev'
-    implementation 'com.github.GTNewHorizons:Railcraft:9.15.5:dev'
+    implementation('com.github.GTNewHorizons:BuildCraft:7.1.39:dev') { transitive = false }
+    implementation('com.github.GTNewHorizons:Galacticraft:3.1.2-GTNH:dev') { transitive = false }
+    implementation('com.github.GTNewHorizons:NotEnoughItems:2.5.17-GTNH:dev') { transitive = false }
+    implementation('com.github.GTNewHorizons:Railcraft:9.15.5:dev') { transitive = false }
     implementation 'net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev'
+    implementation files('libs/Avaritia-1.16-FPSP-dev.jar')
     implementation files('libs/GalaxySpace-1.2.0-FPSP.jar')
     implementation files('libs/reborncore-1.7.10-1.1.0.20-1-gfdf8203-dev.jar')
     implementation files('libs/techreborn-1.7.10-0.7.24.3-FPSP-dev.jar')
     compileOnly rfg.deobf('curse.maven:damage-indicators-mod-59489:2692129')
+    compileOnly rfg.deobf(':PortalGun:4.0.0-beta-6')
 }

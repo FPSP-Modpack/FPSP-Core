@@ -6,6 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map.Entry;
 
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import net.minecraftforge.oredict.ShapelessOreRecipe;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.avaritia.crafting.CompressOreRecipe;
 import fox.spiteful.avaritia.crafting.CompressorManager;
@@ -27,13 +35,6 @@ import ic2.api.recipe.RecipeOutput;
 import ic2.api.recipe.Recipes;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraftforge.oredict.OreDictionary;
-import net.minecraftforge.oredict.ShapedOreRecipe;
-import net.minecraftforge.oredict.ShapelessOreRecipe;
 import reborncore.common.util.OreUtil;
 import techreborn.api.reactor.FusionReactorRecipe;
 import techreborn.api.reactor.FusionReactorRecipeHelper;
@@ -76,26 +77,71 @@ public class RecipesHandler {
 
     static void addShapedRecipes() {
         craftShaped(new ItemStack(FPSP.blockRedSandstone, 1, 0), "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1));
-        craftShaped(new ItemStack(FPSP.blockRedSandstone, 1, 1), "S", "S", 'S',
-                new ItemStack(FPSP.blockRedSandstoneSlab));
-        craftShaped(new ItemStack(FPSP.blockRedSandstone, 4, 2), "SS", "SS", 'S',
-                new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
-        craftShaped(new ItemStack(FPSP.blockRedSandstoneSlab, 6), "SSS", 'S',
-                new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
-        craftShaped(new ItemStack(FPSP.blockRedSandstoneSlabDouble), "SS", 'S',
-                new ItemStack(FPSP.blockRedSandstoneSlab));
-        craftShaped(new ItemStack(FPSP.blockRedSandstoneStairs, 4), "S  ", "SS ", "SSS", 'S',
-                new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
-        craftShaped(MassZivicioDust.getItem(), " E ", "ESE", " E ", 'E',
-                Utils.getItem("magicalcrops", "5ZivicioEssence"), 'S',
-                Utils.getItem("magicalcrops", "InfusionStoneMaster"));
+        craftShaped(
+            new ItemStack(FPSP.blockRedSandstone, 1, 1),
+            "S",
+            "S",
+            'S',
+            new ItemStack(FPSP.blockRedSandstoneSlab));
+        craftShaped(
+            new ItemStack(FPSP.blockRedSandstone, 4, 2),
+            "SS",
+            "SS",
+            'S',
+            new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
+        craftShaped(
+            new ItemStack(FPSP.blockRedSandstoneSlab, 6),
+            "SSS",
+            'S',
+            new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
+        craftShaped(
+            new ItemStack(FPSP.blockRedSandstoneSlabDouble),
+            "SS",
+            'S',
+            new ItemStack(FPSP.blockRedSandstoneSlab));
+        craftShaped(
+            new ItemStack(FPSP.blockRedSandstoneStairs, 4),
+            "S  ",
+            "SS ",
+            "SSS",
+            'S',
+            new ItemStack(FPSP.blockRedSandstone, 1, OreDictionary.WILDCARD_VALUE));
+        craftShaped(
+            MassZivicioDust.getItem(),
+            " E ",
+            "ESE",
+            " E ",
+            'E',
+            Utils.getItem("magicalcrops", "5ZivicioEssence"),
+            'S',
+            Utils.getItem("magicalcrops", "InfusionStoneMaster"));
         craftShaped(IngotCast.getItem(), "TT", "TT", 'T', "ingotTungsten");
-        craftShaped(QuantumMainframe.getItem(4), "CSC", "LQL", "CSC", 'C', "circuitMaster", 'S',
-                "craftingSuperconductor", 'L', "battery100M", 'Q',
-                Utils.getItem("supersolarpanel", "enderquantumcomponent"));
-        craftShaped(Scanner.getItem(), "PDP", "PSP", "PCP", 'P', "plateAluminium", 'D',
-                Utils.getItem("flansmod", "dwDisplayUnit"), 'S', Utils.getItem("ExtraUtilities", "scanner"), 'C',
-                "circuitData");
+        craftShaped(
+            QuantumMainframe.getItem(4),
+            "CSC",
+            "LQL",
+            "CSC",
+            'C',
+            "circuitMaster",
+            'S',
+            "craftingSuperconductor",
+            'L',
+            "battery100M",
+            'Q',
+            Utils.getItem("supersolarpanel", "enderquantumcomponent"));
+        craftShaped(
+            Scanner.getItem(),
+            "PDP",
+            "PSP",
+            "PCP",
+            'P',
+            "plateAluminium",
+            'D',
+            Utils.getItem("flansmod", "dwDisplayUnit"),
+            'S',
+            Utils.getItem("ExtraUtilities", "scanner"),
+            'C',
+            "circuitData");
         block(0, "gem");
         block(1, "ingot");
         block(2, "ingot");
@@ -116,16 +162,25 @@ public class RecipesHandler {
 
     static void addShapelessRecipes() {
         craftShapeless(MassZivicioDust.getItem(9), Utils.getItem("magicalcrops", "essence_storage", 5));
-        craftShapeless(IronEnderCompound.getItem(2), "dustIron", Utils.getItem("HardcoreEnderExpansion", "end_powder"),
-                "dustSmallOsmium");
-        craftShapeless(UnknownCrystalSeeds.getItem(2), "dustQuartz", "cropBarnardaCDandelion",
-                Utils.getItem("MorePlanet", "frozen_water_bucket"));
-        craftShapeless(UnknownCrystalSeeds.getItem(2), "dustQuartz", "cropTCetiESeaweed",
-                Utils.getItem("MorePlanet", "frozen_water_bucket"));
+        craftShapeless(
+            IronEnderCompound.getItem(2),
+            "dustIron",
+            Utils.getItem("HardcoreEnderExpansion", "end_powder"),
+            "dustSmallOsmium");
+        craftShapeless(
+            UnknownCrystalSeeds.getItem(2),
+            "dustQuartz",
+            "cropBarnardaCDandelion",
+            Utils.getItem("MorePlanet", "frozen_water_bucket"));
+        craftShapeless(
+            UnknownCrystalSeeds.getItem(2),
+            "dustQuartz",
+            "cropTCetiESeaweed",
+            Utils.getItem("MorePlanet", "frozen_water_bucket"));
     }
 
     static void addNeutroniumCompressor() {
-        for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+        for (SingularityDefinitions s : ItemFPSPSingularity.TYPES) {
             if (s.getAmount() <= 0) {
                 continue;
             }
@@ -142,7 +197,7 @@ public class RecipesHandler {
     }
 
     static void addInfinityCatalystIngredients() {
-        for (SingularityDefinitions s : ItemFPSPSingularity.types) {
+        for (SingularityDefinitions s : ItemFPSPSingularity.TYPES) {
             if (s.getAmount() > 0) {
                 catalyse(s.getItem());
             }
@@ -150,114 +205,350 @@ public class RecipesHandler {
     }
 
     static void addExtremeShapelessRecipes() {
-        craftShapelessXtreme(CosmicFish.getItem(), new ItemStack(LudicrousItems.resource, 1, 2),
-                new ItemStack(Items.fish), new ItemStack(Items.fish, 1, 1), new ItemStack(Items.fish, 1, 2),
-                new ItemStack(Items.fish, 1, 3), "foodCalamariraw", "foodAnchovyraw", "foodBassraw", "foodCarpraw",
-                "foodCatfishraw", "foodCharrraw", "foodClamraw", "foodCrabraw", "foodCrayfishraw", "foodEelraw",
-                "foodFrograw", "foodGrouperraw", "foodHerringraw", "foodJellyfishraw", "foodMudfishraw",
-                "foodOctopusraw", "foodPerchraw", "foodScallopraw", "foodShrimpraw", "foodSnailraw", "foodSnapperraw",
-                "foodTilapiaraw", "foodTroutraw", "foodTunaraw", "foodTurtleraw", "foodWalleyraw",
-                "foodGreenheartfish");
+        craftShapelessXtreme(
+            CosmicFish.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            new ItemStack(Items.fish),
+            new ItemStack(Items.fish, 1, 1),
+            new ItemStack(Items.fish, 1, 2),
+            new ItemStack(Items.fish, 1, 3),
+            "foodCalamariraw",
+            "foodAnchovyraw",
+            "foodBassraw",
+            "foodCarpraw",
+            "foodCatfishraw",
+            "foodCharrraw",
+            "foodClamraw",
+            "foodCrabraw",
+            "foodCrayfishraw",
+            "foodEelraw",
+            "foodFrograw",
+            "foodGrouperraw",
+            "foodHerringraw",
+            "foodJellyfishraw",
+            "foodMudfishraw",
+            "foodOctopusraw",
+            "foodPerchraw",
+            "foodScallopraw",
+            "foodShrimpraw",
+            "foodSnailraw",
+            "foodSnapperraw",
+            "foodTilapiaraw",
+            "foodTroutraw",
+            "foodTunaraw",
+            "foodTurtleraw",
+            "foodWalleyraw",
+            "foodGreenheartfish");
         cosmic(CosmicMushroom.getItem(), "listAllmushroom");
-        craftShapelessXtreme(CosmicVeggie.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropPumpkin",
-                "cropCarrot", "cropPotato", "cropAsparagus", "cropCorn", "cropBambooshoot", "cropCucumber",
-                "cropWintersquash", "cropZucchini", "cropBeet", "cropOnion", "cropParsnip", "cropRadish",
-                "cropRutabaga", "cropSweetpotato", "cropTurnip", "cropRhubarb", "cropCelery", "cropBroccoli",
-                "cropCauliflower", "cropLeek", "cropLettuce", "cropScallion", "cropArtichoke", "cropBrusselsprout",
-                "cropCabbage", "cropSpinach", "cropBean", "cropSoybean", "cropBellpepper", "cropChilipepper",
-                "cropEggplant", "cropOkra", "cropPeas", "cropTomato", "cropSeaweed", "cropBloodleaf",
-                "cropWildcarrots");
-        craftShapelessXtreme(CosmicFruit.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropApple",
-                "cropMelon", Utils.getItem("galaxymod", "galaxymod_fruitofeden"), "cropGrape", "cropCactusfruit",
-                "cropCantaloupe", "cropPineapple", "cropKiwi", "cropApricot", "cropAvocado", "cropBanana", "cropCherry",
-                "cropCoconut", "cropDate", "cropDragonfruit", "cropDurian", "cropFig", "cropGrapefruit", "cropLemon",
-                "cropLime", "cropMango", "cropOlive", "cropOrange", "cropPapaya", "cropPeach", "cropPear",
-                "cropPersimmon", "cropPlum", "cropPomegranate", "cropStarfruit", "cropIgnisfruit", "cropUnknownFruits");
-        craftShapelessXtreme(CosmicGrain.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropWheat",
-                "cropBarley", "cropOats", "cropRye", "cropRice");
-        craftShapelessXtreme(CosmicBerry.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropBlackberry",
-                "cropBlueberry", "cropRaspberry", "cropStrawberry", "cropCranberry", "cropGooseberry",
-                "cropMarrowberry", "cropMaloberry", "cropBlightberry", "cropDuskberry", "cropSkyberry",
-                "cropStingberry", Utils.getItem("MorePlanet", "fronos_food", 1));
+        craftShapelessXtreme(
+            CosmicVeggie.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            "cropPumpkin",
+            "cropCarrot",
+            "cropPotato",
+            "cropAsparagus",
+            "cropCorn",
+            "cropBambooshoot",
+            "cropCucumber",
+            "cropWintersquash",
+            "cropZucchini",
+            "cropBeet",
+            "cropOnion",
+            "cropParsnip",
+            "cropRadish",
+            "cropRutabaga",
+            "cropSweetpotato",
+            "cropTurnip",
+            "cropRhubarb",
+            "cropCelery",
+            "cropBroccoli",
+            "cropCauliflower",
+            "cropLeek",
+            "cropLettuce",
+            "cropScallion",
+            "cropArtichoke",
+            "cropBrusselsprout",
+            "cropCabbage",
+            "cropSpinach",
+            "cropBean",
+            "cropSoybean",
+            "cropBellpepper",
+            "cropChilipepper",
+            "cropEggplant",
+            "cropOkra",
+            "cropPeas",
+            "cropTomato",
+            "cropSeaweed",
+            "cropBloodleaf",
+            "cropWildcarrots");
+        craftShapelessXtreme(
+            CosmicFruit.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            "cropApple",
+            "cropMelon",
+            Utils.getItem("galaxymod", "galaxymod_fruitofeden"),
+            "cropGrape",
+            "cropCactusfruit",
+            "cropCantaloupe",
+            "cropPineapple",
+            "cropKiwi",
+            "cropApricot",
+            "cropAvocado",
+            "cropBanana",
+            "cropCherry",
+            "cropCoconut",
+            "cropDate",
+            "cropDragonfruit",
+            "cropDurian",
+            "cropFig",
+            "cropGrapefruit",
+            "cropLemon",
+            "cropLime",
+            "cropMango",
+            "cropOlive",
+            "cropOrange",
+            "cropPapaya",
+            "cropPeach",
+            "cropPear",
+            "cropPersimmon",
+            "cropPlum",
+            "cropPomegranate",
+            "cropStarfruit",
+            "cropIgnisfruit",
+            "cropUnknownFruits");
+        craftShapelessXtreme(
+            CosmicGrain.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            "cropWheat",
+            "cropBarley",
+            "cropOats",
+            "cropRye",
+            "cropRice");
+        craftShapelessXtreme(
+            CosmicBerry.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            "cropBlackberry",
+            "cropBlueberry",
+            "cropRaspberry",
+            "cropStrawberry",
+            "cropCranberry",
+            "cropGooseberry",
+            "cropMarrowberry",
+            "cropMaloberry",
+            "cropBlightberry",
+            "cropDuskberry",
+            "cropSkyberry",
+            "cropStingberry",
+            Utils.getItem("MorePlanet", "fronos_food", 1));
         cosmic(CosmicNut.getItem(), "listAllnut");
-        craftShapelessXtreme(CosmicSpice.getItem(), new ItemStack(LudicrousItems.resource, 1, 2), "cropGinger",
-                "cropSpiceleaf", "cropMustard", "cropSesame", "cropCurryleaf", "cropCinnamon", "cropNutmeg",
-                "cropPeppercorn", "cropVanillabean");
+        craftShapelessXtreme(
+            CosmicSpice.getItem(),
+            new ItemStack(LudicrousItems.resource, 1, 2),
+            "cropGinger",
+            "cropSpiceleaf",
+            "cropMustard",
+            "cropSesame",
+            "cropCurryleaf",
+            "cropCinnamon",
+            "cropNutmeg",
+            "cropPeppercorn",
+            "cropVanillabean");
     }
 
     static void addFusionRecipes() {
-        fusion(ItemDusts.getDustByName("silver"), ItemCells.getCellByName("helium3"),
-                new ItemStack(FPSP.itemCell, 1, 0), 280000000, 49152, 16);
-        fusion(ItemCells.getCellByName("deuterium"), ItemCells.getCellByName("beryllium"),
-                new ItemStack(FPSP.itemCell, 1, 1), 180000000, 16384, 16);
-        fusion(ItemDusts.getDustByName("copper"), ItemCells.getCellByName("tritium"),
-                new ItemStack(FPSP.itemCell, 1, 2), 180000000, 49152, 16);
-        fusion(IC2Items.getItem("airCell"), ItemDusts.getDustByName("magnesium"), new ItemStack(FPSP.itemCell, 1, 3),
-                120000000, 7680, 128);
-        fusion(ItemCells.getCellByName("lithium"), ItemDusts.getDustByName("aluminium"),
-                new ItemStack(FPSP.itemCell, 1, 4), 240000000, 10240, 32);
-        fusion(ItemDusts.getDustByName("magnesium"), ItemCells.getCellByName("silicon"),
-                new ItemStack(FPSP.itemCell, 1, 5), 360000000, 7680, 32);
+        fusion(
+            ItemDusts.getDustByName("silver"),
+            ItemCells.getCellByName("helium3"),
+            new ItemStack(FPSP.itemCell, 1, 0),
+            280000000,
+            49152,
+            16);
+        fusion(
+            ItemCells.getCellByName("deuterium"),
+            ItemCells.getCellByName("beryllium"),
+            new ItemStack(FPSP.itemCell, 1, 1),
+            180000000,
+            16384,
+            16);
+        fusion(
+            ItemDusts.getDustByName("copper"),
+            ItemCells.getCellByName("tritium"),
+            new ItemStack(FPSP.itemCell, 1, 2),
+            180000000,
+            49152,
+            16);
+        fusion(
+            IC2Items.getItem("airCell"),
+            ItemDusts.getDustByName("magnesium"),
+            new ItemStack(FPSP.itemCell, 1, 3),
+            120000000,
+            7680,
+            128);
+        fusion(
+            ItemCells.getCellByName("lithium"),
+            ItemDusts.getDustByName("aluminium"),
+            new ItemStack(FPSP.itemCell, 1, 4),
+            240000000,
+            10240,
+            32);
+        fusion(
+            ItemDusts.getDustByName("magnesium"),
+            ItemCells.getCellByName("silicon"),
+            new ItemStack(FPSP.itemCell, 1, 5),
+            360000000,
+            7680,
+            32);
     }
 
     static void addCentrifugeRecipes() {
         // Moon Rock Dust
-        centrifuge(MoonRockDust.getItem(32), null, MeteoricIronDust.getItem(), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), null, 300, 25);
+        centrifuge(
+            MoonRockDust.getItem(32),
+            null,
+            MeteoricIronDust.getItem(),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            null,
+            300,
+            25);
 
         // Moon Dust
-        centrifuge(MoonDust.getItem(32), null, MeteoricIronDust.getItem(), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), null, 300, 25);
+        centrifuge(
+            MoonDust.getItem(32),
+            null,
+            MeteoricIronDust.getItem(),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            null,
+            300,
+            25);
 
         // Mars Rock Dust
-        centrifuge(MarsRockDust.getItem(32), null, DeshDust.getItem(), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), ic2("ironDust", 3), 300, 25);
+        centrifuge(
+            MarsRockDust.getItem(32),
+            null,
+            DeshDust.getItem(),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            ic2("ironDust", 3),
+            300,
+            25);
 
         // Phobos Rock Dust
-        centrifuge(PhobosRockDust.getItem(32), null, OreUtil.getStackFromName("dustCoablt", 2), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), ic2("ironDust", 3), 300, 25);
+        centrifuge(
+            PhobosRockDust.getItem(32),
+            null,
+            OreUtil.getStackFromName("dustCoablt", 2),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            ic2("ironDust", 3),
+            300,
+            25);
 
         // Deimos Rock Dust
-        centrifuge(DeimosRockDust.getItem(32), null, OriharukonDust.getItem(), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), ic2("ironDust", 3), 300, 25);
+        centrifuge(
+            DeimosRockDust.getItem(32),
+            null,
+            OriharukonDust.getItem(),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            ic2("ironDust", 3),
+            300,
+            25);
 
         // Ceres Rock Dust
-        centrifuge(CeresRockDust.getItem(32), null, ItemDusts.getDustByName("tungsten"), ic2("silverDust", 2),
-                MeteoricIronDust.getItem(), null, 300, 25);
+        centrifuge(
+            CeresRockDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("tungsten"),
+            ic2("silverDust", 2),
+            MeteoricIronDust.getItem(),
+            null,
+            300,
+            25);
 
         // Asteroid Rock Dust
-        centrifuge(AsteroidRockDust.getItem(32), IC2Items.getItem("cell"), ItemDusts.getDustByName("aluminium", 2),
-                IC2Items.getItem("ironDust"), MeteoricIronDust.getItem(2), ItemCells.getCellByName("silicon"), 300, 25);
+        centrifuge(
+            AsteroidRockDust.getItem(32),
+            IC2Items.getItem("cell"),
+            ItemDusts.getDustByName("aluminium", 2),
+            IC2Items.getItem("ironDust"),
+            MeteoricIronDust.getItem(2),
+            ItemCells.getCellByName("silicon"),
+            300,
+            25);
 
         // Callisto Rock Dust
-        centrifuge(CallistoRockDust.getItem(32), null, PalladiumDust.getItem(2),
-                OreUtil.getStackFromName("dustCertusQuartz", 4), null, null, 300, 25);
+        centrifuge(
+            CallistoRockDust.getItem(32),
+            null,
+            PalladiumDust.getItem(2),
+            OreUtil.getStackFromName("dustCertusQuartz", 4),
+            null,
+            null,
+            300,
+            25);
 
         // Ganymede Rock Dust
-        centrifuge(GanymedeRockDust.getItem(32), null, ItemDusts.getDustByName("magnesium", 2), ic2("ironDust", 3),
-                ItemDusts.getDustByName("titanium"), null, 300, 25);
+        centrifuge(
+            GanymedeRockDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("magnesium", 2),
+            ic2("ironDust", 3),
+            ItemDusts.getDustByName("titanium"),
+            null,
+            300,
+            25);
 
         // Europa Dust
         centrifuge(EuropaDust.getItem(32), null, EuropiumDust.getItem(3), null, null, null, 300, 25);
 
         // Europa Rock Dust
-        centrifuge(EuropaRockDust.getItem(32), null, EuropiumDust.getItem(), ItemDusts.getDustByName("peridot"),
-                ItemDusts.getDustByName("ruby"), ItemDusts.getDustByName("sapphire"), 300, 25);
+        centrifuge(
+            EuropaRockDust.getItem(32),
+            null,
+            EuropiumDust.getItem(),
+            ItemDusts.getDustByName("peridot"),
+            ItemDusts.getDustByName("ruby"),
+            ItemDusts.getDustByName("sapphire"),
+            300,
+            25);
 
         // Io Rock Dust
-        centrifuge(IoRockDust.getItem(32), null, MetalMeteoricIronDust.getItem(2), IC2Items.getItem("copperDust"),
-                ic2("sulfurDust", 3), ItemDusts.getDustByName("saltpeter"), 300, 25);
+        centrifuge(
+            IoRockDust.getItem(32),
+            null,
+            MetalMeteoricIronDust.getItem(2),
+            IC2Items.getItem("copperDust"),
+            ic2("sulfurDust", 3),
+            ItemDusts.getDustByName("saltpeter"),
+            300,
+            25);
 
         // Io Dust
         centrifuge(IoDust.getItem(32), null, MetalMeteoricIronDust.getItem(4), null, null, null, 300, 25);
 
         // Mercury Rock Dust
-        centrifuge(MercuryRockDust.getItem(32), null, MercurianIronDust.getItem(2), MetallicDust.getItem(2),
-                ItemDusts.getDustByName("nickel"), ic2("leadDust", 2), 300, 25);
+        centrifuge(
+            MercuryRockDust.getItem(32),
+            null,
+            MercurianIronDust.getItem(2),
+            MetallicDust.getItem(2),
+            ItemDusts.getDustByName("nickel"),
+            ic2("leadDust", 2),
+            300,
+            25);
 
         // Venus Rock Dust
-        centrifuge(VenusRockDust.getItem(32), null, CitrineDust.getItem(), ic2("leadDust", 2), ic2("copperDust", 2),
-                IC2Items.getItem("tinDust"), 300, 25);
+        centrifuge(
+            VenusRockDust.getItem(32),
+            null,
+            CitrineDust.getItem(),
+            ic2("leadDust", 2),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            300,
+            25);
 
         // Enceladus Rock Dust
         centrifuge(EnceladusRockDust.getItem(32), null, FrozenIronDust.getItem(2), null, null, null, 300, 25);
@@ -266,8 +557,15 @@ public class RecipesHandler {
         centrifuge(EnceladusDust.getItem(32), null, FrozenIronDust.getItem(4), null, null, null, 300, 25);
 
         // Titan Rock Dust
-        centrifuge(TitanRockDust.getItem(32), null, PetaliteDust.getItem(2), RhodiumDust.getItem(2),
-                ItemDusts.getDustByName("osmium"), null, 300, 25);
+        centrifuge(
+            TitanRockDust.getItem(32),
+            null,
+            PetaliteDust.getItem(2),
+            RhodiumDust.getItem(2),
+            ItemDusts.getDustByName("osmium"),
+            null,
+            300,
+            25);
 
         // Miranda Rock Dust
         centrifuge(MirandaRockDust.getItem(32), null, ic2("ironDust", 3), JadeDust.getItem(2), null, null, 300, 25);
@@ -276,179 +574,456 @@ public class RecipesHandler {
         centrifuge(OberonRockDust.getItem(32), null, AdamantiteDust.getItem(2), null, null, null, 300, 25);
 
         // Proteus Rock Dust
-        centrifuge(ProteusRockDust.getItem(32), null, ItemDusts.getDustByName("tungsten", 2),
-                ItemDusts.getDustByName("platinum"), null, null, 300, 25);
+        centrifuge(
+            ProteusRockDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("tungsten", 2),
+            ItemDusts.getDustByName("platinum"),
+            null,
+            null,
+            300,
+            25);
 
         // Triton Rock Dust
-        centrifuge(TritonRockDust.getItem(32), null, ItemDusts.getDustByName("uranium", 2),
-                OreUtil.getStackFromName("dustMithril"), null, null, 300, 25);
+        centrifuge(
+            TritonRockDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("uranium", 2),
+            OreUtil.getStackFromName("dustMithril"),
+            null,
+            null,
+            300,
+            25);
 
         // Vega B Rock Dust
-        centrifuge(VegaBRockDust.getItem(32), null, WhiteCrystalDust.getItem(2),
-                OreUtil.getStackFromName("dustIridium"), null, null, 300, 25);
+        centrifuge(
+            VegaBRockDust.getItem(32),
+            null,
+            WhiteCrystalDust.getItem(2),
+            OreUtil.getStackFromName("dustIridium"),
+            null,
+            null,
+            300,
+            25);
 
         // Pluto Rock Dust
-        centrifuge(PlutoRockDust.getItem(32), null, ItemDusts.getDustByName("plutonium", 2), MeteoricIronDust.getItem(),
-                Utils.getItems("MorePlanet", "xeonium_dust", 2), FrozenIronDust.getItem(), 300, 25);
+        centrifuge(
+            PlutoRockDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("plutonium", 2),
+            MeteoricIronDust.getItem(),
+            Utils.getItems("MorePlanet", "xeonium_dust", 2),
+            FrozenIronDust.getItem(),
+            300,
+            25);
 
         // Pluto Dust
-        centrifuge(PlutoDust.getItem(32), null, ItemDusts.getDustByName("plutonium", 3),
-                Utils.getItems("MorePlanet", "xeonium_dust", 2), null, null, 300, 25);
+        centrifuge(
+            PlutoDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("plutonium", 3),
+            Utils.getItems("MorePlanet", "xeonium_dust", 2),
+            null,
+            null,
+            300,
+            25);
 
         // Kuiper Belt
         centrifuge(DenseIceDust.getItem(32), null, IC2Items.getItem("ironDust"), null, null, null, 300, 25);
 
         // Haumea Rock Dust
-        centrifuge(HaumeaRockDust.getItem(32), null, OnyxDust.getItem(2), AdamantiteDust.getItem(1),
-                OriharukonDust.getItem(1), null, 300, 25);
+        centrifuge(
+            HaumeaRockDust.getItem(32),
+            null,
+            OnyxDust.getItem(2),
+            AdamantiteDust.getItem(1),
+            OriharukonDust.getItem(1),
+            null,
+            300,
+            25);
 
         // Makemake Rock Dust
-        centrifuge(MakemakeRockDust.getItem(32), null, BismuthDust.getItem(2), EuropiumDust.getItem(), null, null, 300,
-                25);
+        centrifuge(
+            MakemakeRockDust.getItem(32),
+            null,
+            BismuthDust.getItem(2),
+            EuropiumDust.getItem(),
+            null,
+            null,
+            300,
+            25);
 
         // Koentus Rock Dust
-        centrifuge(KoentusRockDust.getItem(32), null, MeteoricIronDust.getItem(2), WhiteCrystalDust.getItem(),
-                ic2("copperDust", 2), IC2Items.getItem("tinDust"), 300, 25);
+        centrifuge(
+            KoentusRockDust.getItem(32),
+            null,
+            MeteoricIronDust.getItem(2),
+            WhiteCrystalDust.getItem(),
+            ic2("copperDust", 2),
+            IC2Items.getItem("tinDust"),
+            300,
+            25);
 
         // Koentus Dust
-        centrifuge(KoentusDust.getItem(32), null, MeteoricIronDust.getItem(4), WhiteCrystalDust.getItem(2), null, null,
-                300, 25);
+        centrifuge(
+            KoentusDust.getItem(32),
+            null,
+            MeteoricIronDust.getItem(4),
+            WhiteCrystalDust.getItem(2),
+            null,
+            null,
+            300,
+            25);
 
         // Diona Rock Dust
-        centrifuge(DionaRockDust.getItem(32), IC2Items.getItem("cell"), QuontoniumDust.getItem(2),
-                FronisiumDust.getItem(2), KoentusMeteoricIronDust.getItem(), ItemCells.getCellByName("silicon"), 300,
-                25);
+        centrifuge(
+            DionaRockDust.getItem(32),
+            IC2Items.getItem("cell"),
+            QuontoniumDust.getItem(2),
+            FronisiumDust.getItem(2),
+            KoentusMeteoricIronDust.getItem(),
+            ItemCells.getCellByName("silicon"),
+            300,
+            25);
 
         // alphaCentauri Bb Rock Dust
-        centrifuge(ACentauriBbRockDust.getItem(32), null, CentauriumDust.getItem(2), MetalMeteoricIronDust.getItem(),
-                MetallicDust.getItem(), null, 300, 25);
+        centrifuge(
+            ACentauriBbRockDust.getItem(32),
+            null,
+            CentauriumDust.getItem(2),
+            MetalMeteoricIronDust.getItem(),
+            MetallicDust.getItem(),
+            null,
+            300,
+            25);
 
         // Polongnius Rock Dust
-        centrifuge(PolongniusRockDust.getItem(32), null, PolongniusMeteoricIronDust.getItem(2), FloniumDust.getItem(2),
-                PalladiumDust.getItem(2), IC2Items.getItem("tinDust"), 300, 25);
+        centrifuge(
+            PolongniusRockDust.getItem(32),
+            null,
+            PolongniusMeteoricIronDust.getItem(2),
+            FloniumDust.getItem(2),
+            PalladiumDust.getItem(2),
+            IC2Items.getItem("tinDust"),
+            300,
+            25);
 
         // Barnarda C Dust
-        centrifuge(BarnardaCDust.getItem(32), null, PinkQuartzDust.getItem(4), IC2Items.getItem("coalDust"), null, null,
-                300, 25);
+        centrifuge(
+            BarnardaCDust.getItem(32),
+            null,
+            PinkQuartzDust.getItem(4),
+            IC2Items.getItem("coalDust"),
+            null,
+            null,
+            300,
+            25);
 
         // Barnarda E Rock Dust
-        centrifuge(BarnardaERockDust.getItem(32), null, CarnelianDust.getItem(2), ic2("goldDust", 2),
-                ic2("ironDust", 2), null, 300, 25);
+        centrifuge(
+            BarnardaERockDust.getItem(32),
+            null,
+            CarnelianDust.getItem(2),
+            ic2("goldDust", 2),
+            ic2("ironDust", 2),
+            null,
+            300,
+            25);
 
         // Barnarda F Rock Dust
-        centrifuge(BarnardaFRockDust.getItem(32), null, ChalcedonyDust.getItem(2),
-                ItemDusts.getDustByName("plutonium", 2), OreUtil.getStackFromName("dustMithril"), null, 300, 25);
+        centrifuge(
+            BarnardaFRockDust.getItem(32),
+            null,
+            ChalcedonyDust.getItem(2),
+            ItemDusts.getDustByName("plutonium", 2),
+            OreUtil.getStackFromName("dustMithril"),
+            null,
+            300,
+            25);
 
         // Nibiru Rock Dust
-        centrifuge(NibiruRockDust.getItem(32), null, RedGemDust.getItem(2), IchoriusDust.getItem(2),
-                IC2Items.getItem("ironDust"), null, 300, 25);
+        centrifuge(
+            NibiruRockDust.getItem(32),
+            null,
+            RedGemDust.getItem(2),
+            IchoriusDust.getItem(2),
+            IC2Items.getItem("ironDust"),
+            null,
+            300,
+            25);
 
         // T Ceti E Rock Dust
-        centrifuge(TCetiERockDust.getItem(32), null, NoriumDust.getItem(2), EMPDust.getItem(2),
-                ItemDusts.getDustByName("platinum"), IC2Items.getItem("silverDust"), 300, 25);
+        centrifuge(
+            TCetiERockDust.getItem(32),
+            null,
+            NoriumDust.getItem(2),
+            EMPDust.getItem(2),
+            ItemDusts.getDustByName("platinum"),
+            IC2Items.getItem("silverDust"),
+            300,
+            25);
 
         // Eden Rock Dust
-        centrifuge(EdenRockDust.getItem(32), null, ViriniumDust.getItem(2), DeshDust.getItem(2),
-                ItemDusts.getDustByName("aluminium"), MeteoricIronDust.getItem(), 300, 25);
+        centrifuge(
+            EdenRockDust.getItem(32),
+            null,
+            ViriniumDust.getItem(2),
+            DeshDust.getItem(2),
+            ItemDusts.getDustByName("aluminium"),
+            MeteoricIronDust.getItem(),
+            300,
+            25);
 
         // Eden Dust
-        centrifuge(EdenDust.getItem(32), null, ViriniumDust.getItem(4), IC2Items.getItem("coalDust"), null, null, 300,
-                25);
+        centrifuge(
+            EdenDust.getItem(32),
+            null,
+            ViriniumDust.getItem(4),
+            IC2Items.getItem("coalDust"),
+            null,
+            null,
+            300,
+            25);
 
         // Kapteyn B Rock Dust
-        centrifuge(KapteynBRockDust.getItem(32), null, NameriumDust.getItem(2), FrozenIronDust.getItem(),
-                ItemDusts.getDustByName("uranium"), null, 300, 25);
+        centrifuge(
+            KapteynBRockDust.getItem(32),
+            null,
+            NameriumDust.getItem(2),
+            FrozenIronDust.getItem(),
+            ItemDusts.getDustByName("uranium"),
+            null,
+            300,
+            25);
 
         // Kapteyn B Dust
-        centrifuge(KapteynBDust.getItem(32), null, NameriumDust.getItem(4), ItemDusts.getDustByName("uranium", 2),
-                IceCrystalDust.getItem(), null, 300, 25);
+        centrifuge(
+            KapteynBDust.getItem(32),
+            null,
+            NameriumDust.getItem(4),
+            ItemDusts.getDustByName("uranium", 2),
+            IceCrystalDust.getItem(),
+            null,
+            300,
+            25);
 
         // Fronos Rock Dust
-        centrifuge(FronosRockDust.getItem(32), null, OreUtil.getStackFromName("dustIridium"), ic2("goldDust", 2),
-                ic2("copperDust", 4), ItemDusts.getDustByName("aluminium", 2), 300, 25);
+        centrifuge(
+            FronosRockDust.getItem(32),
+            null,
+            OreUtil.getStackFromName("dustIridium"),
+            ic2("goldDust", 2),
+            ic2("copperDust", 4),
+            ItemDusts.getDustByName("aluminium", 2),
+            300,
+            25);
 
         // Fronos Dust
-        centrifuge(FronosDust.getItem(32), null, OreUtil.getStackFromName("dustIridium", 2),
-                IC2Items.getItem("coalDust"), null, null, 300, 25);
+        centrifuge(
+            FronosDust.getItem(32),
+            null,
+            OreUtil.getStackFromName("dustIridium", 2),
+            IC2Items.getItem("coalDust"),
+            null,
+            null,
+            300,
+            25);
 
         // Kriffon Rock Dust
-        centrifuge(KriffonRockDust.getItem(32), null, BlackDiamondDust.getItem(1), RedGemDust.getItem(1),
-                OreUtil.getStackFromName("dustCobalt"), ItemDusts.getDustByName("tungsten"), 300, 25);
+        centrifuge(
+            KriffonRockDust.getItem(32),
+            null,
+            BlackDiamondDust.getItem(1),
+            RedGemDust.getItem(1),
+            OreUtil.getStackFromName("dustCobalt"),
+            ItemDusts.getDustByName("tungsten"),
+            300,
+            25);
 
         // Kriffon Dust
-        centrifuge(KriffonDust.getItem(32), null, BlackDiamondDust.getItem(3), RedGemDust.getItem(1), null, null, 300,
-                25);
+        centrifuge(
+            KriffonDust.getItem(32),
+            null,
+            BlackDiamondDust.getItem(3),
+            RedGemDust.getItem(1),
+            null,
+            null,
+            300,
+            25);
 
         // Zolrock Dust
-        centrifuge(ZolrockDust.getItem(32), null, HeartiumDust.getItem(2), NoriumDust.getItem(1), ic2("tinDust", 2),
-                ic2("copperDust", 3), 300, 25);
+        centrifuge(
+            ZolrockDust.getItem(32),
+            null,
+            HeartiumDust.getItem(2),
+            NoriumDust.getItem(1),
+            ic2("tinDust", 2),
+            ic2("copperDust", 3),
+            300,
+            25);
 
         // Zollus Dust
         centrifuge(ZollusDust.getItem(32), null, NoriumDust.getItem(1), HeartiumDust.getItem(3), null, null, 300, 25);
 
         // Sirius B Rock Dust
-        centrifuge(SiriusBRockDust.getItem(32), null, ic2("sulfurDust", 4), ItemDusts.getDustByName("diamond", 2),
-                ItemDusts.getDustByName("tungsten", 2), null, 300, 25);
+        centrifuge(
+            SiriusBRockDust.getItem(32),
+            null,
+            ic2("sulfurDust", 4),
+            ItemDusts.getDustByName("diamond", 2),
+            ItemDusts.getDustByName("tungsten", 2),
+            null,
+            300,
+            25);
 
         // Oasis Rock Dust
-        centrifuge(OasisRockDust.getItem(32), null, ic2("silverDust", 3), ItemDusts.getDustByName("titanium", 2), null,
-                null, 300, 25);
+        centrifuge(
+            OasisRockDust.getItem(32),
+            null,
+            ic2("silverDust", 3),
+            ItemDusts.getDustByName("titanium", 2),
+            null,
+            null,
+            300,
+            25);
 
         // Oasis Dust
-        centrifuge(OasisDust.getItem(32), null, ItemDusts.getDustByName("titanium"), ic2("silverDust", 2),
-                ic2("sulfurDust", 3), ItemDusts.getDustByName("saltpeter"), 300, 25);
+        centrifuge(
+            OasisDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("titanium"),
+            ic2("silverDust", 2),
+            ic2("sulfurDust", 3),
+            ItemDusts.getDustByName("saltpeter"),
+            300,
+            25);
 
         // Xathian Rock Dust
-        centrifuge(XathianRockDust.getItem(32), null, XathianPrometheanDust.getItem(3),
-                ItemDusts.getDustByName("platinum", 2), ItemDusts.getDustByName("osmium", 2), null, 300, 25);
+        centrifuge(
+            XathianRockDust.getItem(32),
+            null,
+            XathianPrometheanDust.getItem(3),
+            ItemDusts.getDustByName("platinum", 2),
+            ItemDusts.getDustByName("osmium", 2),
+            null,
+            300,
+            25);
 
         // Xathian Dust
         centrifuge(XathianDust.getItem(32), null, XathianPrometheanDust.getItem(5), null, null, null, 300, 25);
 
         // Purgot Rock Dust
-        centrifuge(PurgotRockDust.getItem(32), null, Utils.getItems("galaxymod", "galaxymod_eveniumdust", 3),
-                ViriniumDust.getItem(2), OreUtil.getStackFromName("dustCobalt"), null, 300, 25);
+        centrifuge(
+            PurgotRockDust.getItem(32),
+            null,
+            Utils.getItems("galaxymod", "galaxymod_eveniumdust", 3),
+            ViriniumDust.getItem(2),
+            OreUtil.getStackFromName("dustCobalt"),
+            null,
+            300,
+            25);
 
         // Purgot Dust
-        centrifuge(PurgotDust.getItem(32), null, Utils.getItems("galaxymod", "galaxymod_eveniumdust", 5), null, null,
-                null, 300, 25);
+        centrifuge(
+            PurgotDust.getItem(32),
+            null,
+            Utils.getItems("galaxymod", "galaxymod_eveniumdust", 5),
+            null,
+            null,
+            null,
+            300,
+            25);
 
         // Neper Dust
-        centrifuge(NeperDust.getItem(32), null, PurpleGemDust.getItem(4), ItemDusts.getDustByName("diamond", 2),
-                ItemDusts.getDustByName("emerald", 2), null, 300, 25);
+        centrifuge(
+            NeperDust.getItem(32),
+            null,
+            PurpleGemDust.getItem(4),
+            ItemDusts.getDustByName("diamond", 2),
+            ItemDusts.getDustByName("emerald", 2),
+            null,
+            300,
+            25);
 
         // Maahes Dust
-        centrifuge(MaahesDust.getItem(32), null, ic2("coalDust", 5), ItemDusts.getDustByName("aluminium", 2),
-                ic2("ironDust", 4), Utils.getItems("MorePlanet", "xeonium_dust", 3), 300, 25);
+        centrifuge(
+            MaahesDust.getItem(32),
+            null,
+            ic2("coalDust", 5),
+            ItemDusts.getDustByName("aluminium", 2),
+            ic2("ironDust", 4),
+            Utils.getItems("MorePlanet", "xeonium_dust", 3),
+            300,
+            25);
 
         // Basalt Rock Dust Anubis
-        centrifuge(BasaltRockDust.getItem(32), null, ChioniteDust.getItem(2), ItemDusts.getDustByName("uranium", 2),
-                null, null, 300, 25);
+        centrifuge(
+            BasaltRockDust.getItem(32),
+            null,
+            ChioniteDust.getItem(2),
+            ItemDusts.getDustByName("uranium", 2),
+            null,
+            null,
+            300,
+            25);
 
         // Basalt Dust Anubis
-        centrifuge(BasaltDust.getItem(32), null, ChioniteDust.getItem(4), ItemDusts.getDustByName("uranium", 4), null,
-                null, 300, 25);
+        centrifuge(
+            BasaltDust.getItem(32),
+            null,
+            ChioniteDust.getItem(4),
+            ItemDusts.getDustByName("uranium", 4),
+            null,
+            null,
+            300,
+            25);
 
         // Dust
-        centrifuge(Utils.getItems("amunra", "item.baseItem", 2, 8), null, ChioniteDust.getItem(4),
-                ItemDusts.getDustByName("uranium", 4), null, null, 300, 25);
+        centrifuge(
+            Utils.getItems("amunra", "item.baseItem", 2, 8),
+            null,
+            ChioniteDust.getItem(4),
+            ItemDusts.getDustByName("uranium", 4),
+            null,
+            null,
+            300,
+            25);
 
         // Obsidian Sand Dust Horus
-        centrifuge(ObsidianSandDust.getItem(32), null, ItemDusts.getDustByName("diamond"),
-                ItemDusts.getDustByName("emerald"), ic2("obsidianDust", 6), null, 300, 25);
+        centrifuge(
+            ObsidianSandDust.getItem(32),
+            null,
+            ItemDusts.getDustByName("diamond"),
+            ItemDusts.getDustByName("emerald"),
+            ic2("obsidianDust", 6),
+            null,
+            300,
+            25);
 
         // Coral Rock Seth
         centrifuge(CoralDust.getItem(32), null, BacterialFossilDust.getItem(6), null, null, null, 300, 25);
 
         // Dark Asteroid Rock Dust
-        centrifuge(DarkAsteroidRockDust.getItem(32), null, AlphereDust.getItem(2),
-                ItemDusts.getDustByName("diamond", 2), OreUtil.getStackFromName("dustIridium", 3),
-                OreUtil.getStackFromName("dustDraconium", 2), 300, 25);
+        centrifuge(
+            DarkAsteroidRockDust.getItem(32),
+            null,
+            AlphereDust.getItem(2),
+            ItemDusts.getDustByName("diamond", 2),
+            OreUtil.getStackFromName("dustIridium", 3),
+            OreUtil.getStackFromName("dustDraconium", 2),
+            300,
+            25);
 
         // Dark Asteroid Dust
-        centrifuge(DarkAsteroidDust.getItem(32), null, AlphereDust.getItem(4),
-                OreUtil.getStackFromName("dustIridium", 4), OreUtil.getStackFromName("dustDraconium", 4), null, 300,
-                25);
+        centrifuge(
+            DarkAsteroidDust.getItem(32),
+            null,
+            AlphereDust.getItem(4),
+            OreUtil.getStackFromName("dustIridium", 4),
+            OreUtil.getStackFromName("dustDraconium", 4),
+            null,
+            300,
+            25);
     }
 
     static void addMaceratorRecipes() {
@@ -792,12 +1367,18 @@ public class RecipesHandler {
         compressGem(ChioniteDust.getItem(), Utils.getItem("amunra", "item.baseItem", 3));
         compressGem(AlphereDust.getItem(), Utils.getItem("MorePlanet", "alphere"));
         compressGem(Utils.getItems("MorePlanet", "xeonium_dust", 16), Utils.getItems("MorePlanet", "pluto_item", 3));
-        compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2),
-                Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial"));
+        compressGem(
+            Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 2),
+            Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial"));
         compressGem(Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3), new ItemStack(Items.quartz));
         compressGem(ic2("lithiumDust", 3), Utils.getItems("amunra", "item.baseItem", 7, 3));
-        implosionCompress(IceCrystalDust.getItem(16), ic2("industrialTnt", 24),
-                Utils.getItem("MorePlanet", "kapteyn-b_item", 5), ItemDusts.getDustByName("darkAshes", 12), 20, 32);
+        implosionCompress(
+            IceCrystalDust.getItem(16),
+            ic2("industrialTnt", 24),
+            Utils.getItem("MorePlanet", "kapteyn-b_item", 5),
+            ItemDusts.getDustByName("darkAshes", 12),
+            20,
+            32);
     }
 
     static void removeOreWasherRecipes() {
@@ -850,45 +1431,107 @@ public class RecipesHandler {
 
     static void addThermalCentrifugeRecipes() {
         ItemStack stoneDust = IC2Items.getItem("stoneDust");
-        thermalCentrifuge("crushedQuartz", 1960, Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
-                ItemDustsSmall.getSmallDustByName("netherrack"), stoneDust);
-        thermalCentrifuge("crushedPurifiedQuartz", 1960,
-                Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
-                ItemDustsSmall.getSmallDustByName("netherrack"));
-        thermalCentrifuge("crushedAluminium", 520, ItemDusts.getDustByName("aluminium"),
-                ItemDustsSmall.getSmallDustByName("bauxite"), stoneDust);
-        thermalCentrifuge("crushedPurifiedAluminium", 520, ItemDusts.getDustByName("aluminium"),
-                ItemDustsSmall.getSmallDustByName("bauxite"));
-        thermalCentrifuge("crushedTitanium", 960, ItemDusts.getDustByName("titanium"),
-                ItemDustsSmall.getSmallDustByName("almandine"), stoneDust);
-        thermalCentrifuge("crushedPurifiedTitanium", 960, ItemDusts.getDustByName("titanium"),
-                ItemDustsSmall.getSmallDustByName("almandine"));
-        thermalCentrifuge("crushedNickel", 1160, ItemDusts.getDustByName("nickel"),
-                ItemDustsSmall.getSmallDustByName("platinum"), stoneDust);
-        thermalCentrifuge("crushedPurifiedNickel", 1160, ItemDusts.getDustByName("nickel"),
-                ItemDustsSmall.getSmallDustByName("platinum"));
-        thermalCentrifuge("crushedMithril", 5000, Utils.getItem("ThermalFoundation", "material", 38),
-                ItemDustsSmall.getSmallDustByName("platinum"), stoneDust);
-        thermalCentrifuge("crushedPurifiedMithril", 5000, Utils.getItem("ThermalFoundation", "material", 38),
-                ItemDustsSmall.getSmallDustByName("platinum"));
-        thermalCentrifuge("crushedSulfur", 640, IC2Items.getItem("sulfurDust"), IC2Items.getItem("smallSulfurDust"),
-                stoneDust);
-        thermalCentrifuge("crushedPurifiedSulfur", 640, IC2Items.getItem("sulfurDust"),
-                IC2Items.getItem("smallSulfurDust"));
-        thermalCentrifuge("crushedDraconium", 1960, Utils.getItem("DraconicEvolution", "draconiumDust"),
-                aobd("dustTinyDraconium"), stoneDust);
-        thermalCentrifuge("crushedPurifiedDraconium", 1960, Utils.getItem("DraconicEvolution", "draconiumDust"),
-                aobd("dustTinyDraconium"));
-        thermalCentrifuge("crushedCobalt", 1180, Utils.getItem("galaxymod", "galaxymod_pulverizedcobalt"),
-                aobd("dustTinyCobalt"), stoneDust);
-        thermalCentrifuge("crushedPurifiedCobalt", 1180, Utils.getItem("galaxymod", "galaxymod_pulverizedcobalt"),
-                aobd("dustTinyCobalt"));
+        thermalCentrifuge(
+            "crushedQuartz",
+            1960,
+            Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
+            ItemDustsSmall.getSmallDustByName("netherrack"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedQuartz",
+            1960,
+            Utils.getItem("appliedenergistics2", "item.ItemMultiMaterial", 3),
+            ItemDustsSmall.getSmallDustByName("netherrack"));
+        thermalCentrifuge(
+            "crushedAluminium",
+            520,
+            ItemDusts.getDustByName("aluminium"),
+            ItemDustsSmall.getSmallDustByName("bauxite"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedAluminium",
+            520,
+            ItemDusts.getDustByName("aluminium"),
+            ItemDustsSmall.getSmallDustByName("bauxite"));
+        thermalCentrifuge(
+            "crushedTitanium",
+            960,
+            ItemDusts.getDustByName("titanium"),
+            ItemDustsSmall.getSmallDustByName("almandine"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedTitanium",
+            960,
+            ItemDusts.getDustByName("titanium"),
+            ItemDustsSmall.getSmallDustByName("almandine"));
+        thermalCentrifuge(
+            "crushedNickel",
+            1160,
+            ItemDusts.getDustByName("nickel"),
+            ItemDustsSmall.getSmallDustByName("platinum"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedNickel",
+            1160,
+            ItemDusts.getDustByName("nickel"),
+            ItemDustsSmall.getSmallDustByName("platinum"));
+        thermalCentrifuge(
+            "crushedMithril",
+            5000,
+            Utils.getItem("ThermalFoundation", "material", 38),
+            ItemDustsSmall.getSmallDustByName("platinum"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedMithril",
+            5000,
+            Utils.getItem("ThermalFoundation", "material", 38),
+            ItemDustsSmall.getSmallDustByName("platinum"));
+        thermalCentrifuge(
+            "crushedSulfur",
+            640,
+            IC2Items.getItem("sulfurDust"),
+            IC2Items.getItem("smallSulfurDust"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedSulfur",
+            640,
+            IC2Items.getItem("sulfurDust"),
+            IC2Items.getItem("smallSulfurDust"));
+        thermalCentrifuge(
+            "crushedDraconium",
+            1960,
+            Utils.getItem("DraconicEvolution", "draconiumDust"),
+            aobd("dustTinyDraconium"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedDraconium",
+            1960,
+            Utils.getItem("DraconicEvolution", "draconiumDust"),
+            aobd("dustTinyDraconium"));
+        thermalCentrifuge(
+            "crushedCobalt",
+            1180,
+            Utils.getItem("galaxymod", "galaxymod_pulverizedcobalt"),
+            aobd("dustTinyCobalt"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedCobalt",
+            1180,
+            Utils.getItem("galaxymod", "galaxymod_pulverizedcobalt"),
+            aobd("dustTinyCobalt"));
         thermalCentrifuge("crushedOriharukon", 4020, OriharukonDust.getItem(), aobd("dustTinyOriharukon"), stoneDust);
         thermalCentrifuge("crushedPurifiedOriharukon", 4020, OriharukonDust.getItem(), aobd("dustTinyOriharukon"));
-        thermalCentrifuge("crushedMagnesium", 480, ItemDusts.getDustByName("magnesium"),
-                ItemDustsSmall.getSmallDustByName("olivine"), stoneDust);
-        thermalCentrifuge("crushedPurifiedMagnesium", 480, ItemDusts.getDustByName("magnesium"),
-                ItemDustsSmall.getSmallDustByName("olivine"));
+        thermalCentrifuge(
+            "crushedMagnesium",
+            480,
+            ItemDusts.getDustByName("magnesium"),
+            ItemDustsSmall.getSmallDustByName("olivine"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedMagnesium",
+            480,
+            ItemDusts.getDustByName("magnesium"),
+            ItemDustsSmall.getSmallDustByName("olivine"));
         thermalCentrifuge("crushedAdamantite", 1960, AdamantiteDust.getItem(), aobd("dustTinyAdamantite"), stoneDust);
         thermalCentrifuge("crushedPurifiedAdamantite", 1960, AdamantiteDust.getItem(), aobd("dustTinyAdamantite"));
         thermalCentrifuge("crushedHeeEndium", 1960, aobd("dustHeeEndium"), aobd("dustTinyHeeEndium"), stoneDust);
@@ -897,27 +1540,60 @@ public class RecipesHandler {
         thermalCentrifuge("crushedPurifiedPalladium", 2120, PalladiumDust.getItem(), aobd("dustTinyPalladium"));
         thermalCentrifuge("crushedEuropium", 2120, EuropiumDust.getItem(), aobd("dustTinyEuropium"), stoneDust);
         thermalCentrifuge("crushedPurifiedEuropium", 2120, EuropiumDust.getItem(), aobd("dustTinyEuropium"));
-        thermalCentrifuge("crushedPlutonium", 4920, ItemDusts.getDustByName("plutonium"),
-                IC2Items.getItem("smallLeadDust"), stoneDust);
-        thermalCentrifuge("crushedPurifiedPlutonium", 4920, ItemDusts.getDustByName("plutonium"),
-                IC2Items.getItem("smallLeadDust"));
+        thermalCentrifuge(
+            "crushedPlutonium",
+            4920,
+            ItemDusts.getDustByName("plutonium"),
+            IC2Items.getItem("smallLeadDust"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedPlutonium",
+            4920,
+            ItemDusts.getDustByName("plutonium"),
+            IC2Items.getItem("smallLeadDust"));
         thermalCentrifuge("crushedBismuth", 4160, BismuthDust.getItem(), aobd("dustTinyBismuth"), stoneDust);
         thermalCentrifuge("crushedPurifiedBismuth", 4160, BismuthDust.getItem(), aobd("dustTinyBismuth"));
-        thermalCentrifuge("crushedZinc", 4160, Utils.getItem("voltzengine", "veDust", 9),
-                IC2Items.getItem("smallTinDust"), stoneDust);
-        thermalCentrifuge("crushedPurifiedZinc", 4160, Utils.getItem("voltzengine", "veDust", 9),
-                IC2Items.getItem("smallTinDust"));
-        thermalCentrifuge("crushedMeteoricIron", 1360, MeteoricIronDust.getItem(),
-                ItemDustsSmall.getSmallDustByName("nickel"), stoneDust);
-        thermalCentrifuge("crushedPurifiedMeteoricIron", 1360, MeteoricIronDust.getItem(),
-                ItemDustsSmall.getSmallDustByName("nickel"));
+        thermalCentrifuge(
+            "crushedZinc",
+            4160,
+            Utils.getItem("voltzengine", "veDust", 9),
+            IC2Items.getItem("smallTinDust"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedZinc",
+            4160,
+            Utils.getItem("voltzengine", "veDust", 9),
+            IC2Items.getItem("smallTinDust"));
+        thermalCentrifuge(
+            "crushedMeteoricIron",
+            1360,
+            MeteoricIronDust.getItem(),
+            ItemDustsSmall.getSmallDustByName("nickel"),
+            stoneDust);
+        thermalCentrifuge(
+            "crushedPurifiedMeteoricIron",
+            1360,
+            MeteoricIronDust.getItem(),
+            ItemDustsSmall.getSmallDustByName("nickel"));
     }
 
     static void addBlastFurnaceRecipes() {
-        hotSmelt(ItemCells.getCellByName("silicon"), ItemCells.getCellByName("carbon"), SiliconCarbideIngot.getItem(),
-                null, 200, 128, 2000);
-        hotSmelt(ItemCells.getCellByName("tungsten"), ItemCells.getCellByName("carbon"), TungstenCarbideIngot.getItem(),
-                null, 200, 128, 1700);
+        hotSmelt(
+            ItemCells.getCellByName("silicon"),
+            ItemCells.getCellByName("carbon"),
+            SiliconCarbideIngot.getItem(),
+            null,
+            200,
+            128,
+            2000);
+        hotSmelt(
+            ItemCells.getCellByName("tungsten"),
+            ItemCells.getCellByName("carbon"),
+            TungstenCarbideIngot.getItem(),
+            null,
+            200,
+            128,
+            1700);
     }
 
     /******************
@@ -933,15 +1609,15 @@ public class RecipesHandler {
     }
 
     private static void centrifuge(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
-            ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {
-        RecipeHandler.addRecipe(
-                new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
+        ItemStack output3, ItemStack output4, int tickTime, int euPerTick) {
+        RecipeHandler
+            .addRecipe(new CentrifugeRecipe(input1, input2, output1, output2, output3, output4, tickTime, euPerTick));
     }
 
     private static void fusion(ItemStack topInput, ItemStack bottomInput, ItemStack output, int startEU, int euTick,
-            int tickTime) {
+        int tickTime) {
         FusionReactorRecipeHelper
-                .registerRecipe(new FusionReactorRecipe(topInput, bottomInput, output, startEU, euTick, tickTime));
+            .registerRecipe(new FusionReactorRecipe(topInput, bottomInput, output, startEU, euTick, tickTime));
     }
 
     private static void macerate(ItemStack input, ItemStack outputs) {
@@ -969,19 +1645,23 @@ public class RecipesHandler {
     }
 
     private static void neutroniumCompress(ItemStack output, int amount, String ore, boolean exact) {
-        CompressorManager.getRecipes().add(new CompressOreRecipe(output, amount, ore, exact));
+        CompressorManager.getRecipes()
+            .add(new CompressOreRecipe(output, amount, ore, exact));
     }
 
     private static void neutroniumCompress(ItemStack output, int amount, ItemStack input, boolean exact) {
-        CompressorManager.getRecipes().add(new CompressorRecipe(output, amount, input, exact));
+        CompressorManager.getRecipes()
+            .add(new CompressorRecipe(output, amount, input, exact));
     }
 
     private static void catalyse(Object ingredient) {
-        Grinder.catalyst.getInput().add(ingredient);
+        Grinder.catalyst.getInput()
+            .add(ingredient);
     }
 
     private static void craftShapelessXtreme(ItemStack output, Object... ingredients) {
-        ExtremeCraftingManager.getInstance().addShapelessOreRecipe(output, ingredients);
+        ExtremeCraftingManager.getInstance()
+            .addShapelessOreRecipe(output, ingredients);
     }
 
     private static void cosmic(ItemStack output, String oreDict) {
@@ -998,7 +1678,7 @@ public class RecipesHandler {
     }
 
     private static void implosionCompress(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2,
-            int tickTime, int euPerTick) {
+        int tickTime, int euPerTick) {
         RecipeHandler.addRecipe(new ImplosionCompressorRecipe(input1, input2, output1, output2, tickTime, euPerTick));
     }
 
@@ -1009,11 +1689,13 @@ public class RecipesHandler {
     }
 
     private static void unThermalCentrifuge(ItemStack input) {
-        if (input == null)
-            return;
-        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.centrifuge.getRecipes().entrySet()) {
-            if (recipe.getKey().matches(input)) {
-                Recipes.centrifuge.getRecipes().remove(recipe.getKey());
+        if (input == null) return;
+        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.centrifuge.getRecipes()
+            .entrySet()) {
+            if (recipe.getKey()
+                .matches(input)) {
+                Recipes.centrifuge.getRecipes()
+                    .remove(recipe.getKey());
                 break;
             }
         }
@@ -1036,24 +1718,27 @@ public class RecipesHandler {
     }
 
     private static void unwash(ItemStack input) {
-        if (input == null)
-            return;
-        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.oreWashing.getRecipes().entrySet()) {
-            if (recipe.getKey().matches(input)) {
-                Recipes.oreWashing.getRecipes().remove(recipe.getKey());
+        if (input == null) return;
+        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.oreWashing.getRecipes()
+            .entrySet()) {
+            if (recipe.getKey()
+                .matches(input)) {
+                Recipes.oreWashing.getRecipes()
+                    .remove(recipe.getKey());
                 break;
             }
         }
     }
 
     private static void hotSmelt(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime,
-            int euPerTick, int neededHeat) {
+        int euPerTick, int neededHeat) {
         RecipeHandler
-                .addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
+            .addRecipe(new BlastFurnaceRecipe(input1, input2, output1, output2, tickTime, euPerTick, neededHeat));
     }
 
     private static ItemStack ic2(String name, int amount) {
-        ItemStack stack = IC2Items.getItem(name).copy();
+        ItemStack stack = IC2Items.getItem(name)
+            .copy();
         stack.stackSize = amount;
         return stack;
     }

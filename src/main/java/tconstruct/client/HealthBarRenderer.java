@@ -96,7 +96,8 @@ public class HealthBarRenderer extends Gui {
 
         final int TOP;
         int tinkerTextureY = 0;
-        if (mc.theWorld.getWorldInfo().isHardcoreModeEnabled()) {
+        if (mc.theWorld.getWorldInfo()
+            .isHardcoreModeEnabled()) {
             TOP = 9 * 5;
             tinkerTextureY += 27;
         } else {
@@ -151,7 +152,8 @@ public class HealthBarRenderer extends Gui {
 
         if (health > 20) {
             // Render tinkers' hearts
-            mc.getTextureManager().bindTexture(TINKER_HEARTS);
+            mc.getTextureManager()
+                .bindTexture(TINKER_HEARTS);
             for (int i = Math.max(0, health / 20 - 2); i < health / 20; i++) {
                 // uncomment the line below to help with debugging
                 // yBasePos -=20;
@@ -169,15 +171,16 @@ public class HealthBarRenderer extends Gui {
                     if (heartIndexMax == regen) y -= 2;
                     // half heart texture
                     this.drawTexturedModalRect(
-                            xBasePos + 8 * heartIndexMax,
-                            yBasePos + y,
-                            9 + 18 * i,
-                            tinkerTextureY,
-                            9,
-                            9);
+                        xBasePos + 8 * heartIndexMax,
+                        yBasePos + y,
+                        9 + 18 * i,
+                        tinkerTextureY,
+                        9,
+                        9);
                 }
             }
-            mc.getTextureManager().bindTexture(icons);
+            mc.getTextureManager()
+                .bindTexture(icons);
         }
 
         GuiIngameForge.left_height += 10;
@@ -185,7 +188,8 @@ public class HealthBarRenderer extends Gui {
         GL11.glDisable(GL11.GL_BLEND);
         mc.mcProfiler.endSection();
         event.setCanceled(true);
-        MinecraftForge.EVENT_BUS.post(new RenderGameOverlayEvent.Post(event, RenderGameOverlayEvent.ElementType.HEALTH));
+        MinecraftForge.EVENT_BUS
+            .post(new RenderGameOverlayEvent.Post(event, RenderGameOverlayEvent.ElementType.HEALTH));
 
     }
 

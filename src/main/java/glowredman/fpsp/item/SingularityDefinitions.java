@@ -53,7 +53,6 @@ public enum SingularityDefinitions {
     ICE_CRYSTAL(0x7CBC9D, "blockIceCrystal", 4),
     METALLIC(0x606060, "blockMetallic", 420),
     XEONIUM(0x00F293, "blockXeonium", 630),
-    SOULIUM(0x320032, "blockSoulium", -1),
     TUNGSTENSTEEL(0x6464A0, "plateTungstensteel", 1200),
     YELLOW_GARNET(0xC8C850, "blockYellowGarnet", 220),
     RED_GARNET(0xC85050, "blockRedGarnet", 950),

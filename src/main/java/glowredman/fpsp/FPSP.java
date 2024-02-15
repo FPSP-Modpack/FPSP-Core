@@ -97,7 +97,7 @@ public class FPSP implements ILateMixinLoader {
 
     @Override
     public List<String> getMixins(Set<String> loadedMods) {
-        if(FMLLaunchHandler.side() == Side.CLIENT) {
+        if (FMLLaunchHandler.side() == Side.CLIENT) {
             return Arrays.asList("DIClientProxyMixin", "ThreadDownloadResourcesMixin");
         } else {
             return Collections.emptyList();

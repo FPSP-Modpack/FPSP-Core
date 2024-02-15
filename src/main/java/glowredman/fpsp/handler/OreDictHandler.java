@@ -23,7 +23,6 @@ public class OreDictHandler {
         registerItem("skullEnderman", "HardcoreEnderExpansion", "enderman_head");
         registerItem("obsidianRod", "HardcoreEnderExpansion", "obsidian_rod");
         registerItem("blockSalt", "harvestcraft", "spamcompressedsaltBlockalt");
-        registerItem("blockSoulium", "SSTOW", "sstow_soulium_block");
         registerItem("blockPolongniusMeteoricIron", "MorePlanet", "polongnius_block", 10);
         registerItem("blockKoentusMeteoricIron", "MorePlanet", "koentus_block", 15);
         registerItem("gemFlonium", "MorePlanet", "polongnius_item");

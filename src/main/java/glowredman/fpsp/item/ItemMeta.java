@@ -1,7 +1,10 @@
 package glowredman.fpsp.item;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -22,8 +25,9 @@ import glowredman.fpsp.Utils;
 
 public class ItemMeta extends ItemFood {
 
-    private HashMap<Integer, IIcon> icons = new HashMap<Integer, IIcon>();
-    public static HashMap<Integer, ItemDefinitions> meta2item = new HashMap<Integer, ItemDefinitions>();
+    private final Map<Integer, IIcon> icons = new HashMap<>();
+    private final Map<Integer, ItemDefinitions> meta2item = new HashMap<>();
+    private final Set<Integer> foods = new HashSet<>();
 
     public ItemMeta() {
         super(20, 20, false);
@@ -34,6 +38,15 @@ public class ItemMeta extends ItemFood {
         for (ItemDefinitions item : ItemDefinitions.values()) {
             meta2item.put(item.getMeta(), item);
         }
+
+        foods.add(ItemDefinitions.CosmicBerry.getMeta());
+        foods.add(ItemDefinitions.CosmicFish.getMeta());
+        foods.add(ItemDefinitions.CosmicFruit.getMeta());
+        foods.add(ItemDefinitions.CosmicGrain.getMeta());
+        foods.add(ItemDefinitions.CosmicMushroom.getMeta());
+        foods.add(ItemDefinitions.CosmicNut.getMeta());
+        foods.add(ItemDefinitions.CosmicSpice.getMeta());
+        foods.add(ItemDefinitions.CosmicVeggie.getMeta());
     }
 
     @Override
@@ -66,11 +79,9 @@ public class ItemMeta extends ItemFood {
     public boolean onItemUseFirst(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side,
         float hitX, float hitY, float hitZ) {
 
-        if (stack.getItemDamage() != ItemDefinitions.Scanner.getMeta()) return false;
-
-        if (player instanceof EntityPlayerMP) {
-            List<String> list = Utils.getCoordinateScan(player, world, x, y, z, side, hitX, hitY, hitZ);
-            list.forEach(line -> player.addChatComponentMessage(new ChatComponentText(line)));
+        if (stack.getItemDamage() == ItemDefinitions.Scanner.getMeta() && player instanceof EntityPlayerMP) {
+            Utils.getCoordinateScan(player, world, x, y, z, side, hitX, hitY, hitZ)
+                .forEach(line -> player.addChatComponentMessage(new ChatComponentText(line)));
             return true;
         }
         return false;
@@ -78,7 +89,7 @@ public class ItemMeta extends ItemFood {
 
     @Override
     public ItemStack onEaten(ItemStack stack, World world, EntityPlayer player) {
-        return isFood(stack.getItemDamage()) ? super.onEaten(stack, world, player) : stack;
+        return foods.contains(stack.getItemDamage()) ? super.onEaten(stack, world, player) : stack;
     }
 
     @Override
@@ -105,32 +116,22 @@ public class ItemMeta extends ItemFood {
 
     @Override
     public EnumAction getItemUseAction(ItemStack stack) {
-        return isFood(stack.getItemDamage()) ? EnumAction.eat : EnumAction.none;
+        return foods.contains(stack.getItemDamage()) ? EnumAction.eat : EnumAction.none;
     }
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        return isFood(stack.getItemDamage()) ? super.onItemRightClick(stack, world, player) : stack;
+        return foods.contains(stack.getItemDamage()) ? super.onItemRightClick(stack, world, player) : stack;
     }
 
     @Override
-    public int func_150905_g(ItemStack stack) {
-        return isFood(stack.getItemDamage()) ? 20 : 0;
+    public int func_150905_g /* getHealAmount */ (ItemStack stack) {
+        return foods.contains(stack.getItemDamage()) ? 20 : 0;
     }
 
     @Override
-    public float func_150906_h(ItemStack stack) {
-        return isFood(stack.getItemDamage()) ? 20.0f : 0.0f;
-    }
-
-    private static boolean isFood(int meta) {
-        return meta == ItemDefinitions.CosmicBerry.getMeta() || meta == ItemDefinitions.CosmicFish.getMeta()
-            || meta == ItemDefinitions.CosmicFruit.getMeta()
-            || meta == ItemDefinitions.CosmicGrain.getMeta()
-            || meta == ItemDefinitions.CosmicMushroom.getMeta()
-            || meta == ItemDefinitions.CosmicNut.getMeta()
-            || meta == ItemDefinitions.CosmicSpice.getMeta()
-            || meta == ItemDefinitions.CosmicVeggie.getMeta();
+    public float func_150906_h /* getSaturationModifier */ (ItemStack stack) {
+        return foods.contains(stack.getItemDamage()) ? 20.0f : 0.0f;
     }
 
 }

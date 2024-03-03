@@ -2,7 +2,6 @@ package glowredman.fpsp.proxy;
 
 import static glowredman.fpsp.FPSP.*;
 
-import net.minecraft.item.ItemSlab;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
@@ -22,6 +21,7 @@ import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
 import glowredman.fpsp.item.ItemBlockMeta;
 import glowredman.fpsp.item.ItemBlockRedSandstone;
+import glowredman.fpsp.item.ItemBlockRedSandstoneSlab;
 import glowredman.fpsp.item.ItemCell;
 import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.ItemIcon;
@@ -93,18 +93,16 @@ public class CommonProxy {
             .registerBlock(blockRedSandstone, ItemBlockRedSandstone.class, blockRedSandstone.getUnlocalizedName());
         GameRegistry.registerBlock(
             blockRedSandstoneSlab,
-            ItemSlab.class,
+            ItemBlockRedSandstoneSlab.class,
             "tile.redSandstoneSlab",
             blockRedSandstoneSlab,
-            blockRedSandstoneSlabDouble,
-            false);
+            blockRedSandstoneSlabDouble);
         GameRegistry.registerBlock(
             blockRedSandstoneSlabDouble,
-            ItemSlab.class,
+            ItemBlockRedSandstoneSlab.class,
             "tile.redSandstoneSlabDouble",
             blockRedSandstoneSlab,
-            blockRedSandstoneSlabDouble,
-            true);
+            blockRedSandstoneSlabDouble);
         GameRegistry.registerBlock(blockRedSandstoneStairs, blockRedSandstoneStairs.getUnlocalizedName());
 
         // FLUID CONTAINERS

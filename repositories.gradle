@@ -1,9 +1,1 @@
-repositories {
-    ivy {
-        name 'creeperhost'
-        artifactPattern 'https://dist.creeper.host/ichun/filespg/[module]-[revision].[ext]'
-        metadataSources {
-            artifact()
-        }
-    }
-}
+repositories {}

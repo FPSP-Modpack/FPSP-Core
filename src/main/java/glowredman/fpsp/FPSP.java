@@ -1,19 +1,11 @@
 package glowredman.fpsp;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.fluids.Fluid;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.gtnewhorizon.gtnhmixins.ILateMixinLoader;
-import com.gtnewhorizon.gtnhmixins.LateMixin;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -22,19 +14,16 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.relauncher.FMLLaunchHandler;
-import cpw.mods.fml.relauncher.Side;
 import glowredman.fpsp.item.ItemCell;
 import glowredman.fpsp.proxy.CommonProxy;
 
-@LateMixin
 @Mod(
     acceptedMinecraftVersions = "1.7.10",
     dependencies = FPSP.DEPENDENCIES,
     modid = FPSP.MODID,
     name = FPSP.MODNAME,
     version = Tags.VERSION)
-public class FPSP implements ILateMixinLoader {
+public class FPSP {
 
     public static final String DEPENDENCIES = "after:appliedenergistics2;after:BloodArsenal;after:Botania;before:eternalsingularity;after:magicalcrops;after:ProjRed|Exploration;after:SSTOW;after:TwilightForest";
     public static final String MODID = "fpsp";
@@ -88,19 +77,5 @@ public class FPSP implements ILateMixinLoader {
     @EventHandler
     public static void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
-    }
-
-    @Override
-    public String getMixinConfig() {
-        return "mixins.fpsp.late.json";
-    }
-
-    @Override
-    public List<String> getMixins(Set<String> loadedMods) {
-        if (FMLLaunchHandler.side() == Side.CLIENT) {
-            return Arrays.asList("DIClientProxyMixin", "ThreadDownloadResourcesMixin");
-        } else {
-            return Collections.emptyList();
-        }
     }
 }

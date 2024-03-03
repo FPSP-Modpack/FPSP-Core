@@ -9,7 +9,7 @@ import glowredman.fpsp.FPSP;
 public class ItemIcon extends Item {
 
     private IIcon[] textures;
-    private static String[] types = new String[] { "orbs" };
+    private static final String[] TYPES = new String[] { "orbs" };
 
     public ItemIcon() {
         this.setHasSubtypes(true);
@@ -17,9 +17,9 @@ public class ItemIcon extends Item {
 
     @Override
     public void registerIcons(IIconRegister register) {
-        textures = new IIcon[types.length];
-        for (int i = 0; i < types.length; i++) {
-            textures[i] = register.registerIcon(FPSP.MODID + ":icon/" + types[i]);
+        textures = new IIcon[TYPES.length];
+        for (int i = 0; i < TYPES.length; i++) {
+            textures[i] = register.registerIcon(FPSP.MODID + ":icon/" + TYPES[i]);
         }
     }
 

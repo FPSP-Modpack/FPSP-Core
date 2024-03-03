@@ -104,8 +104,8 @@ public class OreDictHandler {
         OreDictionary.registerOre("plateCopper", new ItemStack(RailcraftItem.plate.item(), 1, 3));
         OreDictionary.registerOre("plateLead", new ItemStack(RailcraftItem.plate.item(), 1, 4));
 
-        for (int i = 0; i < BlockMeta.types.length; i++) {
-            OreDictionary.registerOre("block" + BlockMeta.types[i], new ItemStack(FPSP.blockMeta, 1, i));
+        for (int i = 0; i < BlockMeta.TYPES.length; i++) {
+            OreDictionary.registerOre("block" + BlockMeta.TYPES[i], new ItemStack(FPSP.blockMeta, 1, i));
         }
     }
 

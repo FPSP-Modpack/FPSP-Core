@@ -1702,7 +1702,7 @@ public class RecipesHandler {
     }
 
     private static void block(int meta, String prefix) {
-        String suffix = BlockMeta.types[meta];
+        String suffix = BlockMeta.TYPES[meta];
         craftShaped(new ItemStack(FPSP.blockMeta, 1, meta), "XXX", "XXX", "XXX", 'X', prefix + suffix);
         craftShapeless(OreUtil.getStackFromName(prefix + suffix, 9), "block" + suffix);
     }

@@ -18,19 +18,19 @@ import ic2.api.item.IC2Items;
 public class ItemCell extends Item implements IFluidContainerItem {
 
     private IIcon[] textures;
-    public static final String[] types = new String[] { "tinplasma", "nitrogenplasma", "zincplasma", "calciumplasma",
+    public static final String[] TYPES = new String[] { "tinplasma", "nitrogenplasma", "zincplasma", "calciumplasma",
         "sulfurplasma", "ironplasma", "molten.tin", "molten.zinc", "molten.iron" };
 
     public ItemCell() {
         setHasSubtypes(true);
         setUnlocalizedName("cell");
-        textures = new IIcon[types.length];
+        textures = new IIcon[TYPES.length];
     }
 
     public void register() {
-        for (int i = 0; i < types.length; i++) {
+        for (int i = 0; i < TYPES.length; i++) {
             FluidContainerRegistry.registerFluidContainer(
-                FluidRegistry.getFluid(types[i]),
+                FluidRegistry.getFluid(TYPES[i]),
                 new ItemStack(this, 1, i),
                 IC2Items.getItem("cell"));
         }
@@ -38,25 +38,25 @@ public class ItemCell extends Item implements IFluidContainerItem {
 
     @Override
     public void registerIcons(IIconRegister iconRegister) {
-        for (int i = 0; i < types.length; i++)
-            textures[i] = iconRegister.registerIcon(FPSP.MODID + ":cells/" + types[i]);
+        for (int i = 0; i < TYPES.length; i++)
+            textures[i] = iconRegister.registerIcon(FPSP.MODID + ":cells/" + TYPES[i]);
     }
 
     @Override
     public IIcon getIconFromDamage(int meta) {
-        return meta < types.length ? textures[meta] : textures[0];
+        return meta < TYPES.length ? textures[meta] : textures[0];
     }
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         int meta = stack.getItemDamage();
-        if (meta >= types.length) meta = 0;
-        return getUnlocalizedName() + "." + types[meta];
+        if (meta >= TYPES.length) meta = 0;
+        return getUnlocalizedName() + "." + TYPES[meta];
     }
 
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> variants) {
-        for (int i = 0; i < types.length; i++) {
+        for (int i = 0; i < TYPES.length; i++) {
             variants.add(new ItemStack(this, 1, i));
         }
     }
@@ -64,7 +64,7 @@ public class ItemCell extends Item implements IFluidContainerItem {
     @Override
     public FluidStack getFluid(ItemStack container) {
         int meta = container.getItemDamage();
-        return meta < types.length ? FluidRegistry.getFluidStack(types[meta], 1000) : null;
+        return meta < TYPES.length ? FluidRegistry.getFluidStack(TYPES[meta], 1000) : null;
     }
 
     @Override

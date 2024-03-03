@@ -12,7 +12,7 @@ import glowredman.fpsp.FPSP;
 
 public class BlockMeta extends Block {
 
-    public static final String[] types = new String[] { "UnknownCrystal", "Ironwood", "Fiery", "Steeleaf", "NetherStar",
+    public static final String[] TYPES = new String[] { "UnknownCrystal", "Ironwood", "Fiery", "Steeleaf", "NetherStar",
         "Flonium", "Ender", "Charcoal", "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter",
         "Metallic", "Manganese", "IceCrystal" };
     private IIcon[] textures;
@@ -28,20 +28,20 @@ public class BlockMeta extends Block {
 
     @Override
     public int damageDropped(int meta) {
-        return meta % types.length;
+        return meta % TYPES.length;
     }
 
     @Override
     public void registerBlockIcons(IIconRegister register) {
-        textures = new IIcon[types.length];
-        for (int i = 0; i < types.length; i++) {
-            textures[i] = register.registerIcon(FPSP.MODID + ":" + types[i]);
+        textures = new IIcon[TYPES.length];
+        for (int i = 0; i < TYPES.length; i++) {
+            textures[i] = register.registerIcon(FPSP.MODID + ":" + TYPES[i]);
         }
     }
 
     @Override
     public IIcon getIcon(int side, int meta) {
-        return textures[meta % types.length];
+        return textures[meta % TYPES.length];
     }
 
     @Override

@@ -20,13 +20,13 @@ public class ItemBlockMeta extends ItemBlockWithMetadata {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        int meta = stack.getItemDamage() % BlockMeta.types.length;
-        return FPSP.blockMeta.getUnlocalizedName() + "." + BlockMeta.types[meta];
+        int meta = stack.getItemDamage() % BlockMeta.TYPES.length;
+        return FPSP.blockMeta.getUnlocalizedName() + "." + BlockMeta.TYPES[meta];
     }
 
     @Override
     public void getSubItems(Item item, CreativeTabs tab, List<ItemStack> list) {
-        for (int meta = 0; meta < BlockMeta.types.length; meta++) {
+        for (int meta = 0; meta < BlockMeta.TYPES.length; meta++) {
             list.add(new ItemStack(item, 1, meta));
         }
     }

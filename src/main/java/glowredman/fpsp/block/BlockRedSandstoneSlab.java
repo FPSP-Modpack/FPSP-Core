@@ -29,7 +29,7 @@ public class BlockRedSandstoneSlab extends BlockSlab {
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(int meta, Random random, int fortune) {
         return Item.getItemFromBlock(FPSP.blockRedSandstoneSlab);
     }
 
@@ -39,13 +39,13 @@ public class BlockRedSandstoneSlab extends BlockSlab {
     }
 
     @Override
-    public String func_150002_b(int p_150002_1_) {
+    public String func_150002_b /* getFullSlabName */ (int p_150002_1_) {
         return getUnlocalizedName();
     }
 
     @Override
     public void setBlockBoundsBasedOnState(IBlockAccess blockAccess, int x, int y, int z) {
-        if (this.field_150004_a) {
+        if (this.field_150004_a) { // isFullBlock
             this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         } else {
             if ((blockAccess.getBlockMetadata(x, y, z) & 8) != 0) {
@@ -63,12 +63,13 @@ public class BlockRedSandstoneSlab extends BlockSlab {
 
     @Override
     public int onBlockPlaced(World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ, int meta) {
-        return this.field_150004_a ? meta : (side != 0 && (side == 1 || hitY <= 0.5f) ? meta : meta | 8);
+        return this.field_150004_a /* isFullBlock */ ? meta
+            : (side != 0 && (side == 1 || hitY <= 0.5f) ? meta : meta | 8);
     }
 
     @Override
     public boolean shouldSideBeRendered(IBlockAccess blockAccess, int x, int y, int z, int side) {
-        if (this.field_150004_a) {
+        if (this.field_150004_a) { // isFullBlock
             return superShouldSideBeRendered(blockAccess, x, y, z, side);
         } else if (side != 1 && side != 0 && !superShouldSideBeRendered(blockAccess, x, y, z, side)) {
             return false;

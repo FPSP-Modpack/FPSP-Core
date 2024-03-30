@@ -89,6 +89,7 @@ public class Utils {
 
         TileEntity te = world.getTileEntity(x, y, z);
         Block block = world.getBlock(x, y, z);
+        int meta = world.getBlockMetadata(x, y, z);
 
         list.add("");
         list.add(
@@ -117,6 +118,17 @@ public class Utils {
                 + block.getClass()
                     .getName()
                 + RESET);
+        list.add(" Name: " + BLUE + block.getUnlocalizedName() + RESET + " MetaData: " + AQUA + meta + RESET);
+        list.add(
+            " Hardness: " + YELLOW
+                + formatNumber(block.getBlockHardness(world, x, y, z))
+                + RESET
+                + " Blast Resistance: "
+                + YELLOW
+                + formatNumber(
+                    block.getExplosionResistance(player, world, x, y, z, player.posX, player.posY, player.posZ))
+                + RESET);
+        if (block.isBeaconBase(world, x, y, z, x, y + 1, z)) list.add(GOLD + "Is valid Beacon Base Material");
 
         if (te != null) {
 
@@ -127,35 +139,10 @@ public class Utils {
                         + te.getClass()
                             .getName()
                         + RESET);
-                list.add(
-                    " Name: " + BLUE
-                        + block.getUnlocalizedName()
-                        + RESET
-                        + " MetaData: "
-                        + AQUA
-                        + world.getBlockMetadata(x, y, z)
-                        + RESET);
-                list.add(
-                    " Hardness: " + YELLOW
-                        + formatNumber(block.getBlockHardness(world, x, y, z))
-                        + RESET
-                        + " Blast Resistance: "
-                        + YELLOW
-                        + formatNumber(
-                            block.getExplosionResistance(player, world, x, y, z, player.posX, player.posY, player.posZ))
-                        + RESET);
-                if (block.isBeaconBase(world, x, y, z, x, y + 1, z)) list.add(GOLD + "Is valid Beacon Base Material");
 
                 if (te instanceof IInventory) {
                     list.add(DARK_PURPLE + "" + ITALIC + "IInventory:");
-                    list.add(
-                        " Name: " + BLUE
-                            + ((IInventory) te).getInventoryName()
-                            + RESET
-                            + " MetaData: "
-                            + AQUA
-                            + world.getBlockMetadata(x, y, z)
-                            + RESET);
+                    list.add(" Name: " + BLUE + ((IInventory) te).getInventoryName() + RESET);
                 }
             } catch (Exception e) {
 

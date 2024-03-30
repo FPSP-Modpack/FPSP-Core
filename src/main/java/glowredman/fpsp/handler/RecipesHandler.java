@@ -190,7 +190,29 @@ public class RecipesHandler {
         }
     }
 
-    static void addInfinityCatalystIngredients() {
+    private static void addInfinityCatalystIngredients() {
+        Grinder.catalyst.getRecipeOutput().stackSize = 4;
+        inert(new ItemStack(Blocks.emerald_block));
+        inert(new ItemStack(LudicrousItems.cosmic_meatballs));
+        inert(new ItemStack(GameRegistry.findBlock("ExtraUtilities", "decorativeBlock1"), 1, 5));
+        inert(GameRegistry.findItemStack("DraconicEvolution", "draconicBlock", 1));
+        inert(GameRegistry.findItemStack("TwilightForest", "item.ironwoodIngot", 1));
+        inert(OreDictionary.getOres("blockEnderium"));
+        inert(OreDictionary.getOres("blockSteel"));
+        inert(OreDictionary.getOres("blockDarkSteel"));
+        catalyse(new ItemStack(GameRegistry.findItem("AdvancedSolarPanel", "asp_crafting_items"), 1, 13));
+        catalyse(new ItemStack(GameRegistry.findItem("DraconicEvolution", "chaosFragment"), 1, 2));
+        catalyse(GameRegistry.findItemStack("DraconicEvolution", "dezilsMarshmallow", 1));
+        catalyse(new ItemStack(GameRegistry.findItem("amunra", "item.baseItem"), 1, 26));
+        catalyse(new ItemStack(GSItems.Plates, 1, 129));
+        catalyse(GameRegistry.findItemStack("MorePlanet", "alphere", 1));
+        catalyse(ItemFirestoneRefined.getItemCharged());
+        catalyse(GameRegistry.findItemStack("TwilightForest", "tile.FieryBlock", 1));
+        catalyse(GameRegistry.findItemStack("TwilightForest", "tile.SteeleafBlock", 1));
+        catalyse(GameRegistry.findItemStack("galaxymod", "galaxymod_purgotoasistablet", 1));
+        catalyse(new ItemStack(GameRegistry.findItem("magicalcrops", "essence_storage"), 1, 5));
+        catalyse(GameRegistry.findItemStack("supersolarpanel", "enderquantumcomponent", 1));
+        catalyse(BlockStorage.getStorageBlockByName("chromium"));
         for (SingularityDefinitions s : ItemFPSPSingularity.TYPES) {
             if (s.getAmount() > 0) {
                 catalyse(s.getItem());

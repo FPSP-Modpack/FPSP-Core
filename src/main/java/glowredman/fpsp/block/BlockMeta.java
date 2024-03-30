@@ -12,9 +12,8 @@ import glowredman.fpsp.FPSP;
 
 public class BlockMeta extends Block {
 
-    public static final String[] TYPES = new String[] { "UnknownCrystal", "Ironwood", "Fiery", "Steeleaf", "NetherStar",
-        "Flonium", "Ender", "Charcoal", "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter",
-        "Metallic", "Manganese", "IceCrystal" };
+    public static final String[] TYPES = new String[] { "UnknownCrystal", "Flonium", "Ender", "Charcoal",
+        "DarkSoularium", "BacterialFossil", "Mineral", "Xeonium", "Saltpeter", "Metallic", "Manganese", "IceCrystal" };
     private IIcon[] textures;
 
     public BlockMeta() {

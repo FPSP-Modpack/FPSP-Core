@@ -40,6 +40,10 @@ public class OreDictHandler {
         registerItem("listAllmushroom", "Natura", "Glowshroom", OreDictionary.WILDCARD_VALUE);
         registerItem("listAllmushroom", "TwilightForest", "tile.TFPlant", 9);
         registerItem("dustQuartz", "appliedenergistics2", "item.ItemMultiMaterial", 3);
+        registerItem("blockKnightmetal", "TwilightForest", "tile.KnightmetalBlock");
+        registerItem("blockFiery", "TwilightForest", "tile.FieryBlock");
+        registerItem("blockIronwood", "TwilightForest", "tile.IronwoodBlock");
+        registerItem("blockSteeleaf", "TwilightForest", "tile.SteeleafBlock");
 
         registerDust(DeshDust);
         registerDust(OriharukonDust);

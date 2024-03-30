@@ -143,21 +143,17 @@ public class RecipesHandler {
             'C',
             "circuitData");
         block(0, "gem");
-        block(1, "ingot");
-        block(2, "ingot");
-        block(3, "ingot");
-        block(4, "item");
-        block(5, "gem");
-        block(6, "pearl");
-        block(7, "item");
-        block(8, "ingot");
-        block(9, "item");
-        block(10, "gem");
+        block(1, "gem");
+        block(2, "pearl");
+        block(3, "item");
+        block(4, "ingot");
+        block(5, "item");
+        block(6, "gem");
+        block(7, "gem");
+        block(8, "dust");
+        block(9, "ingot");
+        block(10, "dust");
         block(11, "gem");
-        block(12, "dust");
-        block(13, "ingot");
-        block(14, "dust");
-        block(15, "gem");
     }
 
     static void addShapelessRecipes() {

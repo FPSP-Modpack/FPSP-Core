@@ -3,6 +3,7 @@ dependencies {
     implementation('com.github.GTNewHorizons:Galacticraft:3.1.2-GTNH:dev') { transitive = false }
     implementation('com.github.GTNewHorizons:NotEnoughItems:2.5.17-GTNH:dev') { transitive = false }
     implementation('com.github.GTNewHorizons:Railcraft:9.15.5:dev') { transitive = false }
+    implementation 'com.azanor:Thaumcraft:1.7.10-4.2.3.5:deobf'
     implementation 'net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev'
     implementation files('libs/Avaritia-1.16-FPSP-dev.jar')
     implementation files('libs/GalaxySpace-1.2.0-FPSP.jar')

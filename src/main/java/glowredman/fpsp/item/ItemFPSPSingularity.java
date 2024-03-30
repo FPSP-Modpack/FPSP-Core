@@ -8,7 +8,6 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
-import net.minecraft.util.MathHelper;
 
 import fox.spiteful.avaritia.items.ItemSingularity;
 
@@ -29,8 +28,7 @@ public class ItemFPSPSingularity extends ItemSingularity {
 
     @Override
     public String getUnlocalizedName(ItemStack stack) {
-        return getUnlocalizedName() + "."
-            + TYPES[MathHelper.clamp_int(stack.getItemDamage(), 0, TYPES.length)].toString();
+        return getUnlocalizedName() + "." + TYPES[stack.getItemDamage() % TYPES.length].toString();
     }
 
     @Override
@@ -47,7 +45,7 @@ public class ItemFPSPSingularity extends ItemSingularity {
 
     @Override
     public void addInformation(ItemStack item, EntityPlayer player, List<String> tooltip, boolean debugInfo) {
-        if (TYPES[MathHelper.clamp_int(item.getItemDamage(), 0, TYPES.length)].getAmount() <= 0) {
+        if (TYPES[item.getItemDamage() % TYPES.length].getAmount() <= 0) {
             tooltip.add(EnumChatFormatting.RED + "Disabled");
         }
     }

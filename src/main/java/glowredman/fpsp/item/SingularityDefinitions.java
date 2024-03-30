@@ -58,7 +58,12 @@ public enum SingularityDefinitions {
     RED_GARNET(0xC85050, "blockRedGarnet", 950),
     OLIVINE(0x96FF96, "blockOlivine", 100),
     DARK_SOULARIUM(0x5A4B3C, "blockDarkSoularium", 1000),
-    MANGANESE(0xFAFAFA, "blockManganese", 248);
+    MANGANESE(0xFAFAFA, "blockManganese", 248),
+    SHADOW(0x100342, "blockShadow", 16),
+    THAUMINITE(0x717FE5, "blockThauminite", 32),
+    THAUMIUM(0x9664C8, "blockThaumium", 64),
+    VOID_METAL(0x1C0639, "blockVoid", 16),
+    CONSTANTAN(0xE39680, "blockConstantan", 1234);
 
     private final int color1;
     private final int color2;

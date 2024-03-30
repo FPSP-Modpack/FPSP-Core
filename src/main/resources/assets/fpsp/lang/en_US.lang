@@ -199,6 +199,11 @@ item.singularity.red_garnet.name=Red Garnet Singularity
 item.singularity.olivine.name=Olivine Singularity
 item.singularity.dark_soularium.name=Dark Soularium Singularity
 item.singularity.manganese.name=Manganese Singularity
+item.singularity.shadow.name=Shadowmetal Singularity
+item.singularity.thauminite.name=Thauminite Singularity
+item.singularity.thaumium.name=Thaumium Singularity
+item.singularity.void_metal.name=Void Metal Singularity
+item.singularity.constantan.name=Constantan Singularity
 
 // Blocks
 tile.fluid.nitrogenplasma.name=Nitrogen Plasma

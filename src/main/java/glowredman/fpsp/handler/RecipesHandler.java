@@ -4,7 +4,6 @@ import static glowredman.fpsp.item.ItemDefinitions.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map.Entry;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -28,13 +27,12 @@ import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.SingularityDefinitions;
 import ic2.api.item.IC2Items;
-import ic2.api.recipe.IRecipeInput;
 import ic2.api.recipe.RecipeInputItemStack;
 import ic2.api.recipe.RecipeInputOreDict;
-import ic2.api.recipe.RecipeOutput;
 import ic2.api.recipe.Recipes;
 import micdoodle8.mods.galacticraft.core.items.GCItems;
 import micdoodle8.mods.galacticraft.planets.mars.items.MarsItems;
+import mods.railcraft.common.items.firestone.ItemFirestoneRefined;
 import reborncore.common.util.OreUtil;
 import techreborn.api.reactor.FusionReactorRecipe;
 import techreborn.api.reactor.FusionReactorRecipeHelper;
@@ -42,6 +40,7 @@ import techreborn.api.recipe.RecipeHandler;
 import techreborn.api.recipe.machines.BlastFurnaceRecipe;
 import techreborn.api.recipe.machines.CentrifugeRecipe;
 import techreborn.api.recipe.machines.ImplosionCompressorRecipe;
+import techreborn.blocks.BlockStorage;
 import techreborn.items.ItemCells;
 import techreborn.items.ItemDusts;
 import techreborn.items.ItemDustsSmall;
@@ -67,7 +66,6 @@ public class RecipesHandler {
         addOreWasherRecipes();
         addThermalCentrifugeRecipes();
         addMetalFormerRecipes();
-        // addMatterAmplifiers();
 
         addCentrifugeRecipes();
         addFusionRecipes();
@@ -75,7 +73,7 @@ public class RecipesHandler {
         addBlastFurnaceRecipes();
     }
 
-    static void addShapedRecipes() {
+    private static void addShapedRecipes() {
         craftShaped(new ItemStack(FPSP.blockRedSandstone, 1, 0), "SS", "SS", 'S', new ItemStack(Blocks.sand, 1, 1));
         craftShaped(
             new ItemStack(FPSP.blockRedSandstone, 1, 1),
@@ -156,7 +154,7 @@ public class RecipesHandler {
         block(11, "gem");
     }
 
-    static void addShapelessRecipes() {
+    private static void addShapelessRecipes() {
         craftShapeless(MassZivicioDust.getItem(9), Utils.getItem("magicalcrops", "essence_storage", 5));
         craftShapeless(
             IronEnderCompound.getItem(2),
@@ -175,7 +173,7 @@ public class RecipesHandler {
             Utils.getItem("MorePlanet", "frozen_water_bucket"));
     }
 
-    static void addNeutroniumCompressor() {
+    private static void addNeutroniumCompressor() {
         for (SingularityDefinitions s : ItemFPSPSingularity.TYPES) {
             if (s.getAmount() <= 0) {
                 continue;
@@ -200,7 +198,7 @@ public class RecipesHandler {
         }
     }
 
-    static void addExtremeShapelessRecipes() {
+    private static void addExtremeShapelessRecipes() {
         craftShapelessXtreme(
             CosmicFish.getItem(),
             new ItemStack(LudicrousItems.resource, 1, 2),
@@ -351,7 +349,7 @@ public class RecipesHandler {
             "cropVanillabean");
     }
 
-    static void addFusionRecipes() {
+    private static void addFusionRecipes() {
         fusion(
             ItemDusts.getDustByName("silver"),
             ItemCells.getCellByName("helium3"),
@@ -396,7 +394,7 @@ public class RecipesHandler {
             32);
     }
 
-    static void addCentrifugeRecipes() {
+    private static void addCentrifugeRecipes() {
         // Moon Rock Dust
         centrifuge(
             MoonRockDust.getItem(32),
@@ -1022,304 +1020,304 @@ public class RecipesHandler {
             25);
     }
 
-    static void addMaceratorRecipes() {
+    private static void addMaceratorRecipes() {
         macerate("oreDesh", DeshDust.getItem(2));
         // Moon
-        macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 3), MoonDust.getItem());
-        macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 4), MoonRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 5), MoonDust.getItem());
-        macerate(Utils.getItem("GalacticraftCore", "tile.moonBlock", 14), MoonRockDust.getItem(2));
+        macerate(Utils.getItems("GalacticraftCore", "tile.moonBlock", 3, 4), MoonDust.getItem());
+        macerate(Utils.getItems("GalacticraftCore", "tile.moonBlock", 4, 4), MoonRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftCore", "tile.moonBlock", 5, 4), MoonDust.getItem());
+        macerate(Utils.getItems("GalacticraftCore", "tile.moonBlock", 14, 2), MoonRockDust.getItem());
 
         // Mars
-        macerate(Utils.getItem("GalacticraftMars", "tile.mars", 4), MarsRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftMars", "tile.mars", 5), MarsRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftMars", "tile.mars", 6), MarsRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftMars", "tile.mars", 7), MarsRockDust.getItem(2));
-        macerate(Utils.getItem("GalacticraftMars", "tile.mars", 9), MarsRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.mars", 4, 4), MarsRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.mars", 5, 4), MarsRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.mars", 6, 4), MarsRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.mars", 7, 2), MarsRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.mars", 9, 4), MarsRockDust.getItem());
 
         // Phobos
-        macerate(Utils.getItem("GalaxySpace", "phobosblocks"), PhobosRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "phobosblocks", 1), PhobosRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "phobosblocks", 2), PhobosRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "phobosblocks", 4), PhobosRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "phobosblocks", 1, 4), PhobosRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "phobosblocks", 2, 4), PhobosRockDust.getItem());
 
         // Phobos
-        macerate(Utils.getItem("GalaxySpace", "deimosblocks"), DeimosRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "deimosblocks", 1), DeimosRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "deimosblocks", 4), DeimosRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "deimosblocks", 1, 4), DeimosRockDust.getItem());
 
         // Ceres
-        macerate(Utils.getItem("GalaxySpace", "ceresblocks"), CeresRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ceresblocks", 1), CeresRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ceresblocks", 2), CeresRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "ceresblocks", 4), CeresRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "ceresblocks", 5), CeresRockDust.getItem(2));
+        macerate(Utils.getItems("GalaxySpace", "ceresblocks", 4), CeresRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ceresblocks", 1, 4), CeresRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ceresblocks", 2, 2), CeresRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ceresblocks", 4, 2), CeresRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ceresblocks", 5, 2), CeresRockDust.getItem());
 
         // Asteroids
-        macerate(Utils.getItem("GalacticraftMars", "tile.asteroidsBlock"), AsteroidRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftMars", "tile.asteroidsBlock", 1), AsteroidRockDust.getItem());
-        macerate(Utils.getItem("GalacticraftMars", "tile.asteroidsBlock", 2), AsteroidRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.asteroidsBlock", 4), AsteroidRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.asteroidsBlock", 1, 4), AsteroidRockDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.asteroidsBlock", 2, 4), AsteroidRockDust.getItem());
 
         // Callisto
-        macerate(Utils.getItem("GalaxySpace", "callistoblocks"), CallistoRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "callistoblocks", 1), CallistoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "callistoblocks", 4), CallistoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "callistoblocks", 1, 4), CallistoRockDust.getItem());
 
         // Ganymede
-        macerate(Utils.getItem("GalaxySpace", "ganymedeblocks"), GanymedeRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ganymedeblocks", 1), GanymedeRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ganymedeblocks", 4), GanymedeRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ganymedeblocks", 1, 4), GanymedeRockDust.getItem());
 
         // Europa
-        macerate(Utils.getItem("GalaxySpace", "europagrunt"), EuropaRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "europagrunt", 1), EuropaDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "europageyser"), EuropaRockDust.getItem(8));
-        macerate(Utils.getItem("GalaxySpace", "europaunderwatergeyser"), EuropaDust.getItem(8));
+        macerate(Utils.getItems("GalaxySpace", "europagrunt", 4), EuropaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "europagrunt", 1, 4), EuropaDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "europageyser", 2), EuropaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "europaunderwatergeyser", 2), EuropaDust.getItem());
 
         // Io
-        macerate(Utils.getItem("GalaxySpace", "ioblocks"), IoRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ioblocks", 1), IoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ioblocks", 2), IoRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "ioblocks", 3), IoRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "ioblocks", 7), IoRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "ioblocks", 8), IoRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "iodualstone"), IoRockDust.getItem(2));
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 4), IoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 1, 4), IoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 2, 4), IoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 3, 2), IoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 7, 2), IoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "ioblocks", 8, 2), IoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "iodualstone", 2), IoRockDust.getItem());
 
         // Mercury
-        macerate(Utils.getItem("GalaxySpace", "mercuryblocks"), MercuryRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "mercuryblocks", 1), MercuryRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "mercuryblocks", 2), MercuryRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mercuryblocks", 4), MercuryRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mercuryblocks", 1, 4), MercuryRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mercuryblocks", 2, 4), MercuryRockDust.getItem());
 
         // Venus
-        macerate(Utils.getItem("GalaxySpace", "venusblocks"), VenusRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "venusblocks", 1), VenusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "venusblocks", 4), VenusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "venusblocks", 1, 4), VenusRockDust.getItem());
 
         // Enceladus
-        macerate(Utils.getItem("GalaxySpace", "enceladusblocks"), EnceladusDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "enceladusblocks", 1), EnceladusRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "enceladusblocks", 2), EnceladusRockDust.getItem(2));
-        macerate(Utils.getItem("GalaxySpace", "enceladusblocks", 3), EnceladusDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "enceladusblocks", 4), EnceladusDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "enceladusblocks", 1, 4), EnceladusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "enceladusblocks", 2, 2), EnceladusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "enceladusblocks", 3, 4), EnceladusDust.getItem());
 
         // Titan
-        macerate(Utils.getItem("GalaxySpace", "titanblocks"), TitanRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "titanblocks", 1), TitanRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "titanblocks", 2), TitanRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "titanblocks", 4), TitanRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "titanblocks", 1, 4), TitanRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "titanblocks", 2, 4), TitanRockDust.getItem());
 
         // Miranda
-        macerate(Utils.getItem("GalaxySpace", "mirandablocks"), MirandaRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "mirandablocks", 1), MirandaRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "mirandablocks", 2), MirandaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mirandablocks", 4), MirandaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mirandablocks", 1, 4), MirandaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "mirandablocks", 2, 4), MirandaRockDust.getItem());
 
         // Oberon
-        macerate(Utils.getItem("GalaxySpace", "oberonblocks"), OberonRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "oberonblocks", 1), OberonRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "oberonblocks", 2), OberonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "oberonblocks", 4), OberonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "oberonblocks", 1, 4), OberonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "oberonblocks", 2, 4), OberonRockDust.getItem());
 
         // Proteus
-        macerate(Utils.getItem("GalaxySpace", "proteusblocks"), ProteusRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "proteusblocks", 1), ProteusRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "proteusblocks", 2), ProteusRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "proteusblocks", 3), ProteusRockDust.getItem(2));
+        macerate(Utils.getItems("GalaxySpace", "proteusblocks", 4), ProteusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "proteusblocks", 1, 4), ProteusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "proteusblocks", 2, 4), ProteusRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "proteusblocks", 3, 2), ProteusRockDust.getItem());
 
         // Triton
-        macerate(Utils.getItem("GalaxySpace", "tritonblocks"), TritonRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "tritonblocks", 1), TritonRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "tritonblocks", 2), TritonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tritonblocks", 4), TritonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tritonblocks", 1, 4), TritonRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tritonblocks", 2, 4), TritonRockDust.getItem());
 
         // Vega B
-        macerate(Utils.getItem("GalaxySpace", "vegabgrunt"), VegaBRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "vegabsubgrunt"), VegaBRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "vegabgrunt", 4), VegaBRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "vegabsubgrunt", 4), VegaBRockDust.getItem());
 
         // Pluto
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks"), PlutoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 1), PlutoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 2), PlutoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 3), PlutoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 4), PlutoDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 5), PlutoRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "plutoblocks", 6), PlutoRockDust.getItem(2));
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 4), PlutoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 1, 4), PlutoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 2, 4), PlutoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 3, 4), PlutoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 4, 4), PlutoDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 5, 4), PlutoRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "plutoblocks", 6, 2), PlutoRockDust.getItem());
 
         // Kuiper Belt
-        macerate(Utils.getItem("GalacticraftMars", "tile.denseIce"), DenseIceDust.getItem());
+        macerate(Utils.getItems("GalacticraftMars", "tile.denseIce", 4), DenseIceDust.getItem());
 
         // Haumea
-        macerate(Utils.getItem("GalaxySpace", "haumeablocks"), HaumeaRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "haumeablocks", 4), HaumeaRockDust.getItem());
 
         // Haumea
-        macerate(Utils.getItem("GalaxySpace", "makemakegrunt"), MakemakeRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "makemakegrunt", 1), MakemakeRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "makemakegrunt", 4), MakemakeRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "makemakegrunt", 1, 4), MakemakeRockDust.getItem());
 
         // Koentus
-        macerate(Utils.getItem("MorePlanet", "koentus_ice"), KoentusDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_ice", 1), KoentusDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone", 3), KoentusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_block"), KoentusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 1), KoentusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 2), KoentusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 3), KoentusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 11), KoentusRockDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 12), KoentusRockDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "koentus_block", 13), KoentusRockDust.getItem(2));
+        macerate(Utils.getItems("MorePlanet", "koentus_ice", 4), KoentusDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_ice", 1, 2), KoentusDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 3, 4), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 4), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 1, 4), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 2, 4), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 3, 4), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 11, 2), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 12, 2), KoentusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "koentus_block", 13, 2), KoentusRockDust.getItem());
 
         // Diona
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone"), DionaRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "diona_block"), DionaRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "diona_block", 1), DionaRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "diona_block", 2), DionaRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "diona_block", 3), DionaRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "diona_block", 14), DionaRockDust.getItem(2));
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 4), DionaRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "diona_block", 4), DionaRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "diona_block", 1, 4), DionaRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "diona_block", 2, 4), DionaRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "diona_block", 3, 4), DionaRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "diona_block", 14, 2), DionaRockDust.getItem());
 
         // aCentauri Bb
-        macerate(Utils.getItem("GalaxySpace", "acentauribbgrunt"), ACentauriBbRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "acentauribbsubgrunt"), ACentauriBbRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "acentauribbgrunt", 4), ACentauriBbRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "acentauribbsubgrunt", 4), ACentauriBbRockDust.getItem());
 
         // Polongnius
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone", 1), PolongniusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "polongnius_block", 2), PolongniusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "polongnius_block", 3), PolongniusRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "polongnius_block", 13), PolongniusRockDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "polongnius_block", 14), PolongniusRockDust.getItem(4));
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 1, 4), PolongniusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "polongnius_block", 2, 4), PolongniusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "polongnius_block", 3, 4), PolongniusRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "polongnius_block", 13, 2), PolongniusRockDust.getItem());
+        macerate(Utils.getItem("MorePlanet", "polongnius_block", 14), PolongniusRockDust.getItem());
 
         // Barnarda C
-        macerate(Utils.getItem("GalaxySpace", "barnardaCgrass"), BarnardaCDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "barnardaCdirt"), BarnardaCDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaCgrass", 4), BarnardaCDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaCdirt", 4), BarnardaCDust.getItem());
 
         // Barnarda E
-        macerate(Utils.getItem("GalaxySpace", "barnardaEgrunt"), BarnardaERockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "barnardaEsubgrunt"), BarnardaERockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaEgrunt", 4), BarnardaERockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaEsubgrunt", 4), BarnardaERockDust.getItem());
 
         // Barnarda F
-        macerate(Utils.getItem("GalaxySpace", "barnardaFgrunt"), BarnardaFRockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "barnardaFsubgrunt"), BarnardaFRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaFgrunt", 4), BarnardaFRockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "barnardaFsubgrunt", 4), BarnardaFRockDust.getItem());
 
         // Nibiru
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone", 2), NibiruRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "nibiru_block"), NibiruRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "nibiru_block", 1), NibiruRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "nibiru_block", 2), NibiruRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "nibiru_block", 3), NibiruRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "nibiru_block", 12), NibiruRockDust.getItem(2));
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 2, 4), NibiruRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "nibiru_block", 4), NibiruRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "nibiru_block", 1, 4), NibiruRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "nibiru_block", 2, 4), NibiruRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "nibiru_block", 3, 4), NibiruRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "nibiru_block", 12, 2), NibiruRockDust.getItem());
 
         // T Ceti E
-        macerate(Utils.getItem("GalaxySpace", "tcetieblocks"), TCetiERockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "tcetieblocks", 1), TCetiERockDust.getItem());
-        macerate(Utils.getItem("GalaxySpace", "tcetieblocks", 2), TCetiERockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tcetieblocks", 4), TCetiERockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tcetieblocks", 1, 4), TCetiERockDust.getItem());
+        macerate(Utils.getItems("GalaxySpace", "tcetieblocks", 2, 4), TCetiERockDust.getItem());
 
         // Eden
-        macerate(Utils.getItem("galaxymod", "galaxymod_edencobblerock"), EdenRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edenrock"), EdenRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edenrockbricks"), EdenRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edensurfaceblock"), EdenRockDust.getItem(2));
-        macerate(Utils.getItem("galaxymod", "galaxymod_edensoil"), EdenDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edengrass"), EdenDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edengoldengrass"), EdenDust.getItem(4));
-        macerate(Utils.getItem("galaxymod", "galaxymod_bloodsand"), EdenDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_edenwinterrock"), EdenRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_bonestone"), EdenRockDust.getItem(2));
-        macerate(Utils.getItem("galaxymod", "galaxymod_edengravel"), EdenDust.getItem(2));
-        macerate(Utils.getItem("galaxymod", "galaxymod_bloodstone"), EdenRockDust.getItem(4));
-        macerate(Utils.getItem("galaxymod", "galaxymod_edensacredstone"), EdenRockDust.getItem(4));
+        macerate(Utils.getItems("galaxymod", "galaxymod_edencobblerock", 4), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edenrock", 4), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edenrockbricks", 4), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edensurfaceblock", 2), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edensoil", 4), EdenDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edengrass", 4), EdenDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_edengoldengrass"), EdenDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_bloodsand", 4), EdenDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edenwinterrock", 4), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_bonestone", 2), EdenRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_edengravel", 2), EdenDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_bloodstone"), EdenRockDust.getItem());
+        macerate(Utils.getItem("galaxymod", "galaxymod_edensacredstone"), EdenRockDust.getItem());
 
         // Kapteyn B
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone", 4), KapteynBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_block"), KapteynBDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_block", 1), KapteynBDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_block", 2), KapteynBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_block", 3), KapteynBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_block", 14), KapteynBRockDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_ice"), KapteynBDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "kapteyn-b_ice", 1), KapteynBDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 4, 4), KapteynBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_block", 4), KapteynBDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_block", 1, 4), KapteynBDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_block", 2, 4), KapteynBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_block", 3, 4), KapteynBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_block", 14, 2), KapteynBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_ice", 4), KapteynBDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "kapteyn-b_ice", 1, 4), KapteynBDust.getItem());
 
         // Fronos
-        macerate(Utils.getItem("MorePlanet", "fronos_dirt"), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_dirt", 1), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_grass"), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_sand"), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_sandstone"), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_sandstone", 1), FronosDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_sandstone", 2), FronosDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "fronos_block"), FronosRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_block", 1), FronosRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_block", 11), FronosRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_block", 12), FronosRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_block", 13), FronosRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "fronos_block", 14), FronosRockDust.getItem(2));
-        macerate(Utils.getItem("MorePlanet", "mossy_fronos_cobblestone"), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_dirt", 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_dirt", 1, 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_grass", 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_sand", 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_sandstone", 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_sandstone", 1, 4), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_sandstone", 2, 2), FronosDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 4), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 1, 4), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 11, 4), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 12, 4), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 13, 4), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "fronos_block", 14, 2), FronosRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "mossy_fronos_cobblestone", 4), FronosRockDust.getItem());
 
         // Kriffon
-        macerate(Utils.getItem("galaxymod", "galaxymod_kriffrock"), KriffonRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_kriffcobblerock"), KriffonRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_kriffstone"), KriffonDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_kriffdirt"), KriffonDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_kriffrock", 4), KriffonRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_kriffcobblerock", 4), KriffonRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_kriffstone", 4), KriffonDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_kriffdirt", 4), KriffonDust.getItem());
 
         // Eden
-        macerate(Utils.getItem("galaxymod", "galaxymod_zoldirt"), ZollusDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_zolrockbricks"), ZolrockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_solarblock"), ZolrockDust.getItem(2));
-        macerate(Utils.getItem("galaxymod", "galaxymod_zolcobblerock"), ZolrockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_zolstone"), ZolrockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_zoldirt", 4), ZollusDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_zolrockbricks", 4), ZolrockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_solarblock", 2), ZolrockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_zolcobblerock", 4), ZolrockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_zolstone", 4), ZolrockDust.getItem());
 
         // Sirius B
-        macerate(Utils.getItem("MorePlanet", "space_mossy_cobblestone", 5), SiriusBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "sirius_block"), SiriusBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "sirius_block", 1), SiriusBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "sirius_block", 2), SiriusBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "sirius_block", 3), SiriusBRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "sirius_block", 7), SiriusBRockDust.getItem(4));
-        macerate(Utils.getItem("MorePlanet", "sirius_block", 9), SiriusBRockDust.getItem(2));
+        macerate(Utils.getItems("MorePlanet", "space_mossy_cobblestone", 5, 4), SiriusBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "sirius_block", 4), SiriusBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "sirius_block", 1, 4), SiriusBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "sirius_block", 2, 4), SiriusBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "sirius_block", 3, 4), SiriusBRockDust.getItem());
+        macerate(Utils.getItem("MorePlanet", "sirius_block", 7), SiriusBRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "sirius_block", 9, 2), SiriusBRockDust.getItem());
 
         // Oasis
-        macerate(Utils.getItem("galaxymod", "galaxymod_oasisgrass"), OasisDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_oasisdirt"), OasisDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_oasiscobblerock"), OasisRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_oasisrock"), OasisRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_oasisgrass", 4), OasisDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_oasisdirt", 4), OasisDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_oasiscobblerock", 4), OasisRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_oasisrock", 4), OasisRockDust.getItem());
 
         // Xathius
-        macerate(Utils.getItem("galaxymod", "galaxymod_xathgrass"), XathianDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_xathdirt"), XathianDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_xathstone"), XathianRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_xathrock"), XathianRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_xathcobblerock"), XathianRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_xathgrass", 4), XathianDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_xathdirt", 4), XathianDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_xathstone", 4), XathianRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_xathrock", 4), XathianRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_xathcobblerock", 4), XathianRockDust.getItem());
 
         // Purgot
-        macerate(Utils.getItem("galaxymod", "galaxymod_purgdirt"), PurgotDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_purgcobblerock"), PurgotRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_purgstone"), PurgotRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_purgrock"), PurgotRockDust.getItem());
-        macerate(Utils.getItem("galaxymod", "galaxymod_purgrockbricks"), PurgotRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_purgdirt", 4), PurgotDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_purgcobblerock", 4), PurgotRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_purgstone", 4), PurgotRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_purgrock", 4), PurgotRockDust.getItem());
+        macerate(Utils.getItems("galaxymod", "galaxymod_purgrockbricks", 4), PurgotRockDust.getItem());
 
         // Neper
-        macerate(Utils.getItem("amunra", "tile.baseBlockRock", 10), NeperDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseBlockRock", 10, 4), NeperDust.getItem());
 
         // Maahes
-        macerate(Utils.getItem("amunra", "tile.wood1", 1), MaahesDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.wood1", 1, 4), MaahesDust.getItem());
 
         // Anubis
-        macerate(Utils.getItem("amunra", "tile.baseBlockRock"), BasaltRockDust.getItem());
-        macerate(Utils.getItem("amunra", "tile.baseBlockRock", 1), BasaltRockDust.getItem());
-        macerate(Utils.getItem("amunra", "tile.baseBlockGround", 1), BasaltDust.getItem());
-        macerate(Utils.getItem("amunra", "tile.baseFalling", 2), BasaltDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseBlockRock", 4), BasaltRockDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseBlockRock", 1, 4), BasaltRockDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseBlockGround", 1, 4), BasaltDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseFalling", 2, 4), BasaltDust.getItem());
 
         // Horus
-        macerate(Utils.getItem("amunra", "tile.baseFalling"), ObsidianSandDust.getItem());
-        macerate(Utils.getItem("amunra", "tile.baseFalling", 1), ObsidianSandDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseFalling", 4), ObsidianSandDust.getItem());
+        macerate(Utils.getItems("amunra", "tile.baseFalling", 1, 4), ObsidianSandDust.getItem());
 
         // Seth
-        macerate(Utils.getItem("amunra", "tile.baseBlockCrystal"), CoralDust.getItem(2));
+        macerate(Utils.getItems("amunra", "tile.baseBlockCrystal", 2), CoralDust.getItem());
 
         // Dark Asteroids
-        macerate(Utils.getItem("MorePlanet", "dark_asteroid_block"), DarkAsteroidRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "dark_asteroid_block", 1), DarkAsteroidRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "dark_asteroid_block", 2), DarkAsteroidRockDust.getItem());
-        macerate(Utils.getItem("MorePlanet", "dark_asteroid_quicksand"), DarkAsteroidDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "dark_asteroid_block", 4), DarkAsteroidRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "dark_asteroid_block", 1, 4), DarkAsteroidRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "dark_asteroid_block", 2, 4), DarkAsteroidRockDust.getItem());
+        macerate(Utils.getItems("MorePlanet", "dark_asteroid_quicksand", 4), DarkAsteroidDust.getItem());
     }
 
-    static void addMetalFormerRecipes() {
+    private static void addMetalFormerRecipes() {
         press(SiliconCarbideIngot.getItem(), SiliconCarbidePlate.getItem());
         press(TungstenCarbideIngot.getItem(), TungstenCarbidePlate.getItem());
     }
 
-    static void addCompressorRecipes() {
+    private static void addCompressorRecipes() {
         compress(new ItemStack(Blocks.sand, 4, 1), new ItemStack(FPSP.blockRedSandstone));
     }
 
-    static void addSmeltingRecipes() {
+    private static void addSmeltingRecipes() {
         smelt(MeteoricIronDust.getItem(), new ItemStack(GCItems.meteoricIronIngot));
         smelt(DeshDust.getItem(), new ItemStack(MarsItems.marsItemBasic, 1, 2));
         smelt(AdamantiteDust.getItem(), new ItemStack(GSItems.Ingots));
@@ -1341,7 +1339,7 @@ public class RecipesHandler {
         smelt(ViriniumDust.getItem(), Utils.getItem("galaxymod", "galaxymod_ingotviri"));
     }
 
-    static void addImplosionCompressorRecipes() {
+    private static void addImplosionCompressorRecipes() {
         compressGem(CitrineDust.getItem(), Utils.getItem("galacticores", "itemDrops"));
         compressGem(OnyxDust.getItem(), Utils.getItem("galacticores", "itemDrops", 1));
         compressGem(PinkQuartzDust.getItem(), Utils.getItem("galacticores", "itemDrops", 2));
@@ -1377,14 +1375,14 @@ public class RecipesHandler {
             32);
     }
 
-    static void removeOreWasherRecipes() {
+    private static void removeOreWasherRecipes() {
         unwash(aobd("crushedQuartz"));
         unwash(aobd("crushedMithril"));
         unwash(aobd("crushedMagnesium"));
         unwash(aobd("crushedMeteoricIron"));
     }
 
-    static void addOreWasherRecipes() {
+    private static void addOreWasherRecipes() {
         washOre("Quartz", ItemDustsSmall.getSmallDustByName("netherrack", 2));
         washOre("Aluminium", ItemDustsSmall.getSmallDustByName("bauxite", 2));
         washOre("Titanium", ItemDustsSmall.getSmallDustByName("almandine", 2));
@@ -1396,7 +1394,7 @@ public class RecipesHandler {
         washOre("MeteoricIron", ic2("smallIronDust", 2));
     }
 
-    static void removeThermalCentrifugeRecipes() {
+    private static void removeThermalCentrifugeRecipes() {
         unThermalCentrifuge(aobd("crushedQuartz"));
         unThermalCentrifuge(aobd("crushedPurifiedQuartz"));
         unThermalCentrifuge(aobd("crushedMithril"));
@@ -1425,7 +1423,7 @@ public class RecipesHandler {
         unThermalCentrifuge(aobd("crushedPurifiedMeteoricIron"));
     }
 
-    static void addThermalCentrifugeRecipes() {
+    private static void addThermalCentrifugeRecipes() {
         ItemStack stoneDust = IC2Items.getItem("stoneDust");
         thermalCentrifuge(
             "crushedQuartz",
@@ -1573,7 +1571,7 @@ public class RecipesHandler {
             ItemDustsSmall.getSmallDustByName("nickel"));
     }
 
-    static void addBlastFurnaceRecipes() {
+    private static void addBlastFurnaceRecipes() {
         hotSmelt(
             ItemCells.getCellByName("silicon"),
             ItemCells.getCellByName("carbon"),
@@ -1655,6 +1653,21 @@ public class RecipesHandler {
             .add(ingredient);
     }
 
+    private static void inert(Object ingredient) {
+        if (ingredient instanceof ItemStack targetStack) {
+            Grinder.catalyst.getInput()
+                .removeIf(t -> {
+                    if (t instanceof ItemStack trialStack) {
+                        return OreDictionary.itemMatches(targetStack, trialStack, false);
+                    }
+                    return false;
+                });
+            return;
+        }
+        Grinder.catalyst.getInput()
+            .remove(ingredient);
+    }
+
     private static void craftShapelessXtreme(ItemStack output, Object... ingredients) {
         ExtremeCraftingManager.getInstance()
             .addShapelessOreRecipe(output, ingredients);
@@ -1686,15 +1699,9 @@ public class RecipesHandler {
 
     private static void unThermalCentrifuge(ItemStack input) {
         if (input == null) return;
-        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.centrifuge.getRecipes()
-            .entrySet()) {
-            if (recipe.getKey()
-                .matches(input)) {
-                Recipes.centrifuge.getRecipes()
-                    .remove(recipe.getKey());
-                break;
-            }
-        }
+        Recipes.centrifuge.getRecipes()
+            .keySet()
+            .removeIf(recipeInput -> recipeInput.matches(input));
     }
 
     private static void block(int meta, String prefix) {
@@ -1715,15 +1722,9 @@ public class RecipesHandler {
 
     private static void unwash(ItemStack input) {
         if (input == null) return;
-        for (Entry<IRecipeInput, RecipeOutput> recipe : Recipes.oreWashing.getRecipes()
-            .entrySet()) {
-            if (recipe.getKey()
-                .matches(input)) {
-                Recipes.oreWashing.getRecipes()
-                    .remove(recipe.getKey());
-                break;
-            }
-        }
+        Recipes.oreWashing.getRecipes()
+            .keySet()
+            .removeIf(recipeInput -> recipeInput.matches(input));
     }
 
     private static void hotSmelt(ItemStack input1, ItemStack input2, ItemStack output1, ItemStack output2, int tickTime,

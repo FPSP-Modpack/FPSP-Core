@@ -227,10 +227,6 @@ public enum ItemDefinitions {
         this.meta = meta;
     }
 
-    public String getName() {
-        return this.toString();
-    }
-
     public int getMeta() {
         return this.meta;
     }

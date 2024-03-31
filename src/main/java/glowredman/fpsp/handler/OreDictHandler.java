@@ -123,7 +123,7 @@ public class OreDictHandler {
 
     private static void registerDust(ItemDefinitions item) {
         OreDictionary.registerOre(
-            "dust" + item.getName()
+            "dust" + item.toString()
                 .replace("Dust", ""),
             item.getItem());
     }

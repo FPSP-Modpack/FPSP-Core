@@ -52,7 +52,7 @@ public class ItemMeta extends ItemFood {
     @Override
     public void registerIcons(IIconRegister iconRegister) {
         for (ItemDefinitions item : ItemDefinitions.values()) {
-            icons.put(item.getMeta(), iconRegister.registerIcon(FPSP.MODID + ":" + item.getName()));
+            icons.put(item.getMeta(), iconRegister.registerIcon(FPSP.MODID + ":" + item));
         }
     }
 
@@ -64,8 +64,7 @@ public class ItemMeta extends ItemFood {
     @Override
     public String getUnlocalizedName(ItemStack stack) {
         int meta = stack.getItemDamage();
-        return icons.containsKey(meta) ? "item." + meta2item.get(meta)
-            .getName() : "unnamed";
+        return icons.containsKey(meta) ? "item." + meta2item.get(meta) : "unnamed";
     }
 
     @Override

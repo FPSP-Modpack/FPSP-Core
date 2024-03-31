@@ -69,8 +69,8 @@ public class OreGenerator implements IWorldGenerator {
         electrotineOreGen = new WorldGenOre("ProjRed|Exploration", "projectred.exploration.ore", 6, 8);
         apatiteOreGen = new WorldGenOre("Forestry", "resources", 36);
         cinnabarOreBlock = GameRegistry.findBlock("Thaumcraft", "blockCustomOre");
-        for (int i = 1; i <= 6; i++) {
-            infusedStoneGen[i] = new WorldGenOre("Thaumcraft", "blockCustomOre", i, 7);
+        for (int i = 0; i < 6; i++) {
+            infusedStoneGen[i] = new WorldGenOre("Thaumcraft", "blockCustomOre", i + 1, 7);
         }
     }
 
@@ -89,13 +89,13 @@ public class OreGenerator implements IWorldGenerator {
         }
     }
 
-    void generateOverworldOres(Random random, int chunkX, int chunkZ, World world) {
+    private void generateOverworldOres(Random random, int chunkX, int chunkZ, World world) {
         generateOreVein(17, copperOreGen, 10, 69, chunkX, chunkZ, random, world);
         generateOreVein(28, tinOreGen, 0, 40, chunkX, chunkZ, random, world);
         generateOreVein(9, leadOreGen, 0, 64, chunkX, chunkZ, random, world);
     }
 
-    void generateTwilightOres(Random random, int chunkX, int chunkZ, World world) {
+    private void generateTwilightOres(Random random, int chunkX, int chunkZ, World world) {
         BiomeGenBase biome = world.getBiomeGenForCoordsBody(chunkX * 16 + 8, chunkZ * 16 + 8);
         String biomeName = biome.getBiomeClass()
             .getSimpleName();

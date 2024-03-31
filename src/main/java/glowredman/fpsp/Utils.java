@@ -149,185 +149,150 @@ public class Utils {
             }
 
             // -=-=- MINECRAFT FORGE -=-=-
-            try {
-                if (te instanceof IFluidHandler) {
-                    FluidTankInfo[] tanks = ((IFluidHandler) te).getTankInfo(ForgeDirection.getOrientation(side));
-                    if (tanks != null) {
-                        list.add(DARK_PURPLE + "" + ITALIC + "IFluidHandler:");
-                        for (int i = 0; i < tanks.length; i++) list.add(
-                            " Tank " + i
-                                + ": "
-                                + AQUA
-                                + formatNumber(tanks[i].fluid == null ? 0 : tanks[i].fluid.amount)
-                                + RESET
-                                + "mB / "
-                                + AQUA
-                                + formatNumber(tanks[i].capacity)
-                                + RESET
-                                + "mB "
-                                + BLUE
-                                + getFluidName(tanks[i].fluid, true)
-                                + RESET);
-                    }
+            if (te instanceof IFluidHandler fluidHandler) {
+                FluidTankInfo[] tanks = fluidHandler.getTankInfo(ForgeDirection.getOrientation(side));
+                if (tanks != null) {
+                    list.add(DARK_PURPLE + "" + ITALIC + "IFluidHandler:");
+                    for (int i = 0; i < tanks.length; i++) list.add(
+                        " Tank " + i
+                            + ": "
+                            + AQUA
+                            + formatNumber(tanks[i].fluid == null ? 0 : tanks[i].fluid.amount)
+                            + RESET
+                            + "mB / "
+                            + AQUA
+                            + formatNumber(tanks[i].capacity)
+                            + RESET
+                            + "mB "
+                            + BLUE
+                            + getFluidName(tanks[i].fluid, true)
+                            + RESET);
                 }
-            } catch (Exception e) {
-
             }
 
             // -=-=- INDUTRIAL CRAFT 2 -=-=-
             try {
-                if (te instanceof IReactorChamber) te = (TileEntity) ((IReactorChamber) te).getReactor();
-            } catch (Exception e) {
-
+                if (te instanceof IReactorChamber reactorChamber) te = (TileEntity) reactorChamber.getReactor();
+            } catch (Exception e) {}
+            if (te instanceof IReactor reactor) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IReactor:");
+                list.add(
+                    " Heat: " + AQUA
+                        + formatNumber(reactor.getHeat())
+                        + RESET
+                        + " / "
+                        + AQUA
+                        + formatNumber(reactor.getMaxHeat())
+                        + RESET);
+                list.add(
+                    " HEM: " + YELLOW
+                        + formatNumber(reactor.getHeatEffectModifier())
+                        + RESET
+                        + " Output: "
+                        + YELLOW
+                        + formatNumber(reactor.getReactorEUEnergyOutput())
+                        + RESET
+                        + "EU/t");
             }
-            try {
-                if (te instanceof IReactor) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.IReactor:");
-                    list.add(
-                        " Heat: " + AQUA
-                            + formatNumber(((IReactor) te).getHeat())
-                            + RESET
-                            + " / "
-                            + AQUA
-                            + formatNumber(((IReactor) te).getMaxHeat())
-                            + RESET);
-                    list.add(
-                        " HEM: " + YELLOW
-                            + formatNumber(((IReactor) te).getHeatEffectModifier())
-                            + RESET
-                            + " Output: "
-                            + YELLOW
-                            + formatNumber(((IReactor) te).getReactorEUEnergyOutput())
-                            + RESET
-                            + "EU/t");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IWrenchable wrenchable) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IWrenchable:");
+                list.add(
+                    " Facing: " + BLUE
+                        + ForgeDirection.getOrientation(wrenchable.getFacing())
+                            .name()
+                        + RESET
+                        + " Chance: "
+                        + YELLOW
+                        + (wrenchable.getWrenchDropRate() * 100)
+                        + RESET
+                        + "%");
+                list.add(
+                    wrenchable.wrenchCanRemove(player) ? GREEN + " You can remove this with a Wrench" + RESET
+                        : RED + " You can NOT remove this with a Wrench" + RESET);
             }
-            try {
-                if (te instanceof IWrenchable) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.IWrenchable:");
-                    list.add(
-                        " Facing: " + BLUE
-                            + ForgeDirection.getOrientation(((IWrenchable) te).getFacing())
-                                .name()
-                            + RESET
-                            + " Chance: "
-                            + YELLOW
-                            + (((IWrenchable) te).getWrenchDropRate() * 100)
-                            + RESET
-                            + "%");
-                    list.add(
-                        ((IWrenchable) te).wrenchCanRemove(player)
-                            ? GREEN + " You can remove this with a Wrench" + RESET
-                            : RED + " You can NOT remove this with a Wrench" + RESET);
-                }
-            } catch (Exception e) {
-
-            }
-            try {
-                if (te instanceof IEnergySink) list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergySink:");
+            if (te instanceof IEnergySink energySink) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergySink:");
                 list.add(
                     " Input Tier: " + AQUA
-                        + ((IEnergySink) te).getSinkTier()
+                        + energySink.getSinkTier()
                         + RESET
                         + " Demanded Energy: "
                         + YELLOW
-                        + formatNumber(((IEnergySink) te).getDemandedEnergy())
+                        + formatNumber(energySink.getDemandedEnergy())
                         + RESET
                         + "EU");
-            } catch (Exception e) {
-
             }
-            try {
-                if (te instanceof IEnergySource) list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergySource:");
+            if (te instanceof IEnergySource energySource) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergySource:");
                 list.add(
                     " Output Tier: " + AQUA
-                        + ((IEnergySource) te).getSourceTier()
+                        + energySource.getSourceTier()
                         + RESET
                         + " Offered Energy: "
                         + YELLOW
-                        + formatNumber(((IEnergySource) te).getOfferedEnergy())
+                        + formatNumber(energySource.getOfferedEnergy())
                         + RESET
                         + "EU");
-            } catch (Exception e) {
-
             }
-            try {
-                if (te instanceof IEnergyConductor) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergyConductor:");
-                    list.add(
-                        " Loss: " + YELLOW
-                            + formatNumber(((IEnergyConductor) te).getConductionLoss())
-                            + RESET
-                            + "EU/Block Conductor Breakdown Energy: "
-                            + YELLOW
-                            + formatNumber(((IEnergyConductor) te).getConductorBreakdownEnergy())
-                            + RESET
-                            + "EU/t");
-                    list.add(
-                        " Insulation Absorption: " + YELLOW
-                            + formatNumber(((IEnergyConductor) te).getInsulationEnergyAbsorption())
-                            + RESET
-                            + "EU/t Insulator Breakdown Energy: "
-                            + YELLOW
-                            + formatNumber(((IEnergyConductor) te).getInsulationBreakdownEnergy())
-                            + RESET
-                            + "EU/t");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IEnergyConductor energyConductor) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergyConductor:");
+                list.add(
+                    " Loss: " + YELLOW
+                        + formatNumber(energyConductor.getConductionLoss())
+                        + RESET
+                        + "EU/Block Conductor Breakdown Energy: "
+                        + YELLOW
+                        + formatNumber(energyConductor.getConductorBreakdownEnergy())
+                        + RESET
+                        + "EU/t");
+                list.add(
+                    " Insulation Absorption: " + YELLOW
+                        + formatNumber(energyConductor.getInsulationEnergyAbsorption())
+                        + RESET
+                        + "EU/t Insulator Breakdown Energy: "
+                        + YELLOW
+                        + formatNumber(energyConductor.getInsulationBreakdownEnergy())
+                        + RESET
+                        + "EU/t");
             }
-            try {
-                if (te instanceof IEnergyStorage) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergyStorage:");
-                    list.add(
-                        " Contained Energy: " + AQUA
-                            + formatNumber(((IEnergyStorage) te).getStored())
-                            + RESET
-                            + "EU / "
-                            + AQUA
-                            + formatNumber(((IEnergyStorage) te).getCapacity())
-                            + RESET
-                            + "EU");
-                    list.add(
-                        " Output: " + YELLOW
-                            + formatNumber(((IEnergyStorage) te).getOutputEnergyUnitsPerTick())
-                            + RESET
-                            + "EU/t");
-                    list.add(
-                        ((IEnergyStorage) te).isTeleporterCompatible(ForgeDirection.getOrientation(side))
-                            ? GREEN + " Teleporter Compatible" + RESET
-                            : RED + " NOT Teleporter Compatible" + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IEnergyStorage energyStorage) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IEnergyStorage:");
+                list.add(
+                    " Contained Energy: " + AQUA
+                        + formatNumber(energyStorage.getStored())
+                        + RESET
+                        + "EU / "
+                        + AQUA
+                        + formatNumber(energyStorage.getCapacity())
+                        + RESET
+                        + "EU");
+                list.add(
+                    " Output: " + YELLOW + formatNumber(energyStorage.getOutputEnergyUnitsPerTick()) + RESET + "EU/t");
+                list.add(
+                    energyStorage.isTeleporterCompatible(ForgeDirection.getOrientation(side))
+                        ? GREEN + " Teleporter Compatible" + RESET
+                        : RED + " NOT Teleporter Compatible" + RESET);
             }
-            try {
-                if (te instanceof IKineticSource) list.add(DARK_PURPLE + "" + ITALIC + "IC2.IKineticSource:");
+            if (te instanceof IKineticSource kineticSource) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IKineticSource:");
                 list.add(
                     " Max Kinetic Energy (theoretical): " + YELLOW
-                        + formatNumber(
-                            ((IKineticSource) te).maxrequestkineticenergyTick(ForgeDirection.getOrientation(side)))
+                        + formatNumber(kineticSource.maxrequestkineticenergyTick(ForgeDirection.getOrientation(side)))
                         + RESET
                         + "KU/t");
-            } catch (Exception e) {
-
             }
-            try {
-                if (te instanceof IHeatSource) list.add(DARK_PURPLE + "" + ITALIC + "IC2.IHeatSource:");
+            if (te instanceof IHeatSource heatSource) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IHeatSource:");
                 list.add(
                     " Max Heat Energy (theoretical): " + YELLOW
-                        + formatNumber(((IHeatSource) te).maxrequestHeatTick(ForgeDirection.getOrientation(side)))
+                        + formatNumber(heatSource.maxrequestHeatTick(ForgeDirection.getOrientation(side)))
                         + RESET
                         + "HU/t");
-            } catch (Exception e) {
-
             }
-            try {
-                if (te instanceof IPersonalBlock && ((IPersonalBlock) te).getOwner() != null) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.IPersonalBlock:");
-                    GameProfile owner = ((IPersonalBlock) te).getOwner();
+            if (te instanceof IPersonalBlock personalBlock) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.IPersonalBlock:");
+                GameProfile owner = personalBlock.getOwner();
+                if (owner != null) {
                     list.add(
                         " Owner: " + BLUE
                             + owner.getName()
@@ -338,288 +303,226 @@ public class Utils {
                                 .toString()
                             + RESET
                             + ")");
-                    list.add(
-                        ((IPersonalBlock) te).permitsAccess(player.getGameProfile()) ? GREEN + " Access granted" + RESET
-                            : RED + " Access denied" + RESET);
                 }
-            } catch (Exception e) {
-
+                list.add(
+                    personalBlock.permitsAccess(player.getGameProfile()) ? GREEN + " Access granted" + RESET
+                        : RED + " Access denied" + RESET);
             }
-            try {
-                if (te instanceof TileEntityWindGenerator) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityWindGenerator:");
-                    list.add(
-                        " Obscurated Blocks: " + AQUA + ((TileEntityWindGenerator) te).obscuratedBlockCount + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof TileEntityWindGenerator windGenerator) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityWindGenerator:");
+                list.add(" Obscurated Blocks: " + AQUA + windGenerator.obscuratedBlockCount + RESET);
             }
-            try {
-                if (te instanceof TileEntityNuke) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityNuke:");
+            if (te instanceof TileEntityNuke nuke) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityNuke:");
+                list.add(
+                    " Explosion Power: " + YELLOW
+                        + nuke.getNukeExplosivePower()
+                        + RESET
+                        + " Radiation Range: "
+                        + AQUA
+                        + nuke.getRadiationRange()
+                        + RESET);
+            }
+            if (te instanceof TileEntityTeleporter teleporter) {
+                list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityTeleporter:");
+                if (teleporter.targetSet) {
+                    int weight = teleporter.getWeightOf(player);
+                    double distance = distance(teleporter);
                     list.add(
-                        " Explosion Power: " + YELLOW
-                            + ((TileEntityNuke) te).getNukeExplosivePower()
+                        " Target -- X: " + AQUA
+                            + formatNumber(teleporter.targetX)
                             + RESET
-                            + " Radiation Range: "
+                            + " Y: "
                             + AQUA
-                            + ((TileEntityNuke) te).getRadiationRange()
+                            + formatNumber(teleporter.targetY)
+                            + RESET
+                            + " Z: "
+                            + AQUA
+                            + formatNumber(teleporter.targetZ)
                             + RESET);
+                    list.add(
+                        " Your Weight: " + AQUA
+                            + formatNumber(weight)
+                            + RESET
+                            + " Distance: "
+                            + YELLOW
+                            + formatNumber(distance)
+                            + RESET
+                            + " Required Energy: "
+                            + AQUA
+                            + formatNumber((int) (weight * Math.pow(distance + 10.0D, 0.7D) * 5.0D))
+                            + RESET
+                            + "EU");
+                } else {
+                    list.add(RED + " Target not set!" + RESET);
                 }
-            } catch (Exception e) {
-
             }
-            try {
-                if (te instanceof TileEntityTeleporter) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.TileEntityTeleporter:");
-                    if (((TileEntityTeleporter) te).targetSet) {
-                        int weight = ((TileEntityTeleporter) te).getWeightOf(player);
-                        double distance = distance((TileEntityTeleporter) te);
-                        list.add(
-                            " Target -- X: " + AQUA
-                                + formatNumber(((TileEntityTeleporter) te).targetX)
-                                + RESET
-                                + " Y: "
-                                + AQUA
-                                + formatNumber(((TileEntityTeleporter) te).targetY)
-                                + RESET
-                                + " Z: "
-                                + AQUA
-                                + formatNumber(((TileEntityTeleporter) te).targetZ)
-                                + RESET);
-                        list.add(
-                            " Your Weight: " + AQUA
-                                + formatNumber(weight)
-                                + RESET
-                                + " Distance: "
-                                + YELLOW
-                                + formatNumber(distance)
-                                + RESET
-                                + " Required Energy: "
-                                + AQUA
-                                + formatNumber((int) (weight * Math.pow(distance + 10.0D, 0.7D) * 5.0D))
-                                + RESET
-                                + "EU");
-                    } else list.add(RED + " Target not set!" + RESET);
+            if (te instanceof ICropTile cropTile) {
+                CropCard crop = cropTile.getCrop();
+                if (cropTile.getScanLevel() < 4) cropTile.setScanLevel((byte) 4);
+
+                if (crop != null) {
+                    list.add(DARK_PURPLE + "" + ITALIC + "IC2.ICropTile:");
+                    String name = BLUE + crop.name() + RESET;
+                    if (crop.isWeed(cropTile)) name += " (" + RED + "WEED!" + RESET + ")";
+                    list.add(" Name: " + name + " Tier: " + AQUA + crop.tier() + RESET);
+                    list.add(
+                        " Type -- Growth: " + AQUA
+                            + cropTile.getGrowth()
+                            + RESET
+                            + " Gain: "
+                            + AQUA
+                            + cropTile.getGain()
+                            + RESET
+                            + " Resistance: "
+                            + AQUA
+                            + cropTile.getResistance()
+                            + RESET);
+                    list.add(
+                        " Plant -- Fertilizer: " + AQUA
+                            + cropTile.getNutrientStorage()
+                            + RESET
+                            + " Water: "
+                            + AQUA
+                            + cropTile.getHydrationStorage()
+                            + RESET
+                            + " Weed-Ex: "
+                            + AQUA
+                            + cropTile.getWeedExStorage()
+                            + RESET);
+                    list.add(
+                        " Environment -- Nutrients: " + AQUA
+                            + cropTile.getNutrients()
+                            + RESET
+                            + " Humidity: "
+                            + AQUA
+                            + cropTile.getHumidity()
+                            + RESET
+                            + " Air Quality: "
+                            + AQUA
+                            + cropTile.getAirQuality()
+                            + RESET);
+                    boolean harvestable = crop.canBeHarvested(cropTile);
+                    boolean canGrow = crop.canGrow(cropTile);
+                    boolean canCrossBreed = crop.canCross(cropTile);
+                    String temp = GREEN + (harvestable ? " Harvestable" : "")
+                        + (canGrow ? " Can grow" : "")
+                        + (canCrossBreed ? " Can cross-breed" : "")
+                        + RESET;
+                    if (harvestable || canCrossBreed || canGrow) list.add(temp);
+                    boolean optimal = cropTile.getSize() == crop.getOptimalHavestSize(cropTile);
+                    list.add(" Size: " + AQUA + cropTile.getSize() + (optimal ? GREEN + " OPTIMAL" : "" + RESET));
+                    String attr = "";
+                    if (crop.attributes() != null) for (String a : crop.attributes()) attr += ", " + BLUE + a + RESET;
+                    list.add(" Attributes:" + attr.replaceFirst(",", ""));
+                    list.add(" Discovered by: " + BLUE + crop.discoveredBy() + RESET);
 
                 }
-            } catch (Exception e) {
-
-            }
-            try {
-                if (te instanceof ICropTile) {
-                    CropCard crop = ((ICropTile) te).getCrop();
-                    if (((ICropTile) te).getScanLevel() < 4) ((ICropTile) te).setScanLevel((byte) 4);
-
-                    if (crop != null) {
-                        list.add(DARK_PURPLE + "" + ITALIC + "IC2.ICropTile:");
-                        String name = BLUE + crop.name() + RESET;
-                        if (crop.isWeed(((ICropTile) te))) name += " (" + RED + "WEED!" + RESET + ")";
-                        list.add(" Name: " + name + " Tier: " + AQUA + crop.tier() + RESET);
-                        list.add(
-                            " Type -- Growth: " + AQUA
-                                + ((ICropTile) te).getGrowth()
-                                + RESET
-                                + " Gain: "
-                                + AQUA
-                                + ((ICropTile) te).getGain()
-                                + RESET
-                                + " Resistance: "
-                                + AQUA
-                                + ((ICropTile) te).getResistance()
-                                + RESET);
-                        list.add(
-                            " Plant -- Fertilizer: " + AQUA
-                                + ((ICropTile) te).getNutrientStorage()
-                                + RESET
-                                + " Water: "
-                                + AQUA
-                                + ((ICropTile) te).getHydrationStorage()
-                                + RESET
-                                + " Weed-Ex: "
-                                + AQUA
-                                + ((ICropTile) te).getWeedExStorage()
-                                + RESET);
-                        list.add(
-                            " Environment -- Nutrients: " + AQUA
-                                + ((ICropTile) te).getNutrients()
-                                + RESET
-                                + " Humidity: "
-                                + AQUA
-                                + ((ICropTile) te).getHumidity()
-                                + RESET
-                                + " Air Quality: "
-                                + AQUA
-                                + ((ICropTile) te).getAirQuality()
-                                + RESET);
-                        boolean harvestable = crop.canBeHarvested(((ICropTile) te));
-                        boolean canGrow = crop.canGrow(((ICropTile) te));
-                        boolean canCrossBreed = crop.canCross(((ICropTile) te));
-                        String temp = GREEN + (harvestable ? " Harvestable" : "")
-                            + (canGrow ? " Can grow" : "")
-                            + (canCrossBreed ? " Can cross-breed" : "")
-                            + RESET;
-                        if (harvestable || canCrossBreed || canGrow) list.add(temp);
-                        boolean optimal = ((ICropTile) te).getSize() == crop.getOptimalHavestSize(((ICropTile) te));
-                        list.add(
-                            " Size: " + AQUA
-                                + ((ICropTile) te).getSize()
-                                + (optimal ? GREEN + " OPTIMAL" : "" + RESET));
-                        String attr = "";
-                        if (crop.attributes() != null)
-                            for (String a : crop.attributes()) attr += ", " + BLUE + a + RESET;
-                        list.add(" Attributes:" + attr.replaceFirst(",", ""));
-                        list.add(" Discovered by: " + BLUE + crop.discoveredBy() + RESET);
-
-                    }
-                }
-            } catch (Exception e) {
-
             }
 
             // -=-=- Galacticraft 3 -=-=-
-            try {
-                if (te instanceof IColorable) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IColorable:");
-                    EnumChatFormatting color = EnumChatFormatting.values()[((IColorable) te).getColor()];
-                    list.add(" Color: " + color + capitalize(color.getFriendlyName()) + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IColorable colorable) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IColorable:");
+                EnumChatFormatting color = EnumChatFormatting.values()[colorable.getColor()];
+                list.add(" Color: " + color + capitalize(color.getFriendlyName()) + RESET);
             }
-            try {
-                if (te instanceof IConductor) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IConductor:");
-                    list.add(
-                        " Network Type: " + BLUE
-                            + ((IConductor) te).getNetworkType()
-                                .name()
-                            + RESET
-                            + " Tier: "
-                            + AQUA
-                            + ((IConductor) te).getTierGC()
-                            + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IConductor conductor) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IConductor:");
+                list.add(
+                    " Network Type: " + BLUE
+                        + conductor.getNetworkType()
+                            .name()
+                        + RESET
+                        + " Tier: "
+                        + AQUA
+                        + conductor.getTierGC()
+                        + RESET);
             }
-            try {
-                if (te instanceof IElectrical) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IElectrical:");
-                    list.add(" Tier: " + AQUA + ((IElectrical) te).getTierGC() + RESET);
-                    list.add(
-                        " Energy Provided: " + YELLOW
-                            + formatNumber(((IElectrical) te).getProvide(ForgeDirection.getOrientation(side)))
-                            + RESET
-                            + "J Energy Requested: "
-                            + YELLOW
-                            + formatNumber(((IElectrical) te).getRequest(ForgeDirection.getOrientation(side)))
-                            + RESET
-                            + "J");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IElectrical electrical) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IElectrical:");
+                list.add(" Tier: " + AQUA + electrical.getTierGC() + RESET);
+                list.add(
+                    " Energy Provided: " + YELLOW
+                        + formatNumber(electrical.getProvide(ForgeDirection.getOrientation(side)))
+                        + RESET
+                        + "J Energy Requested: "
+                        + YELLOW
+                        + formatNumber(electrical.getRequest(ForgeDirection.getOrientation(side)))
+                        + RESET
+                        + "J");
             }
-            try {
-                if (te instanceof IElectricalStorage) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IElectricalStorage:");
-                    list.add(
-                        " Energy Stored: " + YELLOW
-                            + formatNumber(((IElectricalStorage) te).getEnergyStored())
-                            + RESET
-                            + "J / "
-                            + YELLOW
-                            + formatNumber(((IElectricalStorage) te).getMaxEnergyStored())
-                            + RESET
-                            + "J");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IElectricalStorage electricalStorage) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IElectricalStorage:");
+                list.add(
+                    " Energy Stored: " + YELLOW
+                        + formatNumber(electricalStorage.getEnergyStored())
+                        + RESET
+                        + "J / "
+                        + YELLOW
+                        + formatNumber(electricalStorage.getMaxEnergyStored())
+                        + RESET
+                        + "J");
             }
-            try {
-                if (te instanceof IEnergyStorageGC) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IEnergyStorageGC:");
-                    list.add(
-                        " Energy Stored: " + YELLOW
-                            + formatNumber(((IEnergyStorageGC) te).getEnergyStoredGC())
-                            + RESET
-                            + "J / "
-                            + YELLOW
-                            + formatNumber(((IEnergyStorageGC) te).getCapacityGC())
-                            + RESET
-                            + "J");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IEnergyStorageGC energyStorage) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IEnergyStorageGC:");
+                list.add(
+                    " Energy Stored: " + YELLOW
+                        + formatNumber(energyStorage.getEnergyStoredGC())
+                        + RESET
+                        + "J / "
+                        + YELLOW
+                        + formatNumber(energyStorage.getCapacityGC())
+                        + RESET
+                        + "J");
             }
-            try {
-                if (te instanceof IOxygenReceiver) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IOxygenReceiver:");
-                    list.add(
-                        " Oxygen Provided: " + YELLOW
-                            + formatNumber(((IOxygenReceiver) te).getOxygenProvide(ForgeDirection.getOrientation(side)))
-                            + RESET
-                            + " Oxygen Requested: "
-                            + YELLOW
-                            + formatNumber(((IOxygenReceiver) te).getOxygenRequest(ForgeDirection.getOrientation(side)))
-                            + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IOxygenReceiver oxygenReceiver) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IOxygenReceiver:");
+                list.add(
+                    " Oxygen Provided: " + YELLOW
+                        + formatNumber(oxygenReceiver.getOxygenProvide(ForgeDirection.getOrientation(side)))
+                        + RESET
+                        + " Oxygen Requested: "
+                        + YELLOW
+                        + formatNumber(oxygenReceiver.getOxygenRequest(ForgeDirection.getOrientation(side)))
+                        + RESET);
             }
-            try {
-                if (te instanceof IOxygenStorage) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "GC.IOxygenStorage:");
-                    list.add(
-                        " Oxygen Stored: " + YELLOW
-                            + formatNumber(((IOxygenStorage) te).getOxygenStored())
-                            + RESET
-                            + " / "
-                            + YELLOW
-                            + formatNumber(((IOxygenStorage) te).getMaxOxygenStored())
-                            + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IOxygenStorage oxygenStorage) {
+                list.add(DARK_PURPLE + "" + ITALIC + "GC.IOxygenStorage:");
+                list.add(
+                    " Oxygen Stored: " + YELLOW
+                        + formatNumber(oxygenStorage.getOxygenStored())
+                        + RESET
+                        + " / "
+                        + YELLOW
+                        + formatNumber(oxygenStorage.getMaxOxygenStored())
+                        + RESET);
             }
 
             // -=-=- Buildcraft 7 -=-=-
-            try {
-                if (te instanceof IControllable) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "BC.IControllable:");
-                    list.add(
-                        " Mode: " + BLUE
-                            + ((IControllable) te).getControlMode()
-                                .name()
-                            + RESET);
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IControllable controllable) {
+                list.add(DARK_PURPLE + "" + ITALIC + "BC.IControllable:");
+                list.add(" Mode: " + BLUE + controllable.getControlMode() + RESET);
             }
-            try {
-                if (te instanceof IHeatable) {
-                    list.add(DARK_PURPLE + "" + ITALIC + "BC.IHeatable:");
-                    list.add(
-                        " Min Heat: " + YELLOW
-                            + formatNumber(((IHeatable) te).getMinHeatValue())
-                            + RESET
-                            + "\u00BC Max Heat: "
-                            + YELLOW
-                            + formatNumber(((IHeatable) te).getMaxHeatValue())
-                            + RESET
-                            + "\u00BC");
-                    list.add(
-                        " Current Heat: " + YELLOW
-                            + formatNumber(((IHeatable) te).getCurrentHeatValue())
-                            + RESET
-                            + "\u00BC Ideal Heat: "
-                            + YELLOW
-                            + formatNumber(((IHeatable) te).getIdealHeatValue())
-                            + RESET
-                            + "\u00B0C");
-                }
-            } catch (Exception e) {
-
+            if (te instanceof IHeatable heatable) {
+                list.add(DARK_PURPLE + "" + ITALIC + "BC.IHeatable:");
+                list.add(
+                    " Min Heat: " + YELLOW
+                        + formatNumber(heatable.getMinHeatValue())
+                        + RESET
+                        + "\u00BC Max Heat: "
+                        + YELLOW
+                        + formatNumber(heatable.getMaxHeatValue())
+                        + RESET
+                        + "\u00BC");
+                list.add(
+                    " Current Heat: " + YELLOW
+                        + formatNumber(heatable.getCurrentHeatValue())
+                        + RESET
+                        + "\u00BC Ideal Heat: "
+                        + YELLOW
+                        + formatNumber(heatable.getIdealHeatValue())
+                        + RESET
+                        + "\u00B0C");
             }
         }
 
@@ -628,21 +531,21 @@ public class Utils {
         return list;
     }
 
-    public static String formatNumber(long number) {
+    private static String formatNumber(long number) {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
         symbols.setGroupingSeparator('\u202F');
         return formatter.format(number);
     }
 
-    public static String formatNumber(double number) {
+    private static String formatNumber(double number) {
         DecimalFormat formatter = (DecimalFormat) NumberFormat.getInstance(Locale.US);
         DecimalFormatSymbols symbols = formatter.getDecimalFormatSymbols();
         symbols.setGroupingSeparator('\u202F');
         return formatter.format(number);
     }
 
-    public static String getFluidName(FluidStack fluid, boolean localized) {
+    private static String getFluidName(FluidStack fluid, boolean localized) {
         if (fluid == null) return "";
         String name = localized ? fluid.getLocalizedName() : fluid.getUnlocalizedName();
         if (name.contains("fluid.") || name.contains("tile.")) return capitalize(
@@ -651,14 +554,14 @@ public class Utils {
         return name;
     }
 
-    public static double distance(TileEntityTeleporter tile) {
+    private static double distance(TileEntityTeleporter tile) {
         int dX = tile.xCoord - tile.targetX;
         int dY = tile.yCoord - tile.targetY;
         int dZ = tile.zCoord - tile.targetZ;
         return Math.sqrt(dX * dX + dY * dY + dZ * dZ);
     }
 
-    public static String capitalize(String s) {
+    private static String capitalize(String s) {
         if (s != null && s.length() > 0) return s.substring(0, 1)
             .toUpperCase() + s.substring(1);
         return "";

@@ -1,9 +1,7 @@
 package glowredman.fpsp.world;
 
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
@@ -15,8 +13,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import cpw.mods.fml.common.IWorldGenerator;
 import cpw.mods.fml.common.registry.GameRegistry;
-import thaumcraft.api.aspects.Aspect;
-import thaumcraft.common.lib.world.biomes.BiomeHandler;
 
 public class OreGenerator implements IWorldGenerator {
 
@@ -33,8 +29,7 @@ public class OreGenerator implements IWorldGenerator {
     private WorldGenerator electrotineOreGen;
     private WorldGenerator apatiteOreGen;
     private Block cinnabarOreBlock;
-    private final Map<Aspect, WorldGenerator> infusedStoneGen = new HashMap<>();
-    private WorldGenerator[] infusedStoneGen_;
+    private WorldGenerator[] infusedStoneGen = new WorldGenerator[6];
 
     private static List<String> biomesAmberOre = Arrays.asList(
         "twilightforest.biomes.TFBiomeDarkForest",
@@ -74,14 +69,9 @@ public class OreGenerator implements IWorldGenerator {
         electrotineOreGen = new WorldGenOre("ProjRed|Exploration", "projectred.exploration.ore", 6, 8);
         apatiteOreGen = new WorldGenOre("Forestry", "resources", 36);
         cinnabarOreBlock = GameRegistry.findBlock("Thaumcraft", "blockCustomOre");
-        infusedStoneGen.put(Aspect.AIR, new WorldGenOre("Thaumcraft", "blockCustomOre", 1, 7));
-        infusedStoneGen.put(Aspect.FIRE, new WorldGenOre("Thaumcraft", "blockCustomOre", 2, 7));
-        infusedStoneGen.put(Aspect.WATER, new WorldGenOre("Thaumcraft", "blockCustomOre", 3, 7));
-        infusedStoneGen.put(Aspect.EARTH, new WorldGenOre("Thaumcraft", "blockCustomOre", 4, 7));
-        infusedStoneGen.put(Aspect.ORDER, new WorldGenOre("Thaumcraft", "blockCustomOre", 5, 7));
-        infusedStoneGen.put(Aspect.ENTROPY, new WorldGenOre("Thaumcraft", "blockCustomOre", 6, 7));
-        infusedStoneGen_ = infusedStoneGen.values()
-            .toArray(new WorldGenerator[infusedStoneGen.size()]);
+        for (int i = 1; i <= 6; i++) {
+            infusedStoneGen[i] = new WorldGenOre("Thaumcraft", "blockCustomOre", i, 7);
+        }
     }
 
     @Override
@@ -120,11 +110,15 @@ public class OreGenerator implements IWorldGenerator {
         generateOre(18, cinnabarOreBlock, 0, 50, chunkX, chunkZ, random, world);
 
         for (int i = 0; i < 3; i++) {
-            WorldGenerator gen = infusedStoneGen.get(BiomeHandler.getRandomBiomeTag(biome.biomeID, random));
-            if (gen == null) {
-                gen = infusedStoneGen_[random.nextInt(infusedStoneGen_.length)];
-            }
-            generateOreVein(1, gen, 2, 32, chunkX, chunkZ, random, world);
+            generateOreVein(
+                1,
+                infusedStoneGen[random.nextInt(infusedStoneGen.length)],
+                2,
+                32,
+                chunkX,
+                chunkZ,
+                random,
+                world);
         }
 
         if (random.nextDouble() < 0.8) generateOreVein(1, apatiteOreGen, 2, 32, chunkX, chunkZ, random, world);

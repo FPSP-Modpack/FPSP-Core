@@ -2,11 +2,14 @@ package glowredman.fpsp.proxy;
 
 import static glowredman.fpsp.FPSP.*;
 
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ChestGenHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +19,7 @@ import glowredman.fpsp.block.BlockMeta;
 import glowredman.fpsp.block.BlockRedSandstone;
 import glowredman.fpsp.block.BlockRedSandstoneSlab;
 import glowredman.fpsp.block.BlockRedSandstoneStairs;
+import glowredman.fpsp.handler.AchievementHandler;
 import glowredman.fpsp.handler.CommonEventHandler;
 import glowredman.fpsp.handler.OreDictHandler;
 import glowredman.fpsp.handler.RecipesHandler;
@@ -27,6 +31,7 @@ import glowredman.fpsp.item.ItemFPSPSingularity;
 import glowredman.fpsp.item.ItemIcon;
 import glowredman.fpsp.item.ItemMeta;
 import glowredman.fpsp.world.OreGenerator;
+import ic2.api.item.IC2Items;
 
 public class CommonProxy {
 
@@ -106,7 +111,12 @@ public class CommonProxy {
         GameRegistry.registerBlock(blockRedSandstoneStairs, blockRedSandstoneStairs.getUnlocalizedName());
 
         // FLUID CONTAINERS
-        itemCell.register();
+        for (int i = 0; i < ItemCell.TYPES.length; i++) {
+            FluidContainerRegistry.registerFluidContainer(
+                FluidRegistry.getFluid(ItemCell.TYPES[i]),
+                new ItemStack(itemCell, 1, i),
+                IC2Items.getItem("cell"));
+        }
 
         // LOOT
         ChestGenHooks.getInfo("fpsp:lootStageI");
@@ -123,6 +133,12 @@ public class CommonProxy {
 
     public void postInit(FMLPostInitializationEvent event) {
         RecipesHandler.init();
+        AchievementHandler.init();
+        AchievementHandler handler = new AchievementHandler();
+        MinecraftForge.EVENT_BUS.register(handler);
+        FMLCommonHandler.instance()
+            .bus()
+            .register(handler);
     }
 
 }

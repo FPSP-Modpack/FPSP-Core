@@ -7,7 +7,6 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import net.minecraftforge.fluids.FluidContainerRegistry;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fluids.IFluidContainerItem;
@@ -25,15 +24,6 @@ public class ItemCell extends Item implements IFluidContainerItem {
         setHasSubtypes(true);
         setUnlocalizedName("cell");
         textures = new IIcon[TYPES.length];
-    }
-
-    public void register() {
-        for (int i = 0; i < TYPES.length; i++) {
-            FluidContainerRegistry.registerFluidContainer(
-                FluidRegistry.getFluid(TYPES[i]),
-                new ItemStack(this, 1, i),
-                IC2Items.getItem("cell"));
-        }
     }
 
     @Override
